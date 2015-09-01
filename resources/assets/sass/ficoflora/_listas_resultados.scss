@@ -1,0 +1,33 @@
+
+
+.listas-resultados{
+
+	li{
+		padding: 0px 10px;
+
+		a{
+			color: $color-dark;
+			display: block;
+    		padding: 6px 0px;
+    		font-size: 13px;
+    		font-weight: bold;
+
+    		.autores{
+    			font-weight: normal;
+    			color: #777;
+    		}
+
+    		
+		}
+
+
+		&:nth-child(odd) {
+			background: #F5F5F5
+		}
+
+
+		&:hover{
+			background:#EEEEEE;
+		}
+	}
+}
