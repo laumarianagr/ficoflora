@@ -3,22 +3,7 @@
 .listas-resultados{
 
 	li{
-		padding: 0px 10px;
-
-		a{
-			color: $color-dark;
-			display: block;
-    		padding: 6px 0px;
-    		font-size: 13px;
-    		font-weight: bold;
-
-    		.autores{
-    			font-weight: normal;
-    			color: #777;
-    		}
-
-    		
-		}
+		padding: 0px 10px;	
 
 
 		&:nth-child(odd) {
@@ -29,5 +14,23 @@
 		&:hover{
 			background:#EEEEEE;
 		}
+
+		a{
+    		padding: 6px 0px;			
+		}
+	}
+
+	a{
+		color: $color-dark;
+		display: block;
+		font-size: 13px;
+		font-weight: bold;
+
+		.autores{
+			font-weight: normal;
+			color: #777;
+		}
+
+		
 	}
 }

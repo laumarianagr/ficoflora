@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ asset('plugins\select2-4.0.0\css\select2.min.css')}}">
 
     <link rel="stylesheet" href="{{ asset('css/ficoflora.css')}}">
+    <link rel="stylesheet" href="{{ asset('css/temporal.css')}}">
 
     <script type='text/javascript' src='{{ asset('plugins/modernizr/modernizr.js')}}'></script>
 

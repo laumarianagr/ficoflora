@@ -2276,6 +2276,9 @@ html.dark .text-muted {
 .dp-inline {
   display: inline !important; }
 
+.dp-in-b {
+  display: inline !important; }
+
 .list-st-none {
   list-style: none; }
 
@@ -2284,6 +2287,9 @@ html.dark .text-muted {
 
 .b-simple {
   border: 1px solid #ccc; }
+
+.ww-bw {
+  word-wrap: break-word; }
 
 /* Form - iOS Override */
 input[type="text"],
@@ -5172,9 +5178,9 @@ body .ui-pnotify.icon-nb .notification .ui-pnotify-icon > span {
 .panel-group .panel-accordion {
   border: 1px solid #DDD; }
   .panel-group .panel-accordion > .panel-heading {
-    border-radius: 5px;
     padding: 0;
-    border: 0 none; }
+    border: 0 none;
+    border-bottom: 1px solid #33414e; }
     .panel-group .panel-accordion > .panel-heading.dark {
       background: #33414e; }
       .panel-group .panel-accordion > .panel-heading.dark:hover {
@@ -8153,11 +8159,11 @@ html.dark .form-wizard .pager .disabled > a, html.dark .form-wizard .pager .disa
 .ficha-reportes .reportado-ubicacion:first-child .reportado-sinonimia {
   margin-top: 5px; }
 .ficha-reportes .reportado-ubicacion .reporte-lugar:first-child:before {
-  content: "( "; }
+  content: "("; }
 .ficha-reportes .reportado-ubicacion .reporte-lugar:after {
   content: ","; }
 .ficha-reportes .reportado-ubicacion .reporte-lugar:last-child:after {
-  content: " )"; }
+  content: ")"; }
 .ficha-reportes .reportado-ubicacion .reporte-sitio:first-child:before {
   content: "["; }
 .ficha-reportes .reportado-ubicacion .reporte-sitio:after {
@@ -8167,18 +8173,19 @@ html.dark .form-wizard .pager .disabled > a, html.dark .form-wizard .pager .disa
 
 .listas-resultados li {
   padding: 0px 10px; }
-  .listas-resultados li a {
-    color: #272E34;
-    display: block;
-    padding: 6px 0px;
-    font-size: 13px;
-    font-weight: bold; }
-    .listas-resultados li a .autores {
-      font-weight: normal;
-      color: #777; }
   .listas-resultados li:nth-child(odd) {
     background: #F5F5F5; }
   .listas-resultados li:hover {
     background: #EEEEEE; }
+  .listas-resultados li a {
+    padding: 6px 0px; }
+.listas-resultados a {
+  color: #272E34;
+  display: block;
+  font-size: 13px;
+  font-weight: bold; }
+  .listas-resultados a .autores {
+    font-weight: normal;
+    color: #777; }
 
 /*# sourceMappingURL=ficoflora.css.map */

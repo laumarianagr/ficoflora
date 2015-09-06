@@ -89,20 +89,36 @@ class GenerosController extends Controller
 //        dd($genero);
         $especies_ids = $genero->especies()->get();
 
-        $total = count($especies_ids);
         $taxonomia = $this->nombreGenero($id);
 
         $especies = Array();
-        foreach ($especies_ids as $especie_ids) {
+        $total = 0;
 
-            $especie = $this->especieIdsToNombre($especie_ids, null, false);
+        foreach ($especies_ids as $especie) {
 
-            array_push($especies, $especie);
+//            dd($especie);
+            if($especie->catalogo==true){
+
+                $nombre = $this->especieNombre($especie, null, false);
+                array_push($especies, $nombre);
+                $total++;
+            }
         }
 
 
 //        dd($especies, $taxonomia);
 
         return view('taxonomia.genero.index_especies', compact('especies', 'taxonomia', 'total'));
+    }
+
+
+
+    public function getGeneros()
+    {
+
+        $generos = Genero::lists('nombre','id');
+
+        return $generos;
+
     }
 }

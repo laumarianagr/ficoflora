@@ -13,6 +13,7 @@ use App\Modelos\Taxonomia\Clase;
 use App\Modelos\Taxonomia\Epitetos\Especifico;
 use App\Modelos\Taxonomia\Epitetos\Forma;
 use App\Modelos\Taxonomia\Epitetos\Varietal;
+use App\Modelos\Taxonomia\Especie;
 use App\Modelos\Taxonomia\Familia;
 use App\Modelos\Taxonomia\Genero;
 use App\Modelos\Taxonomia\Orden;
@@ -23,7 +24,7 @@ use App\Modelos\Taxonomia\Subclase;
 trait NombresTrait {
 
 
-    public function especieIdsToNombre($mi_especie, $id, $taxo_superior)
+    public function especieNombre($mi_especie, $id, $taxo_superior)
     {
         if($mi_especie== null){
             $mi_especie = Especie::find($id);
@@ -34,6 +35,7 @@ trait NombresTrait {
         //GENERO
         $genero = Genero::find($mi_especie->genero_id);
         $especie['genero'] = $genero->nombre;
+        $especie['genero_id'] = $genero->id;
 
         
         //ESPECIFICO
@@ -65,16 +67,20 @@ trait NombresTrait {
             //FAMILIA
             $familia = Familia::find($genero->familia_id);
             $especie['familia'] = $familia->nombre;
+            $especie['familia_id'] = $familia->id;
 
 
             //ORDEN
             $orden = Orden::find($familia->orden_id);
             $especie['orden'] = $orden->nombre;
+            $especie['orden_id'] = $orden->id;
 
             //SUBCLASE
             if($orden->subclase_id != null){
                 $subclase = Subclase::find($orden->subclase_id);
                 $especie['subclase'] = $subclase->nombre;
+                $especie['subclase_id'] = $subclase->id;
+
             }else{
                 $especie['subclase'] = null;
             }
@@ -82,10 +88,12 @@ trait NombresTrait {
             //CLASE
             $clase = Clase::find($orden->clase_id);
             $especie['clase'] = $clase->nombre;
+            $especie['clase_id'] = $clase->id;
 
             //PHYLUM
             $phylum = Phylum::find($clase->phylum_id);
             $especie['phylum'] = $phylum->nombre;
+            $especie['phylum_id'] = $phylum->id;
         }
 
 
@@ -102,6 +110,7 @@ trait NombresTrait {
         $taxo = $this->nombreFamilia($genero->familia_id);
 
         $taxo['genero'] = $genero->nombre;
+        $taxo['genero_id'] = $genero->id;
 
         return $taxo;
     }
@@ -113,6 +122,7 @@ trait NombresTrait {
         $taxo = $this->nombreOrden($familia->orden_id);
 
         $taxo['familia'] = $familia->nombre;
+        $taxo['familia_id'] = $familia->id;
 
         return $taxo;
 
@@ -131,6 +141,7 @@ trait NombresTrait {
         }
 
         $taxo['orden'] = $orden->nombre;
+        $taxo['orden_id'] = $orden->id;
 
         return $taxo;
     }
@@ -143,6 +154,7 @@ trait NombresTrait {
         $taxo = $this->nombreClase($subclase->clase_id);
 
         $taxo['subclase'] = $subclase->nombre;
+        $taxo['subclase_id'] = $subclase->id;
 
         return $taxo;
     }
@@ -155,6 +167,7 @@ trait NombresTrait {
         $taxo = $this->nombrePhylum($clase->phylum_id);
 
         $taxo['clase'] = $clase->nombre;
+        $taxo['clase_id'] = $clase->id;
 
         return $taxo;
     }
@@ -163,7 +176,7 @@ trait NombresTrait {
     public function nombrePhylum($id)
     {         
         $phylum = Phylum::find($id);         
-        return ['phylum' =>$phylum->nombre];
+        return ['phylum' =>$phylum->nombre, 'phylum_id' =>$phylum->id];
     }
 
 

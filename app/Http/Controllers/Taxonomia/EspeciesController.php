@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Taxonomia;
 
+use App\Ficoflora\Funcionalidades\NombresTrait;
 use App\Modelos\Bibliografia\Referencias\Enlace;
 use App\Modelos\Bibliografia\Referencias\Libro;
 use App\Modelos\Bibliografia\Referencias\Revista;
@@ -24,6 +25,7 @@ use App\Modelos\Taxonomia\Genero;
 use App\Modelos\Taxonomia\Orden;
 use App\Modelos\Taxonomia\Phylum;
 use App\Modelos\Taxonomia\Subclase;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -32,93 +34,65 @@ use Illuminate\Support\Facades\DB;
 
 class EspeciesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
+    
+
+    use NombresTrait;
+    
+    
     public function index($id)
     {
-        $mi_especie = Especie::find($id);
 
-        $especifico = Especifico::find($mi_especie->especifico_id);
-        if($mi_especie->varietal_id != null){
-            $varietal = Varietal::find($mi_especie->varietal_id);
-            $varietal = $varietal->nombre;
-        }else{
-            $varietal = null;
-        }
-        if($mi_especie->forma_id != null){
-            $forma = Forma::find($mi_especie->forma_id);
-            $forma = $forma->nombre;
-        }else{
-            $forma = null;
-        }
-        $genero = Genero::find($mi_especie->genero_id);
-        $familia = Familia::find($genero->familia_id);
-        $orden = Orden::find($familia->orden_id);
-        if($orden->subclase_id != null){
-            $subclase = Subclase::find($orden->subclase_id);
-            $subclase = $subclase->nombre;
-        }else{
-            $subclase=null;
-        }
-        $clase = Clase::find($orden->clase_id);
-        $phylum = Phylum::find($clase->phylum_id);
+        $obj_especie = Especie::find($id);
 
-        $autor = Autor::find($mi_especie->autor_id);
+//        dd($obj_especie);
+        //Transformo los ids del elemento de la tabla especies en nombres
+        $especie = $this->especieNombre($obj_especie, $id, true);
 
-        $especie = ['id'=> $mi_especie->id,'phylum' => $phylum->nombre, 'clase' => $clase->nombre, 'subclase' => $subclase, 'orden' => $orden->nombre, 'familia' => $familia->nombre, 'genero' => $genero->nombre,'especifico' => $especifico->nombre, 'varietal'=> $varietal, 'forma' => $forma, 'autor' => $autor->nombre];
-
-        $registros = Registro::where('especie_id', $mi_especie->id)->get();
-
-//        dd($registros);
+        //obtengo todos los registros asociados con la especie (relacion especie_id, referencia_id)
+        $registros = Registro::where('especie_id', $especie['id'])->get();
 
 
-
+        $citas_reportes = Array();
         $referencias = Array();
-        $bibliografias = Array();
+        $ubicaciones_ids = Array();
 
-        foreach ($registros as $registro) {//6,7
+        foreach ($registros as $registro) {// id (registro), especie_id, referencia_id
 
-            $biblio = $this->getCita($registro->referencia_id, $registro->tipo_referencia);
+            $obj_referencia = $this->getReferencia($registro->referencia_id, $registro->tipo_referencia);  //obtiene el obj referencia, de acuerdo al tipo
+            array_push($referencias, ['referencia' => $obj_referencia, 'tipo' =>$registro->tipo_referencia]);//Guardamos en un arreglo todas las referencias de la especie
 
-            $referencia['cita'] = $biblio['cita'];
-            $referencia['fecha'] = $biblio['fecha'];
 
-            array_push($bibliografias, ['referencia' => $biblio, 'tipo' =>$registro->tipo_referencia]);
-
+            //NIVEL A
+            $cita_reporte['cita'] = $obj_referencia['cita'];
+            $cita_reporte['fecha'] = $obj_referencia['fecha'];
 
             $reportes = Array();
 
-            $re_ub_si = DB::table('registro_ubicacion_sinonimia')
-                ->where('registro_id', $registro->id)
-                ->get();
-
+            //Trae todas las filas de la tabla registro_ubicacion_sinonimia con el registro id del reporte
+            $re_ub_si = DB::table('registro_ubicacion_sinonimia')->where('registro_id', $registro->id)->get();
             $col = collect($re_ub_si);
 
-            //registro_ubicacion_sinonimia que pertenecen al reporte ordenados por sinonimias
+
+            //registro_ubicacion_sinonimia que pertenecen al reporte ordenados y agrupados por sinonimias
             $by_sinonimias = $col->sortBy('sinonimia_id')->groupBy('sinonimia_id');
 
+            foreach ($by_sinonimias as $sinonimia_id =>$values_r_u_s) {//$values_r_u_s registro, ubicacion, sinonimia ids
 
-            foreach ($by_sinonimias as $key =>$values) {
-
-                if($key != null){
-                    list($nombre, $autor)= $this->getSinonimia($key, null);
-                    $sinonimia['nombre']=$nombre;
-                    $sinonimia['autor'] = $autor;
+                if($sinonimia_id != null){
+                    //Nivel C-1
+                    list($sinonimia['nombre'], $sinonimia['autor'])= $this->getSinonimia($sinonimia_id, null);
                 }else{
-                    $sinonimia=[];
+                    $sinonimia=[];// no posee sinonimia
                 }
 
+                //NIVEL B
                 $reporte['sinonimia'] = $sinonimia;
-//                dd($reporte);
+
                 $ubicaciones = Array();
 
+                foreach ($values_r_u_s as $val) {
 
-                foreach ($values as $val) {
-
-                    if($val->ubicacion_id != null) {
+                    if($val->ubicacion_id != null) {//el registro posee ubicaciones
 
                         $ubicacion = Ubicacion::find($val->ubicacion_id);
 
@@ -126,59 +100,69 @@ class EspeciesController extends Controller
                             'entidad' => $ubicacion['entidad_id'],
                             'localidad' => $ubicacion['localidad_id'],
                             'lugar' => $ubicacion['lugar_id'],
-                            'sitio' => $ubicacion['sitio_id']
+                            'sitio' => $ubicacion['sitio_id'],
+                            'id' => $ubicacion['id']
+
                         ];
                         array_push($ubicaciones, $obj);
+                        array_push($ubicaciones_ids, $ubicacion['id']);//Guardamos todos los ids de ubicaciones que se usan, para la funcionalidad de los mapas
 
                     }
                 }
 
                 $ubicacion_nombres = Array();
 
+                //Ordenamos las ubicaciones por localidades
                 $by_localidades = collect($ubicaciones)->groupBy('localidad');
 
 
-                foreach ($by_localidades as $keyL=>$valuesE) {
+                foreach ($by_localidades as $keyL=>$values_ubicacion) {
 
                     $ubicacion = Array();
-
                     $lugares = Array();
 
-                    if($keyL != null){
+                    if($keyL != null){//Posee localidades
 
-                        $ubicacion['entidad'] =  Entidad::find($valuesE[0]['entidad'])->nombre;
+                        //Nivel C-2
+                        $ubicacion['entidad'] =  Entidad::find($values_ubicacion[0]['entidad'])->nombre;
                         $ubicacion['localidad'] =  Localidad::find($keyL)->nombre;
 
-
-                        $by_lugares = collect($valuesE->groupBy('lugar'));
+                        //ordenamos las unicaciones por lugares
+                        $by_lugares = collect($values_ubicacion->groupBy('lugar'));
 
                         foreach ($by_lugares as $keyLug => $valuesL) {
 
                             $lugar = Array();
 
-                            if($keyLug != null) {
+                            if($keyLug != null) {//posee lugares
 
+                                //Nivel D
+                                $lugar['lugar'] = Lugar::find($keyLug)->nombre;
                                 $sitios = Array();
 
-                                $lugar['lugar'] = Lugar::find($keyLug)->nombre;
-//                                dd($valuesE);
                                 foreach ($valuesL as $valueS) {
-
-                                    if($valueS['sitio']!= null){
-                                        $sitio = Sitio::find($valueS['sitio'])->nombre;
+                                    if($valueS['sitio']!= null){//posee sitios
+                                        //Nivel E
+                                        $sitio['sitio'] = Sitio::find($valueS['sitio'])->nombre;
+                                        $sitio['ubicacion_id'] = $valueS['id'];//id de la ubicacion
                                         array_push($sitios, $sitio);
+                                    }else{
+                                        //Nivel D
+                                        $lugar['ubicacion_id'] = $valuesL[0]['id'];//id de la ubicacion
                                     }
                                 }
 
-
+                                //Nivel D
                                 $lugar['sitios'] = $sitios;
-
-
                                 array_push($lugares, $lugar);
+                            }else{
+                                //Nivel C-2
+                                $ubicacion['ubicacion_id'] =  $valuesL[0]['id'];//id de la ubicacion
+
                             }
                         }
 
-
+                        //Nivel C-2
                         $ubicacion['lugares']= $lugares;
                         array_push($ubicacion_nombres, $ubicacion);//Objeto con Entidad Localidad y [] de lugares y sitios
 
@@ -186,8 +170,10 @@ class EspeciesController extends Controller
 
                         //Como se están agrupando por localidad todos los que solo tienen entidad quedan junto en
                         // el grupo de localidad null, por lo que hay que procesarlas a parte
-                        foreach ($valuesE as $entidad) {
-                            $ubicacion['entidad'] =  Entidad::find($entidad['entidad'])->nombre;
+                        foreach ($values_ubicacion as $val_ubi) {
+
+                            $ubicacion['ubicacion_id'] =  $val_ubi['id'];//id de la ubicacion
+                            $ubicacion['entidad'] =  Entidad::find($val_ubi['entidad'])->nombre;
                             $ubicacion['localidad'] = null;
                             $ubicacion['lugares']= [];
                             array_push($ubicacion_nombres, $ubicacion);//Objeto con Entidad Localidad y [] de lugares y sitios
@@ -198,51 +184,42 @@ class EspeciesController extends Controller
                 }
 
 
+                //NIVEL B
                 $reporte['ubicaciones'] = $ubicacion_nombres;
-//                $reporte['ubicaciones'] = $ubicaciones;
-
                 array_push($reportes, $reporte);
             }
 
-
-//            dd($by_sinonimias);
-
-            $referencia['reportes'] = $reportes;
-            array_push($referencias, $referencia);
+            //NIVEL A
+            $cita_reporte['reportes'] = $reportes;
+            array_push($citas_reportes, $cita_reporte);
 
         }
 
-//        dd($referencias);
-        $col_ref= collect($referencias);
-        $referencias= $col_ref->sortByDesc('fecha');
-
-//                dd($referencias);
+        $col_ref= collect($citas_reportes);
+        $citas_reportes= $col_ref->sortByDesc('fecha');
 
 
-
-        $sinonimias_especie = $mi_especie->sinonimias->all();
-//        dd($sinonimias_especie);
-
-        $sinonimias = Array();
-
-        if($sinonimias_especie != null) {
-
-            foreach ($sinonimias_especie as $sinonimia) {
-
-                list($nombre, $autor)= $this->getSinonimia(null, $sinonimia);
-
-                array_push($sinonimias, ['nombre'=>$nombre, 'autor'=>$autor]);
-            }
+        //Obtenemos las coordenadas de todas las ubicaciones que se tienen de la especie
+        $coordenadas = null;
+        if(!empty($ubicaciones_ids)){
+            $valores = $this->getCoordenadas($ubicaciones_ids);
+            $coordenadas = collect($valores);
         }
 
-//        dd($referencias);
+//        dd($coordenadas);
+        //Listado de sinonimias de la especie
+        if($obj_especie->sinonimias->all() != null){
+            $sinonimias = $this->getSinonimias($obj_especie->sinonimias->all());
+        }
 
-        $bibliografias = $this->getReferenciaTexto($bibliografias);
+        //Formato texto html a las referencias
+        $referencias = $this->getReferenciaTexto($referencias);
+        
 
-//        dd($sinonimias);
-//        dd($bibliografias);
-
-        return view('taxonomia.especies.ficha', compact('mi_especie','especie', 'referencias', 'sinonimias', 'bibliografias'));
+        //para la sección de como citar la página
+        $fecha = Carbon::now();
+        
+        return view('taxonomia.especies.ficha', compact('especie', 'citas_reportes', 'sinonimias', 'referencias', 'fecha', 'coordenadas'));
     }
 
     /**
@@ -250,7 +227,7 @@ class EspeciesController extends Controller
      *
      * @return Response
      */
-    public function getCita($id, $tipo)
+    public function getReferencia($id, $tipo)
     {
 
         switch($tipo){
@@ -274,6 +251,20 @@ class EspeciesController extends Controller
         return $cita;
     }
 
+
+    public function getSinonimias($obj_sinonimias)
+    {
+        $sinonimias = array();
+        
+        foreach ($obj_sinonimias as $sinonimia) {
+            list($nombre, $autor)= $this->getSinonimia(null, $sinonimia);
+            array_push($sinonimias, ['nombre'=>$nombre, 'autor'=>$autor]);
+        }
+        return $sinonimias;
+    }
+    
+    
+    
     public function getSinonimia($id, $sinonimia)
     {
         if($sinonimia == null){
@@ -288,11 +279,11 @@ class EspeciesController extends Controller
 
         if($sinonimia['varietal_id'] != null){
             $varietal= Varietal::find($sinonimia['varietal_id']);
-            $especie = ' var.'.$varietal['nombre'];
+            $especie = $especie.' var. '.$varietal['nombre'];
         }
         if($sinonimia['forma_id'] != null){
             $forma= Forma::find($sinonimia['forma_id']);
-            $especie= ' f. '.$forma['nombre'];
+            $especie= $especie.' f. '.$forma['nombre'];
         }
 
         $autor = Autor::find($sinonimia['autor_id']);
@@ -306,29 +297,30 @@ class EspeciesController extends Controller
     public function getReferenciaTexto($referencias)
     {
         $bibliografias = Array();
-
         foreach ($referencias as $referencia) {
-
+//            dd($referencias);
 
             $bibliografia = $referencia['referencia'];//el objeto referencia
 
             switch($referencia['tipo']){
                 case 'R':
-
                     $texto = $this->getRevistaTexto($bibliografia);
                     break;
 
                 case 'T':
+                    $texto = $this->getTrabajoTexto($bibliografia);
                     break;
 
                 case 'L':
+                    $texto = $this->getLibroTexto($bibliografia);
                     break;
 
                 case 'E':
                     break;
             }
+//            dd($bibliografia);
             array_push($bibliografias, [
-                'cita'=>$bibliografia['cita'],
+                'cita'=>$bibliografia['autores'],
                 'fecha'=>$bibliografia['fecha'],
                 'referencia'=>$texto,
                 'isbn'=>$bibliografia['isbn'],
@@ -338,7 +330,6 @@ class EspeciesController extends Controller
                 'comentarios'=>$bibliografia['comentarios'],
             ]);
         }
-
         return $bibliografias;
 
     }
@@ -347,7 +338,7 @@ class EspeciesController extends Controller
     public function getRevistaTexto($referecia)
     {
 
-        $texto = '<b>'.$referecia->autores.'</b>. '.$referecia->fecha.'. '.$referecia->titulo.'. <b><em>'.$referecia->nombre.'</em> '.$referecia->volumen;
+        $texto = $referecia->titulo.'. <b><em>'.$referecia->nombre.'</em> '.$referecia->volumen;
 
         if($referecia->numero != null){
             $texto = $texto.'('.$referecia->numero.')';
@@ -357,59 +348,93 @@ class EspeciesController extends Controller
         return $texto;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  Request  $request
-     * @return Response
-     */
-    public function store(Request $request)
+    public function getTrabajoTexto($referecia)
     {
-        //
+        $texto = $referecia->titulo.'. <b><em>'.$referecia->tipo.'. '.$referecia->institucion.'. '.$referecia->lugar.'</em>, '.$referecia->paginas.'pp.</b>';
+        return $texto;
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
+    public function getLibroTexto($referecia)
     {
-        //
+        $texto = $referecia->titulo.'.';
+        
+        if($referecia->editor != null){
+        
+            $texto = $texto.' In: '.$referecia->editor.' (Ed.).';
+            
+            if($referecia->capitulo != null){
+                $texto = $texto.' '.$referecia->capitulo.', pp. '.$referecia->intervalo;
+            }
+        }
+
+        if($referecia->edicion != null){
+            $texto = $texto.' <b>'.$referecia->edicion.' Ed.</b>';
+        }
+
+        if($referecia->editorial != null){
+            $texto = $texto.' <b><em>'.$referecia->editorial.'</em>.</b>';
+        }
+        $texto = $texto.' <b><em>'.$referecia->lugar.'</em>. '.$referecia->paginas.'pp.</b>';
+
+        return $texto;
+
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function edit($id)
+
+
+
+
+    public function getCoordenadas($ubicaciones)
     {
-        //
+        $coordenadas = array();
+
+        foreach ($ubicaciones as $id) {
+
+            $ubicacion = Ubicacion::find($id);
+
+            $nombre = null;
+            if($ubicacion['sitio_id'] != null){
+                $nombre = Sitio::find($ubicacion['sitio_id'])->nombre;
+                $tipo = 'Sitio';
+
+            }else{
+
+                if($ubicacion['lugar_id'] != null) {
+                    $nombre = Lugar::find($ubicacion['lugar_id'])->nombre;
+                    $tipo = 'Lugar';
+
+                }else{
+                    if($ubicacion['localidad_id'] != null) {
+                        $nombre = Localidad::find($ubicacion['localidad_id'])->nombre;
+                        $tipo = 'Localidad';
+                    }else{
+                        $nombre =  Entidad::find($ubicacion['entidad_id'])->nombre;
+                        $tipo = 'Entidad';
+
+                    }
+                }
+            }
+
+            $coordenadas[$id] = ['latitud' =>$ubicacion['latitud'], 'longitud'=>$ubicacion['longitud'], 'nombre'=>$nombre, 'tipo'=>$tipo];
+        }
+
+        return $coordenadas;
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  Request  $request
-     * @param  int  $id
-     * @return Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function destroy($id)
+
+    public function mapas()
     {
-        //
+        $familias = Familia::lists('nombre', 'id');
+
+        $id = 56;
+
+        $tt[$id]=['lat' =>10.22, 'lon'=>-63.44];
+//        dd($familias->toArray());
+        $col = collect($tt);
+//        dd($col);
+
+        return view('mapas.mapas', compact('familias', 'col'));
     }
 }

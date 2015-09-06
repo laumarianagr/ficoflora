@@ -21,7 +21,7 @@
 		.reporte-lugar{
 			
 			&:first-child:before{
- 				content: "( ";
+ 				content: "(";
 			}
 
 			&:after{
@@ -29,7 +29,7 @@
 			}
 
 			&:last-child:after{
- 				content: " )";
+ 				content: ")";
 			}
 		}
 
