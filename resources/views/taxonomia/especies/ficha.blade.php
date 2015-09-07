@@ -29,17 +29,35 @@
 
 
                  <ul class="opciones">
-                     <li><a href=""><i class="fa fa-map-marker"></i>Ubicación en Venezuela </a></li>
+                     <li><a id="modal-vzla" href="#modal-mapa" class=" modal-basic modal-with-zoom-anim"><i class="fa fa-map-marker"></i>Ubicación en Venezuela </a></li>
                      <li><a><i class="fa fa-picture-o"></i>Galería </a></li>
                      <li><a href="{{route('genero.especies', [$especie['genero_id']])}}"><i class="fa fa-list-ul"></i>Especies del género </a></li>
                  </ul>
 
                  <hr class="dotted short">
                  <ul class="opciones">
-                     <li><a href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a></li>
+                     <li><a  href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a></li>
                  </ul>
 
-                 {{--<hr class="dotted short">--}}
+                 <hr class="dotted short">
+
+                 @if(!empty($sinonimias))
+
+                     <section class="panel ">
+                         <div class="bg-dark p-sm ">
+                             <h4 class="m-none">Sinónimos</h4>
+                         </div>
+                     </section>
+
+                     <ul class="pl-lg">
+                         @foreach($sinonimias as $sinonimia)
+                             <li class="text-dark"><a class="text-dark" href="">{{$sinonimia['nombre']}}</a></li>
+                         @endforeach
+                     </ul>
+                     <hr class="dotted short">
+
+                 @endif
+
 
                  {{--<ul class="opciones mb-md">--}}
                  {{--<li><a><i class="fa fa-info-circle"></i>Citar la página como:</a></li>--}}
@@ -328,6 +346,9 @@
 
     }
 
+    $("#modal-vzla").on('click', function(){
+        mapas(10.617, -66.966, 6);
+    });
 
 
 
@@ -337,15 +358,15 @@
         console.log(id);
         console.log(coordenadas[id]);
 
-        mapas(coordenadas[id]['latitud'], coordenadas[id]['longitud']);
+        mapas(coordenadas[id]['latitud'], coordenadas[id]['longitud'], 14);
 //        mapas(10.42, -65.45);
     });
 
-    function mapas(lat, lon){
+    function mapas(lat, lon, zoom){
 
         // start the map in South-East England
         //map.setView(new L.LatLng(51.302, 0.702),8);
-         map.setView(new L.LatLng(lat, lon),14);
+         map.setView(new L.LatLng(lat, lon),zoom);
 
 
     }

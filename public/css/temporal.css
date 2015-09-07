@@ -44,13 +44,15 @@
 .numeros-dataTabla {
     padding: 8px !important;
     width: 25px !important;
-    background-color: #33414e;
+    /*background-color: #33414e;*/
+    /*background-color: #6D7780;*/
+    background-color: #272E34;
     color: #fff;
 
 }
 
 .th-dataTable{
-    background-color: #33414e;
+    background-color: #272E34;
     color: #fff;
     font-weight: normal;
     font-size: 14px;
@@ -59,4 +61,8 @@
 #datatable td{
    border-top: none !important;
    border-bottom: none !important;
+}
+.estatus,
+#action-dataTable{
+    width: 150px !important;
 }

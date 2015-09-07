@@ -11,48 +11,59 @@
 
 @section('content')
 
-        @section('taxo-tipo')
-            Clase
+        @section('ubicacion-tipo')
+            Entidad
         @stop
 
-        @section('taxo-nombre')
-            {{$taxonomia['clase']}}
+        @section('ubicacion-nombre')
+            {{$ubicacion['entidad']}}
         @stop
 
 
-        @section('taxo-superior')
-            <span class="text-muted">Phylum:</span> <a class="text-primary" href="{{route('phylum.clases', [$taxonomia['phylum_id']])}}">{{$taxonomia['phylum']}}</a>
+        @section('ubicacion-superior')
+            <span class="text-muted">Pais:</span> <a class="text-primary" href="{{route('pais.entidades', 'venezuela')}}">{{$ubicacion['pais']}} </a>
         @stop
 
 
         @section('listar')
-            Ordenes
+            Localidades
         @stop
 
         @section('pertenece')
-            a la Clase
+            a la entidad
         @stop
 
-        @section('taxo-listar')
-            del Orden
+        @section('ubicacion-listar')
+            de la Localidad
         @stop
 
 
         @section('content-tabla')
-            @foreach($ordenes as $orden)
+
+            @foreach($localidades as $localidad)
                 <tr>
                     <td ></td>
+
                     <td class="perfil">
-                        <a href="{{route('orden.familias', [$orden['id']])}}">
-                            <em>{{$orden['nombre']}}</em>
+
+                        <a href="{{route('localidad.lugares', [$localidad['id']])}}">
+                             {{$localidad['nombre']}}
+
                         </a>
                     </td>
+
+                    <td >
+                        <a class="action" href="{{route('localidad.especies', [$localidad['id']])}}"><i class="fa fa-eye"></i></a>
+                    </td>
+
+
                 </tr>
             @endforeach
         @stop
 
 
-        @include('resultados._index-resultados-especies-taxo')
+        @include('resultados._index-resultados-ubicacion')
+
 
 @stop
 

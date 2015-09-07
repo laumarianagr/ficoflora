@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Taxonomia;
 
+use App\Ficoflora\Funcionalidades\EspecieNombreTrait;
 use App\Ficoflora\Funcionalidades\NombresTrait;
 use App\Modelos\Bibliografia\Referencias\Enlace;
 use App\Modelos\Bibliografia\Referencias\Libro;
@@ -34,11 +35,8 @@ use Illuminate\Support\Facades\DB;
 
 class EspeciesController extends Controller
 {
-    
+    use EspecieNombreTrait;
 
-    use NombresTrait;
-    
-    
     public function index($id)
     {
 

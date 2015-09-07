@@ -132,3 +132,108 @@ $('#especie.typeahead').typeahead({
 
 
 });
+
+
+
+
+
+//---ENTIDAD------------
+var entidad= new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('nombre'),
+    queryTokenizer: Bloodhound.tokenizers.nonword,
+    identify: function (obj) {
+        return obj.id;
+    },
+    remote: {
+        url: root_url+'buscar/entidades/%QUERY',
+        wildcard: '%QUERY'
+    }
+});
+
+$('#entidad.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'entidad',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione una entidad</h6>'
+    },
+    source: entidad.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'entidad/'+suggestion.id+'/especies');
+});
+
+
+
+
+//---LOCALIDAD------------
+var localidad= new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('nombre'),
+    queryTokenizer: Bloodhound.tokenizers.nonword,
+    identify: function (obj) {
+        return obj.id;
+    },
+    remote: {
+        url: root_url+'buscar/localidades/%QUERY',
+        wildcard: '%QUERY'
+    }
+});
+
+$('#localidad.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'localidad',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione una localidad</h6>'
+    },
+    source: localidad.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'localidad/'+suggestion.id+'/especies');
+});
+
+
+
+
+//---Lugar------------
+var lugar= new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('nombre'),
+    queryTokenizer: Bloodhound.tokenizers.nonword,
+    identify: function (obj) {
+        return obj.id;
+    },
+    remote: {
+        url: root_url+'buscar/lugares/%QUERY',
+        wildcard: '%QUERY'
+    }
+});
+
+$('#lugar.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'lugar',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione una lugar</h6>'
+    },
+    source: lugar.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'lugar/'+suggestion.id+'/especies');
+});
+
+

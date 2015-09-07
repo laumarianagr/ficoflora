@@ -3542,6 +3542,7 @@ html.p-header-dark .notifications > li .notification-icon {
 
 .panel-heading {
   background: #f6f6f6;
+  background: #EAEAEA;
   border-radius: 5px 5px 0 0;
   padding: 18px;
   position: relative;
@@ -5180,7 +5181,7 @@ body .ui-pnotify.icon-nb .notification .ui-pnotify-icon > span {
   .panel-group .panel-accordion > .panel-heading {
     padding: 0;
     border: 0 none;
-    border-bottom: 1px solid #33414e; }
+    border-bottom: 1px solid rgba(51, 65, 78, 0.51); }
     .panel-group .panel-accordion > .panel-heading.dark {
       background: #33414e; }
       .panel-group .panel-accordion > .panel-heading.dark:hover {
@@ -5194,7 +5195,7 @@ body .ui-pnotify.icon-nb .notification .ui-pnotify-icon > span {
     .panel-group .panel-accordion > .panel-heading a {
       color: #33414e;
       display: block;
-      padding: 10px;
+      padding: 10px 15px;
       font-size: 16px;
       border-radius: 5px; }
       .panel-group .panel-accordion > .panel-heading a:hover, .panel-group .panel-accordion > .panel-heading a:focus {
@@ -8187,5 +8188,7 @@ html.dark .form-wizard .pager .disabled > a, html.dark .form-wizard .pager .disa
   .listas-resultados a .autores {
     font-weight: normal;
     color: #777; }
+  .listas-resultados a.action {
+    text-align: center; }
 
 /*# sourceMappingURL=ficoflora.css.map */

@@ -20,7 +20,7 @@ class BusquedasController extends Controller
     public function index()
     {
 
-            $generos= [null=>null];
+
         return view('buscar.buscar', compact('generos'));
     }
 
@@ -151,5 +151,44 @@ class BusquedasController extends Controller
             ->get();
 
         return $familias;
+    }
+
+
+
+    //LISTA DE ENTIDADES
+    public function getEntidades($query)
+    {
+        $entidades = DB::table('entidades')
+            ->where('entidades.nombre', 'like', $query.'%')
+            ->select('id','nombre')
+            ->orderBy('nombre')
+            ->get();
+
+        return $entidades;
+    }
+
+    //LISTA DE ENTIDADES
+    public function getLocalidades($query)
+    {
+        $localidades = DB::table('localidades')
+            ->where('localidades.nombre', 'like', '%'.$query.'%')
+            ->select('id','nombre')
+            ->orderBy('nombre')
+            ->get();
+
+        return $localidades;
+    }
+
+
+    //LISTA DE ENTIDADES
+    public function getLugares($query)
+    {
+        $lugares = DB::table('lugares')
+            ->where('lugares.nombre', 'like', '%'.$query.'%')
+            ->select('id','nombre')
+            ->orderBy('nombre')
+            ->get();
+
+        return $lugares;
     }
 }

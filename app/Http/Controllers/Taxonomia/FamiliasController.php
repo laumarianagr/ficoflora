@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Taxonomia;
 
+use App\Ficoflora\Funcionalidades\EspecieNombreTrait;
 use App\Ficoflora\Funcionalidades\NombresTrait;
+use App\Ficoflora\Funcionalidades\TaxonomiaSuperiorTrait;
 use App\Modelos\Taxonomia\Familia;
 use Illuminate\Http\Request;
 
@@ -11,13 +13,14 @@ use App\Http\Controllers\Controller;
 
 class FamiliasController extends Controller
 {
-    use NombresTrait;
+    use TaxonomiaSuperiorTrait;
+    use EspecieNombreTrait
 
     public function especies($id)
     {
         $familia = Familia::find($id);
 
-        $taxonomia = $this->nombreFamilia($id);
+        $taxonomia = $this->taxoFamilia($id);
         
         $generos = $familia->generos()->get();
 
@@ -54,7 +57,7 @@ class FamiliasController extends Controller
     {
         $familia = Familia::find($id);
 
-        $taxonomia = $this->nombreFamilia($id);
+        $taxonomia = $this->taxoFamilia($id);
 
         $generos = $familia->generos()->get();
 

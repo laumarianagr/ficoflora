@@ -37,37 +37,21 @@
             <div class="panel">
                 <div class="panel-body">
 
-                    <h5 class="mt-md mb-lg">Total de resultados: <b>{{$total}}</b></h5>
+                    <h5 class="">Total de <b>Especies</b> encontradas: <b>{{$total}}</b></h5>
 
-                    {{--<ol class="listas-resultados">--}}
-                        {{--@foreach($especies as $especie)--}}
 
-                            {{--<li>--}}
-                                {{--<a href="{{route('especie.index', [$especie['id']])}}">--}}
-                                    {{--<em>{{$especie['genero']}} {{$especie['especifico']}}</em>--}}
+                    <hr class="dotted short">
 
-                                    {{--@if($especie['varietal'] != null)--}}
-                                        {{--<em>var. {{$especie['varietal']}}</em>--}}
-                                    {{--@endif--}}
-
-                                    {{--@if($especie['forma'] != null)--}}
-                                        {{--<em>f. {{$especie['forma']}}</em>--}}
-                                    {{--@endif--}}
-
-                                    {{--<span class="autores">{{$especie['autor']}}</span>--}}
-
-                                {{--</a>--}}
-                            {{--</li>--}}
-                        {{--@endforeach--}}
-                    {{--</ol>--}}
-
+                    <ul class="opciones mb-lg mt-md">
+                        <li><a class="dp-in-b" href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a></li>
+                    </ul>
 
                     <table id="datatable"  class="table table-hover table-striped table-bordered listas-resultados" cellspacing="0" width="100%">
                         <thead>
                         <tr>
                             <th class="numeros-dataTabla">#</th>
-                            <th class="perfil-col text-center">Nombre</th>
-                            <th class="estatus text-center">Estatus nombre</th>
+                            <th class="th-dataTable text-center">Nombre</th>
+                            <th class="estatus text-center th-dataTable">Estatus nombre</th>
                         </tr>
                         </thead>
 

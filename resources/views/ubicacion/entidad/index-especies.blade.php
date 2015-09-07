@@ -11,36 +11,21 @@
 
 @section('content')
 
-    @section('taxo-tipo')
-        Género
+    @section('ubicacion-tipo')
+        Entidad
     @stop
 
-    @section('taxo-nombre')
-        {{$taxonomia['genero']}}
-    @stop
-
-
-    @section('taxo-superior')
-        <span class="text-muted">Phylum:</span> <a class="text-primary" href="{{route('phylum.clases', [$taxonomia['phylum_id']])}}">{{$taxonomia['phylum']}} <i class="fa fa-angle-right text-muted"></i></a>
-        <span class="text-muted">Clase:</span> <a class="text-primary" href="{{route('clase.subclases', [$taxonomia['clase_id']])}}">{{$taxonomia['clase']}} <i class="fa fa-angle-right text-muted"></i></a>
-        @if($taxonomia['subclase'] != null)
-            <span class="text-muted">Sublclase:</span> <a class="text-primary" href="{{route('subclase.ordenes', [$taxonomia['subclase_id']])}}">{{$taxonomia['subclase']}} <i class="fa fa-angle-right text-muted"></i></a>
-        @endif
-        <span class="text-muted">Orden:</span> <a class="text-primary" href="{{route('orden.familias', [$taxonomia['orden_id']])}}">{{$taxonomia['orden']}} <i class="fa fa-angle-right text-muted"></i></a>
-        <span class="text-muted">Familia:</span> <a class="text-primary" href="{{route('familia.generos', [$taxonomia['familia_id']])}}">{{$taxonomia['familia']}}</a>
+    @section('ubicacion-nombre')
+        {{$ubicacion['entidad']}}
     @stop
 
 
-    @section('listar')
-        Especies
+    @section('ubicacion-superior')
     @stop
+
 
     @section('pertenece')
-        al Género
-    @stop
-
-    @section('taxo-listar')
-       de la Especie
+        a la entidad
     @stop
 
 
@@ -72,7 +57,7 @@
     @stop
 
 
-@include('resultados._index-resultados-especies-taxo')
+    @include('resultados._index-resultados-especies-ubicacion')
 
 
 @stop

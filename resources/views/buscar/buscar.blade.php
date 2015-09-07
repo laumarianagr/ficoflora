@@ -34,7 +34,7 @@
             <section class="panel panel-featured-left panel-featured-primary">
                 <div class="panel-body">
 
-                        <label class="control-label" for="genero">Buscar Especie por Genero</label>
+                        <label class="control-label" for="genero">Especies por Genero</label>
                         {!! Form::text('genero', null, ['id'=>'genero', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
 
                 </div>
@@ -45,8 +45,48 @@
             <section class="panel panel-featured-left panel-featured-primary">
                 <div class="panel-body">
 
-                        <label class="control-label" for="genero">Buscar Especie por Familia</label>
+                        <label class="control-label" for="genero">Especies por Familia</label>
                         {!! Form::text('familia', null, ['id'=>'familia', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
+
+                </div>
+            </section>
+        </div>
+
+
+
+        <div class="col-md-12 ">
+
+            <h4 class="mb-md">Especies por Ubicación</h4>
+
+            <section class="panel panel-featured-left panel-featured-primary">
+                <div class="panel-body">
+
+                    <label class="control-label" for="genero">Especies por Entidad</label>
+                    {!! Form::text('entidad', null, ['id'=>'entidad', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
+
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-12 ">
+
+            <section class="panel panel-featured-left panel-featured-primary">
+                <div class="panel-body">
+
+                    <label class="control-label" for="genero">Especies por Localidad</label>
+                    {!! Form::text('localidad', null, ['id'=>'localidad', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
+
+                </div>
+            </section>
+        </div>
+
+        <div class="col-md-12 ">
+
+            <section class="panel panel-featured-left panel-featured-primary">
+                <div class="panel-body">
+
+                    <label class="control-label" for="genero">Especies por Lugar</label>
+                    {!! Form::text('lugar', null, ['id'=>'lugar', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
 
                 </div>
             </section>

@@ -10,107 +10,74 @@
 @stop
 
 @section('content')
-    <div class="row">
-        <div class="col-md-12 ">
-            <section class="panel panel-featured-bottom panel-featured-primary">
-                <div class="panel-body">
-                    <div class="widget-summary">
 
-                        <div class="widget-summary-col">
-                            <div class="summary mb-sm">
-                                <div class="info">
-                                     <h3>Familia: <em><b class="amount">{{$taxonomia['familia']}}</b></em></h3>
+    @section('taxo-tipo')
+        Familia
+    @stop
 
-                                </div>
-                            </div>
-                            <div class="summary-footer">
-                                <span class="text-muted">Phylum:</span> <a class="text-primary" href="{{route('phylum.clases', [$taxonomia['phylum_id']])}}">{{$taxonomia['phylum']}} <i class="fa fa-angle-right text-muted"></i></a>
-                                <span class="text-muted">Clase:</span> <a class="text-primary" href="{{route('clase.subclases', [$taxonomia['clase_id']])}}">{{$taxonomia['clase']}} <i class="fa fa-angle-right text-muted"></i></a>
-                                @if($taxonomia['subclase'] != null)
-                                    <span class="text-muted">Sublclase:</span> <a class="text-primary" href="{{route('subclase.ordenes', [$taxonomia['subclase_id']])}}">{{$taxonomia['subclase']}} <i class="fa fa-angle-right text-muted"></i></a>
-                                @endif
-                                <span class="text-muted">Orden:</span> <a class="text-primary" href="{{route('orden.familias', [$taxonomia['orden_id']])}}">{{$taxonomia['orden']}}</a>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
+    @section('taxo-nombre')
+        {{$taxonomia['familia']}}
+    @stop
 
 
-        <div class="col-xs-12">
+    @section('taxo-superior')
+        <span class="text-muted">Phylum:</span> <a class="text-primary" href="{{route('phylum.clases', [$taxonomia['phylum_id']])}}">{{$taxonomia['phylum']}} <i class="fa fa-angle-right text-muted"></i></a>
+        <span class="text-muted">Clase:</span> <a class="text-primary" href="{{route('clase.subclases', [$taxonomia['clase_id']])}}">{{$taxonomia['clase']}} <i class="fa fa-angle-right text-muted"></i></a>
+        @if($taxonomia['subclase'] != null)
+            <span class="text-muted">Sublclase:</span> <a class="text-primary" href="{{route('subclase.ordenes', [$taxonomia['subclase_id']])}}">{{$taxonomia['subclase']}} <i class="fa fa-angle-right text-muted"></i></a>
+        @endif
+        <span class="text-muted">Orden:</span> <a class="text-primary" href="{{route('orden.familias', [$taxonomia['orden_id']])}}">{{$taxonomia['orden']}}</a>
+    @stop
 
 
-            <div class="panel">
-                <div class="panel-body">
+    @section('listar')
+        Especies
+    @stop
+
+    @section('pertenece')
+        a la familia
+    @stop
+
+    @section('taxo-listar')
+        de la Especie
+    @stop
 
 
-                    <h5 class="mt-md ">Total de <b>Especies</b> que pertenecen a la familia <em><b class="text-primary">{{$taxonomia['familia']}}</b></em>: <b>{{$total}}</b></h5>
+    @section('content-tabla')
+        @foreach($especies as $especie)
+            <tr>
+                <td ></td>
 
-                    <hr class="dotted short">
+                <td class="perfil">
 
-                    <ul class="opciones mb-md mt-md">
-                        <li><a class="dp-in-b" href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a></li>
-                    </ul>
+                    <a href="{{route('especie.index', [$especie['id']])}}">
+                        <em>{{$especie['genero']}} {{$especie['especifico']}}</em>
 
-                    <table id="datatable"  class="table table-hover table-striped table-bordered listas-resultados" cellspacing="0" width="100%">
-                        <thead>
-                        <tr>
-                            <th class="numeros-dataTabla">#</th>
-                            <th class="th-dataTable ">Nombre de la Especie</th>
-                        </tr>
-                        </thead>
+                        @if($especie['varietal'] != null)
+                            <em>var. {{$especie['varietal']}}</em>
+                        @endif
 
-                        <tbody>
-                        @foreach($especies as $especie)
+                        @if($especie['forma'] != null)
+                            <em>f. {{$especie['forma']}}</em>
+                        @endif
 
-                            <tr>
-                                <td ></td>
+                        <span class="autores">{{$especie['autor']}}</span>
 
-                                <td class="perfil">
+                    </a>
+                </td>
 
-                                    <a href="{{route('especie.index', [$especie['id']])}}">
-                                        <em>{{$especie['genero']}} {{$especie['especifico']}}</em>
-
-                                        @if($especie['varietal'] != null)
-                                            <em>var. {{$especie['varietal']}}</em>
-                                        @endif
-
-                                        @if($especie['forma'] != null)
-                                            <em>f. {{$especie['forma']}}</em>
-                                        @endif
-
-                                        <span class="autores">{{$especie['autor']}}</span>
-
-                                    </a>
-                                </td>
+            </tr>
+        @endforeach
+    @stop
 
 
-
-                            </tr>
-                        @endforeach
-                        </tbody>
-
-                    </table>
-
-
-
-
-
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-
+    @include('resultados._index-resultados-especies-taxo')
 
 @stop
 
+
 @section('script_section')
     @parent
-
 
     <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\jquery.dataTables.min.js')}}'></script>
     <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\dataTables.bootstrap.js')}}'></script>
