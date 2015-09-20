@@ -20,6 +20,10 @@
             {{$taxonomia['familia']}}
         @stop
 
+        @section('ruta-pdf')
+            <a href="{{route('pdf.familia.generos', [$taxonomia['familia_id']])}}">
+        @stop
+
 
         @section('taxo-superior')
             <span class="text-muted">Phylum:</span> <a class="text-primary" href="{{route('phylum.clases', [$taxonomia['phylum_id']])}}">{{$taxonomia['phylum']}} <i class="fa fa-angle-right text-muted"></i></a>
@@ -33,11 +37,7 @@
 
 
         @section('listar')
-            Géneros
-        @stop
-
-        @section('pertenece')
-            a la Familia
+            Número de <b>Géneros</b> reportados para la familia <em><b class="text-primary">{{$taxonomia['familia']}}</b></em>:
         @stop
 
         @section('taxo-listar')

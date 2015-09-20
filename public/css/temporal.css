@@ -66,3 +66,58 @@
 #action-dataTable{
     width: 150px !important;
 }
+
+.pdf-img {
+    position: absolute;
+    right: 0;
+    top: 12%;
+}
+.pdf-img img{
+    width: 50px;
+}
+
+.not-active {
+     pointer-events: none;
+     cursor: default;
+    opacity: 0.7;
+ }
+.navbar-brand {
+    padding: 0px;
+}
+.navbar-brand img{
+    padding:8px 15px ;
+    width: 250px;
+}
+
+.navbar{
+    margin-bottom: 0px;
+}
+
+.navbar-default{
+    background: #ffffff;
+}
+table.dataTable thead .no-sort:after{
+    content: "" !important;
+}
+
+table.tabla-reportes tr{
+    background:  #F5F5F5 !important
+}
+table.tabla-referencias tr:hover{
+    background:  #F5F5F5 !important
+
+}
+table.tabla-referencias tr{
+    background:  #ffffff !important
+}
+
+.sort{
+    color: #CCCCCC;
+}
+.sort:hover{
+    color: #CCCCCC;
+}
+
+.sort.dt-sorting, #sort-fecha.dt-sorting{
+    color: #ffffff;
+}

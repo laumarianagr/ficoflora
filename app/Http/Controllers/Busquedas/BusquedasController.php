@@ -17,11 +17,21 @@ class BusquedasController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function especies()
     {
 
+        return view('buscar.especies.index-buscar-especies');
+    }
 
-        return view('buscar.buscar', compact('generos'));
+    public function taxonomia()
+    {
+
+        return view('buscar.taxonomia.index-buscar-taxonomia');
+    }
+    public function ubicacion()
+    {
+
+        return view('buscar.ubicacion.index-buscar-ubicacion');
     }
 
     /**hnk
@@ -29,7 +39,7 @@ class BusquedasController extends Controller
      *
      * @return Response
      */
-    public function buscarEspeciesSinonimias(Request $request)
+    public function buscarEspeciesYSinonimias(Request $request)
     {
         $query = $request->especie;
         
@@ -74,11 +84,11 @@ class BusquedasController extends Controller
 //        dd($especies);
         $total = count($especies);
 
-        return view('buscar.resultados', compact('query', 'total', 'especies'));
+        return view('buscar.especies.resultados-especies', compact('query', 'total', 'especies'));
 
     }
 
-    public function getEspeciesSinonimias($query)
+    public function getEspeciesYSinonimias($query)
     {
 
 
@@ -151,6 +161,62 @@ class BusquedasController extends Controller
             ->get();
 
         return $familias;
+    }
+
+    //LISTA DE ORDENES
+    public function getOrdenes($query)
+    {
+        $ordenes = DB::table('ordenes')
+            ->where('ordenes.nombre', 'like', '%'.$query.'%')
+            ->orderBy('nombre')
+            ->get();
+
+        return $ordenes;
+    }
+
+    //LISTA DE SUBCLASES
+    public function getSubclases($query)
+    {
+        $subclases = DB::table('subclases')
+            ->where('subclases.nombre', 'like', '%'.$query.'%')
+            ->orderBy('nombre')
+            ->get();
+
+        return $subclases;
+    }
+
+    //LISTA DE CLASES
+    public function getClases($query)
+    {
+        $clases = DB::table('clases')
+            ->where('clases.nombre', 'like', '%'.$query.'%')
+            ->orderBy('nombre')
+            ->get();
+
+        return $clases;
+    }
+
+    //LISTA DE PHYLUMS
+    public function getPhylums($query)
+    {
+        $phylums = DB::table('phylums')
+            ->where('phylums.nombre', 'like', '%'.$query.'%')
+            ->orderBy('nombre')
+            ->get();
+
+        return $phylums;
+    }
+
+
+    //LISTA DE AUTORES
+    public function getAutores($query)
+    {
+        $autores = DB::table('autores')
+            ->where('autores.nombre', 'like', '%'.$query.'%')
+            ->orderBy('nombre')
+            ->get();
+
+        return $autores;
     }
 
 

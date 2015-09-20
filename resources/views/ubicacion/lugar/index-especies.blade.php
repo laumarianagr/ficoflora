@@ -15,20 +15,25 @@
     Lugar
 @stop
 
+@section('ruta-pdf')
+    <a href="{{route('pdf.lugar.especies', [$ubicacion['lugar_id']])}}">
+@stop
+
 @section('ubicacion-nombre')
     {{$ubicacion['lugar']}}
 @stop
 
 
 @section('ubicacion-superior')
-    <span class="text-muted">Entidad:</span> <a class="text-primary" href="{{route('entidad.localidades', [$ubicacion['entidad_id']])}}">{{$ubicacion['entidad']}} <i class="fa fa-angle-right text-muted"></i></a>
+    <span class="text-muted">Pais:</span> <a class="text-primary" href="{{route('pais.entidades', 'venezuela')}}">{{$ubicacion['pais']}} <i class="fa fa-angle-right text-muted"></i></a>
+    <span class="text-muted">Entidad federal:</span> <a class="text-primary" href="{{route('entidad.localidades', [$ubicacion['entidad_id']])}}">{{$ubicacion['entidad']}} <i class="fa fa-angle-right text-muted"></i></a>
     <span class="text-muted">Localidad:</span> <a class="text-primary" href="{{route('localidad.lugares', [$ubicacion['localidad_id']])}}">{{$ubicacion['localidad']}}</a>
 
 @stop
 
 
 @section('pertenece')
-    a el lugar
+    el lugar
 @stop
 
 

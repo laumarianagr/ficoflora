@@ -23,7 +23,7 @@
 @section('ubicacion-superior')
     <span class="text-muted">Pais:</span> <a class="text-primary" href="{{route('pais.entidades', 'venezuela')}}">{{$ubicacion['pais']}} <i class="fa fa-angle-right text-muted"></i> </a>
 
-    <span class="text-muted">Entidad:</span> <a class="text-primary" href="{{route('entidad.localidades', [$ubicacion['entidad_id']])}}">{{$ubicacion['entidad']}}  <i class="fa fa-angle-right text-muted"></i></a>
+    <span class="text-muted">Entidad federal:</span> <a class="text-primary" href="{{route('entidad.localidades', [$ubicacion['entidad_id']])}}">{{$ubicacion['entidad']}}  <i class="fa fa-angle-right text-muted"></i></a>
     <span class="text-muted">Localidad:</span> <a class="text-primary" href="{{route('localidad.lugares', [$ubicacion['localidad_id']])}}">{{$ubicacion['localidad']}}</a>
 
 @stop
@@ -31,6 +31,10 @@
 
 @section('listar')
     Sitios
+@stop
+
+@section('ruta-pdf')
+    <a href="{{route('pdf.lugar.sitios', [$ubicacion['lugar_id']])}}">
 @stop
 
 @section('pertenece')
@@ -49,13 +53,15 @@
             <td ></td>
 
             <td class="perfil">
-
-                {{$sitio['nombre']}}
-
+                <a class="not-active">{{$sitio['nombre']}}</a>
             </td>
 
-            <td >
-                <a class="action" href="{{route('sitio.especies', [$sitio['id']])}}"><i class="fa fa-eye"></i></a>
+            <td>
+                @if($sitio['especies'] > 0)
+                    <a class="action" href="{{route('sitio.especies', [$sitio['id']])}}">{{$sitio['especies']}}</a>
+                @else
+                    <a class="action not-active">-</a>
+                @endif
             </td>
 
 

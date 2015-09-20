@@ -7,17 +7,19 @@
 @import "base/skeleton";//--
 @import "base/bootstrap_extend";
 @import "base/header";//--
-@import "base/sidebar_left";//--
-@import "base/sidebar_left_sizing";//--
+// @import "base/sidebar_left";//--
+// @import "base/sidebar_left_sizing";//--
 // @import "base/sidebar_right";
 @import "base/content_with_menu";//--
-@import "base/menu";//--
+// @import "base/menu";//--
 @import "base/content_header";//--
 @import "base/elements";//partes come}ntadas
 @import "base/helpers";
 @import "base/form";
 @import "base/nanoscroll";//--
 @import "base/toolbar";
+
+
 
 // GUI
 // -----------------------------------------------------------------------------
@@ -77,7 +79,10 @@
 
 @import "ficoflora/ficha";
 @import "ficoflora/listas_resultados";
+@import "ficoflora/menu";
 
+@import "ficoflora/buscar";
+@import "ficoflora/footer";
 
 // // MAILBOX
 // // -----------------------------------------------------------------------------

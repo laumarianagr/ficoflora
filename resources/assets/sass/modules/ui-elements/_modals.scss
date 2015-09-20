@@ -13,8 +13,8 @@
 	background: transparent;
 	padding: 0;
 	text-align: left;
-	max-width: 600px;
-	margin: 40px auto;
+	max-width: 900px;
+	margin: 20px auto;
 	position: relative;
 	&.modal-block-xs {
 		max-width: 200px;
@@ -61,7 +61,7 @@
 /* Modal Wrapper */
 .modal-wrapper {
 	position: relative;
-	padding: 25px 0;
+	// padding: 25px 0;
 }
 
 /* Modal Icon */

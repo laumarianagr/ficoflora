@@ -12,10 +12,16 @@
 @section('content')
 
         @section('ubicacion-tipo')
-            Entidad
+            Entidad federal
         @stop
 
-        @section('ubicacion-nombre')
+
+        @section('ruta-pdf')
+            <a href="{{route('pdf.entidad.localidades', [$ubicacion['entidad_id']])}}">
+        @stop
+
+
+    @section('ubicacion-nombre')
             {{$ubicacion['entidad']}}
         @stop
 
@@ -30,7 +36,7 @@
         @stop
 
         @section('pertenece')
-            a la entidad
+            a la entidad federal
         @stop
 
         @section('ubicacion-listar')
@@ -45,15 +51,19 @@
                     <td ></td>
 
                     <td class="perfil">
-
-                        <a href="{{route('localidad.lugares', [$localidad['id']])}}">
-                             {{$localidad['nombre']}}
-
-                        </a>
+                        @if($localidad['lugares'] > 0)
+                            <a href="{{route('localidad.lugares', [$localidad['id']])}}">{{$localidad['nombre']}}</a>
+                        @else
+                            <a class="not-active">{{$localidad['nombre']}}</a>
+                        @endif
                     </td>
 
                     <td >
-                        <a class="action" href="{{route('localidad.especies', [$localidad['id']])}}"><i class="fa fa-eye"></i></a>
+                        @if($localidad['especies'] > 0)
+                            <a class="action" href="{{route('localidad.especies', [$localidad['id']])}}">{{$localidad['especies']}} </a>
+                        @else
+                            <a class="action not-active">-</a>
+                        @endif
                     </td>
 
 

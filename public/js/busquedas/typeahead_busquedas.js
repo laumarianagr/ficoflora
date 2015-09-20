@@ -1,4 +1,138 @@
 
+//---PHYLUM------------
+var phylum= new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('nombre'),
+    queryTokenizer: Bloodhound.tokenizers.nonword,
+    identify: function (obj) {
+        return obj.id;
+    },
+    remote: {
+        url: root_url+'buscar/phylums/%QUERY',
+        wildcard: '%QUERY'
+    }
+});
+
+
+
+$('#phylum.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'phylum',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione un phylum</h6>'
+    },
+    source: phylum.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'phylum/'+suggestion.id+'/clases');
+});
+
+//---CLASES------------
+var clase= new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('nombre'),
+    queryTokenizer: Bloodhound.tokenizers.nonword,
+    identify: function (obj) {
+        return obj.id;
+    },
+    remote: {
+        url: root_url+'buscar/clases/%QUERY',
+        wildcard: '%QUERY'
+    }
+});
+
+
+
+$('#clase.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'clase',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione una clase</h6>'
+    },
+    source: clase.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'clase/'+suggestion.id+'/subclases');
+});
+
+//---SUBCLASES------------
+var subclase= new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('nombre'),
+    queryTokenizer: Bloodhound.tokenizers.nonword,
+    identify: function (obj) {
+        return obj.id;
+    },
+    remote: {
+        url: root_url+'buscar/subclases/%QUERY',
+        wildcard: '%QUERY'
+    }
+});
+
+
+
+$('#subclase.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'subclase',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione una subclase</h6>'
+    },
+    source: subclase.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'subclase/'+suggestion.id+'/ordenes');
+});
+
+
+//---ORDEN------------
+var orden= new Bloodhound({
+    datumTokenizer: Bloodhound.tokenizers.obj.nonword('nombre'),
+    queryTokenizer: Bloodhound.tokenizers.nonword,
+    identify: function (obj) {
+        return obj.id;
+    },
+    remote: {
+        url: root_url+'buscar/ordenes/%QUERY',
+        wildcard: '%QUERY'
+    }
+});
+
+
+
+$('#orden.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'orden',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione un orden</h6>'
+    },
+    source: orden.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'orden/'+suggestion.id+'/familias');
+});
+
+
 //---FAMILIA------------
 var familia= new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.nonword('nombre'),
@@ -11,6 +145,25 @@ var familia= new Bloodhound({
         wildcard: '%QUERY'
     }
 });
+
+$('#familia-especies.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'familia',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione una familia</h6>'
+    },
+    source: familia.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'familia/'+suggestion.id+'/especies');
+});
+
 
 $('#familia.typeahead').typeahead({
     hint: false,
@@ -27,7 +180,7 @@ $('#familia.typeahead').typeahead({
     source: familia.ttAdapter()
 
 }).bind('typeahead:select', function (ev, suggestion) {
-    window.location.replace(root_url+'familia/'+suggestion.id+'/especies');
+    window.location.replace(root_url+'familia/'+suggestion.id+'/generos');
 });
 
 
@@ -48,7 +201,7 @@ var genero= new Bloodhound({
     }
 });
 
-$('#genero.typeahead').typeahead({
+$('#genero-especies.typeahead').typeahead({
     hint: false,
     highlight: true,
     minLength: 1
@@ -69,69 +222,43 @@ $('#genero.typeahead').typeahead({
 
 
 
-//---Especie------------
-var especie= new Bloodhound({
+//---ATORES------------
+var autor= new Bloodhound({
     datumTokenizer: Bloodhound.tokenizers.obj.nonword('nombre'),
     queryTokenizer: Bloodhound.tokenizers.nonword,
     identify: function (obj) {
         return obj.id;
     },
-    //local: especies
     remote: {
-        url: root_url+'buscar/especies-sinonimias/%QUERY',
+        url: root_url+'buscar/autores/%QUERY',
         wildcard: '%QUERY'
     }
 });
 
-//genero solo completa los formularios de typeahead
-//el s-genero es por el catalogo que tengo la especie y la sinonimia en la misma pagina y hacien conflicto con el span
-
-$('#especie.typeahead').typeahead({
+$('#autor.typeahead').typeahead({
     hint: false,
     highlight: true,
-    minLength: 3
+    minLength: 1
 
 }, {
-    limit: 50,
-    name: 'especie',
-    displayKey: function($keys){
-
-        if(($keys['varietal'] == null) && ($keys['forma'] == null)){
-            return $keys['genero']+' '+$keys['especifico'];
-        }else{
-            if(($keys['varietal'] != null) && ($keys['forma'] == null)) {
-                return $keys['genero'] + ' ' + $keys['especifico'] + ' var. ' + $keys['varietal'];
-            }else{
-                if(($keys['varietal'] == null) && ($keys['forma'] != null)) {
-                    return $keys['genero'] + ' ' + $keys['especifico'] + ' f. ' + $keys['forma'];
-                }else{
-                    return $keys['genero'] + ' ' + $keys['especifico']+ ' var. ' + $keys['varietal'] + ' f. ' + $keys['forma'];
-                }
-            }
-        }
-    },
+    limit: 20,
+    name: 'autor',
+    displayKey: 'nombre',
     templates: {
-        empty: function(){
-            return '<p>No se encontro ninguna especie</p>'
-        }
-        //suggestion: function ($keys) {
-        //    return '<div><strong>'+$keys.nombre+'</strong></div>'
-        //}
+        header: '<h6 class="type-header">Seleccione un autor</h6>'
     },
-    source: especie.ttAdapter()
+    source: autor.ttAdapter()
 
 }).bind('typeahead:select', function (ev, suggestion) {
 
-    if(suggestion.tipo == 'e'){
-
-        window.location.replace(root_url+'especie/'+suggestion.id);
-    }
-    console.log($(this) );
-    console.log(suggestion.id );
-    console.log(suggestion);
-
-
+    window.location.replace(root_url+'autor/'+suggestion.id+'/especies');
 });
+
+
+
+
+//genero solo completa los formularios de typeahead
+//el s-genero es por el catalogo que tengo la especie y la sinonimia en la misma pagina y hacien conflicto con el span
 
 
 
@@ -150,7 +277,7 @@ var entidad= new Bloodhound({
     }
 });
 
-$('#entidad.typeahead').typeahead({
+$('#entidad-especies.typeahead').typeahead({
     hint: false,
     highlight: true,
     minLength: 1
@@ -166,6 +293,24 @@ $('#entidad.typeahead').typeahead({
 
 }).bind('typeahead:select', function (ev, suggestion) {
     window.location.replace(root_url+'entidad/'+suggestion.id+'/especies');
+});
+
+$('#entidad.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'entidad',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione una entidad</h6>'
+    },
+    source: entidad.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'entidad/'+suggestion.id+'/localidades');
 });
 
 
@@ -184,7 +329,7 @@ var localidad= new Bloodhound({
     }
 });
 
-$('#localidad.typeahead').typeahead({
+$('#localidad-especies.typeahead').typeahead({
     hint: false,
     highlight: true,
     minLength: 1
@@ -200,6 +345,24 @@ $('#localidad.typeahead').typeahead({
 
 }).bind('typeahead:select', function (ev, suggestion) {
     window.location.replace(root_url+'localidad/'+suggestion.id+'/especies');
+});
+
+$('#localidad.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'localidad',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione una localidad</h6>'
+    },
+    source: localidad.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'localidad/'+suggestion.id+'/lugares');
 });
 
 
@@ -218,7 +381,7 @@ var lugar= new Bloodhound({
     }
 });
 
-$('#lugar.typeahead').typeahead({
+$('#lugar-especies.typeahead').typeahead({
     hint: false,
     highlight: true,
     minLength: 1
@@ -235,5 +398,24 @@ $('#lugar.typeahead').typeahead({
 }).bind('typeahead:select', function (ev, suggestion) {
     window.location.replace(root_url+'lugar/'+suggestion.id+'/especies');
 });
+
+$('#lugar.typeahead').typeahead({
+    hint: false,
+    highlight: true,
+    minLength: 1
+
+}, {
+    limit: 20,
+    name: 'lugar',
+    displayKey: 'nombre',
+    templates: {
+        header: '<h6 class="type-header">Seleccione una lugar</h6>'
+    },
+    source: lugar.ttAdapter()
+
+}).bind('typeahead:select', function (ev, suggestion) {
+    window.location.replace(root_url+'lugar/'+suggestion.id+'/sitios');
+});
+
 
 

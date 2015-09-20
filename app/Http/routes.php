@@ -29,13 +29,22 @@ Route::get('mapas', ['as' => 'mapas', 'uses' => 'Taxonomia\EspeciesController@ma
 //---------->>>>>>>>>>
 // BUSQUEDAS
 //---------->>>>>>>>>>
-Route::get('buscar', ['as' => 'buscar.index', 'uses' => 'Busquedas\BusquedasController@index']);
-Route::post('buscar', ['as' => 'buscar.buscar', 'uses' => 'Busquedas\BusquedasController@buscarEspeciesSinonimias']);
+Route::get('buscar', ['as' => 'buscar.index', 'uses' => 'Busquedas\BusquedasController@especies']);
+Route::get('buscar/especies', ['as' => 'buscar.especies.index', 'uses' => 'Busquedas\BusquedasController@especies']);
+Route::post('buscar/especies', ['as' => 'buscar.especies', 'uses' => 'Busquedas\BusquedasController@buscarEspeciesYSinonimias']);
 
-    //Taxonomias
-    Route::get('buscar/especies-sinonimias/{query}', ['as' => 'buscar.especies_sinonimias', 'uses' => 'Busquedas\BusquedasController@getEspeciesSinonimias']);
+Route::get('buscar/taxonomia', ['as' => 'buscar.taxonomia.index', 'uses' => 'Busquedas\BusquedasController@taxonomia']);
+Route::get('buscar/ubicacion', ['as' => 'buscar.ubicacion.index', 'uses' => 'Busquedas\BusquedasController@ubicacion']);
+
+//Taxonomias
+    Route::get('buscar/autores/{query}', ['as' => 'buscar.autores', 'uses' => 'Busquedas\BusquedasController@getAutores']);
+    Route::get('buscar/especies-sinonimias/{query}', ['as' => 'buscar.especies_sinonimias', 'uses' => 'Busquedas\BusquedasController@getEspeciesYSinonimias']);
     Route::get('buscar/generos/{query}', ['as' => 'buscar.generos', 'uses' => 'Busquedas\BusquedasController@getGeneros']);
     Route::get('buscar/familias/{query}', ['as' => 'buscar.familias', 'uses' => 'Busquedas\BusquedasController@getFamilias']);
+    Route::get('buscar/ordenes/{query}', ['as' => 'buscar.ordenes', 'uses' => 'Busquedas\BusquedasController@getOrdenes']);
+    Route::get('buscar/subclases/{query}', ['as' => 'buscar.subclases', 'uses' => 'Busquedas\BusquedasController@getSubclases']);
+    Route::get('buscar/clases/{query}', ['as' => 'buscar.clases', 'uses' => 'Busquedas\BusquedasController@getClases']);
+    Route::get('buscar/phylums/{query}', ['as' => 'buscar.phylums', 'uses' => 'Busquedas\BusquedasController@getPhylums']);
 
     //Ubicacion
     Route::get('buscar/entidades/{query}', ['as' => 'buscar.entidades', 'uses' => 'Busquedas\BusquedasController@getEntidades']);
@@ -44,12 +53,16 @@ Route::post('buscar', ['as' => 'buscar.buscar', 'uses' => 'Busquedas\BusquedasCo
 
 
 
+//---------->>>>>>>>>>
+// AUTORES
+//---------->>>>>>>>>>
+Route::get('autor/{id}/especies', ['as' => 'autor.especies', 'uses' => 'Taxonomia\AutoresController@especies']);
 
 
 //---------->>>>>>>>>>
-// ESPECIES
+// SINONIMIAS
 //---------->>>>>>>>>>
-Route::get('sinonimia/{id}', ['as' => 'sinonimia.index', 'uses' => 'Taxonomia\EspeciesController@index']);
+Route::get('sinonimia/{id}/especies', ['as' => 'sinonimia.index', 'uses' => 'Taxonomia\SinonimiasController@especies']);
 
 
 
@@ -134,3 +147,46 @@ Route::get('lugar/{id}/sitios', ['as' => 'lugar.sitios', 'uses' => 'Ubicacion\Lu
 // SITIO
 //---------->>>>>>>>>>
 Route::get('sitio/{id}/especies', ['as' => 'sitio.especies', 'uses' => 'Ubicacion\SitiosController@especies']);
+
+
+
+
+
+
+
+
+
+//---------->>>>>>>>>>
+// PDF
+//---------->>>>>>>>>>
+    //Taxonomias
+    Route::get('exportar/pdf/especies/{id}', ['as' => 'pdf.especie', 'uses' => 'Exportar\PDFsController@especies']);
+    Route::get('exportar/pdf/genero/{id}/especies', ['as' => 'pdf.genero.especies', 'uses' => 'Exportar\PDFsController@especiesPorGenero']);
+    Route::get('exportar/pdf/familia/{id}/especies', ['as' => 'pdf.familia.especies', 'uses' => 'Exportar\PDFsController@especiesPorFamilia']);
+    Route::get('exportar/pdf/autor/{id}/especies', ['as' => 'pdf.autor.especies', 'uses' => 'Exportar\PDFsController@especiesPorAutor']);
+    Route::get('exportar/pdf/sinononimia/{id}/especies', ['as' => 'pdf.sinonimia.especies', 'uses' => 'Exportar\PDFsController@especiesPorSinonimia']);
+
+    Route::get('exportar/pdf/familia/{id}/generos', ['as' => 'pdf.familia.generos', 'uses' => 'Exportar\PDFsController@generosPorFamilia']);
+    Route::get('exportar/pdf/orden/{id}/familias', ['as' => 'pdf.orden.familias', 'uses' => 'Exportar\PDFsController@familiasPorOrden']);
+    Route::get('exportar/pdf/subclase/{id}/ordenes', ['as' => 'pdf.subclase.ordenes', 'uses' => 'Exportar\PDFsController@ordenesPorSubclase']);
+    Route::get('exportar/pdf/clase/{id}/ordenes', ['as' => 'pdf.clase.ordenes', 'uses' => 'Exportar\PDFsController@ordenesPorClase']);
+    Route::get('exportar/pdf/clase/{id}/subclases', ['as' => 'pdf.clase.subclases', 'uses' => 'Exportar\PDFsController@subclasesPorClase']);
+    Route::get('exportar/pdf/phylum/{id}/clases', ['as' => 'pdf.phylum.clases', 'uses' => 'Exportar\PDFsController@clasesPorPhylum']);
+
+
+
+    //Ubicación
+    Route::get('exportar/pdf/pais/entidades', ['as' => 'pdf.pais.entidades', 'uses' => 'Exportar\PDFsController@entidadesPorPais']);
+
+    Route::get('exportar/pdf/entidad/{id}/especies', ['as' => 'pdf.entidad.especies', 'uses' => 'Exportar\PDFsController@especiesPorEntidad']);
+    Route::get('exportar/pdf/entidad/{id}/localidades', ['as' => 'pdf.entidad.localidades', 'uses' => 'Exportar\PDFsController@localidadesPorEntidad']);
+
+    Route::get('exportar/pdf/localidad/{id}/especies', ['as' => 'pdf.localidad.especies', 'uses' => 'Exportar\PDFsController@especiesPorLocalidad']);
+    Route::get('exportar/pdf/localidad/{id}/lugares', ['as' => 'pdf.localidad.lugares', 'uses' => 'Exportar\PDFsController@lugaresPorLocalidad']);
+
+    Route::get('exportar/pdf/lugar/{id}/especies', ['as' => 'pdf.lugar.especies', 'uses' => 'Exportar\PDFsController@especiesPorLugar']);
+    Route::get('exportar/pdf/lugar/{id}/sitios', ['as' => 'pdf.lugar.sitios', 'uses' => 'Exportar\PDFsController@sitiosPorLugar']);
+
+    Route::get('exportar/pdf/sitios/{id}/especies', ['as' => 'pdf.sitio.especies', 'uses' => 'Exportar\PDFsController@especiesPorSitio']);
+
+

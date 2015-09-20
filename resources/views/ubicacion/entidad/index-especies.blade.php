@@ -12,7 +12,12 @@
 @section('content')
 
     @section('ubicacion-tipo')
-        Entidad
+        Entidad federal
+    @stop
+
+
+    @section('ruta-pdf')
+        <a href="{{route('pdf.entidad.especies', [$ubicacion['entidad_id']])}}">
     @stop
 
     @section('ubicacion-nombre')
@@ -21,11 +26,12 @@
 
 
     @section('ubicacion-superior')
+        <span class="text-muted">Pais:</span> <a class="text-primary" href="{{route('pais.entidades', 'venezuela')}}">{{$ubicacion['pais']}} </a>
     @stop
 
 
     @section('pertenece')
-        a la entidad
+        la entidad federal
     @stop
 
 

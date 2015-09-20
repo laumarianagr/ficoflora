@@ -101,6 +101,17 @@ class Especie extends Model {
     }
 
     /**
+     * Una especie PERTENECE a un genero.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function autor()
+    {
+        return $this->belongsTo('App\Modelos\Taxonomia\Autor');
+
+    }
+
+    /**
      * Obtiene las citas ASOCIADAS a la especie.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
@@ -162,6 +173,11 @@ class Especie extends Model {
     public function scopeConGeneroId($query,$genero_id)
     {
         return $query->where('genero_id',$genero_id);
+    }
+
+    public function scopeConCatalogo($query,$catalogo)
+    {
+        return $query->where('catalogo',$catalogo);
     }
 
 

@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Ubicacion;
 
-use App\Ficoflora\Funcionalidades\EspecieNombreTrait;
-use App\Ficoflora\Funcionalidades\UbicacionSuperiorTrait;
+use App\Ficoflora\Especies\EspecieDatosTrait;
+use App\Ficoflora\Ubicacion\UbicacionSuperiorTrait;
 use App\Modelos\Geografico\Localidad;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,7 @@ class LocalidadesController extends Controller
 {
 
     use UbicacionSuperiorTrait;
-    use EspecieNombreTrait;
+    use EspecieDatosTrait;
 
     public function especies($id)
     {
@@ -32,7 +32,7 @@ class LocalidadesController extends Controller
 
             if($especie->catalogo == true){
 
-                $nombre = $this->especieNombre($especie, null, false);
+                $nombre = $this->especieDatos($especie, null, false);
                 array_push($especies, $nombre);
                 $total++;
             }
@@ -54,6 +54,11 @@ class LocalidadesController extends Controller
         $ubicacion = $this->ubicacionLocalidad($id);
 
         $total = count($lugares);
+
+        foreach ($lugares as $lugar) {
+            $lugar['especies'] = count($lugar->especies()->conCatalogo(true)->get());
+            $lugar['sitios'] = count($lugar->sitios()->get());
+        }
 
 
         return view('ubicacion.localidad.index-lugares', compact('lugares', 'ubicacion', 'total'));

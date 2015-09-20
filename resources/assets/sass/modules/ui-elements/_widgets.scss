@@ -412,6 +412,7 @@ ul.simple-bullet-list {
 	@include clearfix;
 	display: table;
 	width: 100%;
+  position: relative;
 
 	.widget-summary-col {
 		display: table-cell;

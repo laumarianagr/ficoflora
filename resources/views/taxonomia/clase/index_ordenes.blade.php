@@ -19,6 +19,9 @@
             {{$taxonomia['clase']}}
         @stop
 
+        @section('ruta-pdf')
+            <a href="{{route('pdf.clase.ordenes', [$taxonomia['clase_id']])}}">
+        @stop
 
         @section('taxo-superior')
             <span class="text-muted">Phylum:</span> <a class="text-primary" href="{{route('phylum.clases', [$taxonomia['phylum_id']])}}">{{$taxonomia['phylum']}}</a>
@@ -26,11 +29,7 @@
 
 
         @section('listar')
-            Ordenes
-        @stop
-
-        @section('pertenece')
-            a la Clase
+            Número de <b>Ordenes</b> reportados para la clase <em><b class="text-primary">{{$taxonomia['clase']}}</b></em>:
         @stop
 
         @section('taxo-listar')

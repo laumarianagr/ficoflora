@@ -27,16 +27,11 @@
 <div class="p-container">
 
     {{--Cabecera de la página--}}
-    {{--@include('parciales._page-header')--}}
+    @include('_parciales._page-header')
     {{--END Cabecera de la página--}}
 
     {{--Cuerpo de la páginas--}}
     <div class="p-body">
-
-        {{--Menu izquierdo--}}
-        {{--@include('parciales._sidebar-left')--}}
-        {{--END Menu izquierdo--}}
-
         {{--Contenido de la pagina--}}
         <div class="p-content" role="main">
 
@@ -53,6 +48,10 @@
     </div>
     {{--END Cuerpo de la página--}}
 
+    @include('_parciales._page-footer')
+
+
+
 </div>
 
 {{--Scripts--}}
@@ -65,6 +64,21 @@
     <script type='text/javascript' src='{{ asset('plugins\toastr\js\toastr.min.js')}}'></script>
     <script type='text/javascript' src='{{ asset('plugins/jquery/jquery-validation/jquery.validate.min.js')}}'></script>
     <script type='text/javascript' src='{{ asset('plugins\select2-4.0.0\js\select2.min.js')}}'></script>
+
+    <script type='text/javascript' src='{{ asset('plugins/typeahead/typeahead.bundle.js')}}'></script>
+
+    <script type='text/javascript' src='{{ asset('js/busquedas/typeahead_busqueda_especies.js')}}'></script>
+    <script>
+        $('ul.navbar-nav li  a.m-menu').click(function(){
+            localStorage.setItem("menu", $(this).parent().attr('id'));
+            console.log($(this).parent().attr('id'));
+        });
+
+        $('ul.navbar-nav li.active').removeClass("active");
+        var menu = document.getElementById(localStorage.getItem("menu"));
+        console.log(menu);
+        $(menu).addClass("active");
+    </script>
 
 @show
 {{--END Scripts--}}

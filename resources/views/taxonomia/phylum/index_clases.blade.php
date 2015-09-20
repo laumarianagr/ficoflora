@@ -20,14 +20,14 @@
             {{$taxonomia['phylum']}}
         @stop
 
+        @section('ruta-pdf')
+            <a href="{{route('pdf.phylum.clases', [$taxonomia['phylum_id']])}}">
+        @stop
 
         @section('listar')
-            Clases
+            Número de <b>Clases</b> reportadas para el phylum <em><b class="text-primary">{{$taxonomia['phylum']}}</b></em>:
         @stop
 
-        @section('pertenece')
-            al Phylum
-        @stop
 
         @section('taxo-listar')
             de la Clase

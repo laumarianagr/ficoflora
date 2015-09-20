@@ -15,6 +15,10 @@
     Sitio
 @stop
 
+@section('ruta-pdf')
+    <a href="{{route('pdf.sitio.especies', [$ubicacion['sitio_id']])}}">
+@stop
+
 @section('ubicacion-nombre')
     {{$ubicacion['sitio']}}
 @stop
@@ -30,7 +34,7 @@
 
 
 @section('pertenece')
-    a el sitio
+    el sitio
 @stop
 
 

@@ -22,6 +22,7 @@ body {
 	font-size: $p-container-font-size + 0px;
 	overflow-x: hidden;
 	overflow-y: scroll;
+	    background: $p-body-background;
 }
 
 a {
@@ -51,6 +52,11 @@ h5{
 	font-size: 16px;
 }
 
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
 // LAYOUT STYLE - SCROLL
 // -----------------------------------------------------------------------------
 
@@ -78,11 +84,12 @@ h5{
 /* Layout Base - Inner Wrapper */
 .p-body {
 	display: table;
-	min-height: 100vh;
-	padding-top: $p-header-height;
+	// min-height: 100vh;
+	// padding-top: $p-header-height;
 	table-layout: fixed;
 	overflow: hidden;
 	width: 100%;
+	min-height: 500px;
 	background: $p-body-background;
 }
 
@@ -222,14 +229,14 @@ h5{
 	/* Layout Fixed - Inner Wrapper */
 	html.fixed {
 		.p-body {
-			padding-top: $p-header-height + $content-header-height;
+			// padding-top: $p-header-height + $content-header-height;
 		}
 	}
 
 	/* Layout Fixed - Content Body */
 	html.fixed {
 		.p-content {
-			margin-left: $sidebar-left-full-width;
+			// margin-left: $sidebar-left-full-width;
 
 			&.has-toolbar {
 				padding-top: $p-content-padding + $inner-toolbar-height;
@@ -270,7 +277,7 @@ h5{
 		}
 
 		.p-content {
-			margin-left: $sidebar-left-collapsed-width;
+			// margin-left: $sidebar-left-collapsed-width;
 		}
 	}
 

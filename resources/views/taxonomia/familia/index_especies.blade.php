@@ -15,6 +15,10 @@
         Familia
     @stop
 
+    @section('ruta-pdf')
+        <a href="{{route('pdf.familia.especies', [$taxonomia['familia_id']])}}">
+    @stop
+
     @section('taxo-nombre')
         {{$taxonomia['familia']}}
     @stop
@@ -31,12 +35,9 @@
 
 
     @section('listar')
-        Especies
+        Número de <b>Especies</b> reportadas para la familia <em><b class="text-primary">{{$taxonomia['familia']}}</b></em>:
     @stop
 
-    @section('pertenece')
-        a la familia
-    @stop
 
     @section('taxo-listar')
         de la Especie

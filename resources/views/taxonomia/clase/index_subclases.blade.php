@@ -21,6 +21,9 @@
             {{$taxonomia['clase']}}
         @stop
 
+        @section('ruta-pdf')
+            <a href="{{route('pdf.clase.subclases', [$taxonomia['clase_id']])}}">
+        @stop
 
         @section('taxo-superior')
             <span class="text-muted">Phylum:</span> <a class="text-primary" href="{{route('phylum.clases', [$taxonomia['phylum_id']])}}">{{$taxonomia['phylum']}}</a>
@@ -28,11 +31,7 @@
 
 
         @section('listar')
-            Subclases
-        @stop
-
-        @section('pertenece')
-            a la Clase
+            Número de <b>Subclases</b> reportadas para la clase <em><b class="text-primary">{{$taxonomia['clase']}}</b></em>:
         @stop
 
         @section('taxo-listar')

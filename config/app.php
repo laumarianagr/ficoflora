@@ -139,7 +139,6 @@ return [
         Illuminate\Html\HtmlServiceProvider::class,
 
 
-
         /*
          * Application Service Providers...
          */

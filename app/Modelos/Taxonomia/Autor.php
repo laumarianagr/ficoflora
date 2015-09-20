@@ -11,4 +11,14 @@ class Autor extends Model {
         'creador_id'
     ];
 
+    /**
+     * Una genero POSEE muchas especies.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function especies()
+    {
+        return $this->hasMany('App\Modelos\Taxonomia\Especie');
+    }
+
 }

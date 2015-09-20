@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Taxonomia;
 
-use App\Ficoflora\Funcionalidades\EspecieNombreTrait;
-use App\Ficoflora\Funcionalidades\NombresTrait;
+use App\Ficoflora\Especies\EspecieDatosTrait;
+use App\Ficoflora\Especies\NombresTrait;
 use App\Ficoflora\Funcionalidades\TaxonomiaSuperiorTrait;
 use App\Modelos\Taxonomia\Genero;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ use App\Http\Controllers\Controller;
 class GenerosController extends Controller
 {
     use TaxonomiaSuperiorTrait;
-    use EspecieNombreTrait;
+    use EspecieDatosTrait;
 
     public function especies($id)
     {
@@ -32,7 +32,7 @@ class GenerosController extends Controller
 //            dd($especie);
             if($especie->catalogo==true){
 
-                $nombre = $this->especieNombre($especie, null, false);
+                $nombre = $this->especieDatos($especie, null, false);
                 array_push($especies, $nombre);
                 $total++;
             }

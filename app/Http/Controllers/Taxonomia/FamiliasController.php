@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Taxonomia;
 
-use App\Ficoflora\Funcionalidades\EspecieNombreTrait;
-use App\Ficoflora\Funcionalidades\NombresTrait;
+use App\Ficoflora\Especies\EspecieDatosTrait;
 use App\Ficoflora\Funcionalidades\TaxonomiaSuperiorTrait;
 use App\Modelos\Taxonomia\Familia;
 use Illuminate\Http\Request;
@@ -14,7 +13,7 @@ use App\Http\Controllers\Controller;
 class FamiliasController extends Controller
 {
     use TaxonomiaSuperiorTrait;
-    use EspecieNombreTrait
+    use EspecieDatosTrait;
 
     public function especies($id)
     {
@@ -36,18 +35,14 @@ class FamiliasController extends Controller
 
                 if($especie->catalogo==true) {
 
-                    $nombre = $this->especieNombre($especie, null, false);
+                    $nombre = $this->especieDatos($especie, null, false);
                     $total++;
                 }
-//
+
             array_push($especies_nombres, $nombre);
             }
-        }        
-        
+        }
 
-
-//        dd($especies_nombres);
-        
         return view('taxonomia.familia.index_especies', compact('taxonomia', 'total'))->with('especies', $especies_nombres);
 
     }

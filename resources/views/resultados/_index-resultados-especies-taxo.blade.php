@@ -5,11 +5,14 @@
                 <div class="widget-summary">
 
                     <div class="widget-summary-col">
+                        <div class="pdf-img">
+                            @yield('ruta-pdf')
+                                <img src="{{ asset('img/pdf.jpg')}}" class="" alt="Exportar">
+                            </a>
+                        </div>
                         <div class="summary mb-sm">
                             <div class="info">
-
-                                @yield('taxo-tipo'): <em><b class="amount">@yield('taxo-nombre')</b></em>
-
+                                @yield('taxo-tipo'): <em><b class="amount">@yield('taxo-nombre')</b></em>@yield('taxo-autor')
                             </div>
                         </div>
                         <div class="summary-footer">
@@ -27,20 +30,20 @@
         <div class="panel">
             <div class="panel-body">
 
-
-                @yield('total')
-                <h5 class="mt-md ">Total de <b>@yield('listar')</b> que pertenecen @yield('pertenece') <em><b class="text-primary">@yield('taxo-nombre')</b></em>: <b>{{$total}}</b></h5>
-
-                <hr class="dotted short">
-
-                <ul class="opciones mb-md mt-md">
-                    <li><a class="dp-in-b" href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a></li>
-                </ul>
+                <div class="row mb-md ">
+                    <div class="col-md-8">
+                        <h5 class="">@yield('listar') <b>{{$total}}</b></h5>
+                    </div>
+                <div class="col-md-4 nueva-busqueda">
+                       <a class="dp-in-b" href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a>
+                    </div>
+                </div>
+                <hr class="dotted short mb-lg mt-sm">
 
                 <table id="datatable"  class="table table-hover table-striped table-bordered listas-resultados" cellspacing="0" width="100%">
                     <thead>
                     <tr>
-                        <th class="numeros-dataTabla">#</th>
+                        <th class="numeros-dataTabla">N°</th>
                         <th class="th-dataTable ">Nombre @yield('taxo-listar')</th>
                     </tr>
                     </thead>

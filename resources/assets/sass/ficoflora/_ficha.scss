@@ -1,7 +1,34 @@
-.ficha-reportes{
+#ficha-reportes{
+	.panel-body{
+				padding: 10px 15px;
 
-	.reportado-ubicacion{ 
+		.widget-summary {
+			.summary-footer {
+			 	padding:2px 0;
+			    border-top: none;
+
+			    &:first-child{ 
+			    padding: 10px 0 0;
+			    border-top: 1px solid #ddd;
+			    text-align: left;
+				}
+			}
+		}
+
+			
+				h4{
+					font-weight: bold;
+    				font-size: 16px;
+				}
+			}			
+			
+
+			
+
+	.reportado-ubicacion{
+
 	
+
 		.reportado-sinonimia{
 			font-size: 13px;
 			margin-bottom: 8px;
@@ -15,11 +42,11 @@
 		&:first-child{
 			.reportado-sinonimia{
 				margin-top :5px;
-			}		
+			}
 		}
 
 		.reporte-lugar{
-			
+
 			&:first-child:before{
  				content: "(";
 			}
@@ -49,4 +76,19 @@
 		}
 
 	}
+
+}
+
+.ficha-referencias{
+
+
+      h4{
+        margin-bottom: 3px;
+        font-size: 15px;
+        font-weight: bold;
+      }
+      p{
+      	margin:0px;
+      }
+
 }

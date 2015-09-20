@@ -22,13 +22,16 @@
 
 @section('ubicacion-superior')
     <span class="text-muted">Pais:</span> <a class="text-primary" href="{{route('pais.entidades', 'venezuela')}}">{{$ubicacion['pais']}} <i class="fa fa-angle-right text-muted"></i> </a>
-    <span class="text-muted">Entidad:</span> <a class="text-primary" href="{{route('entidad.localidades', [$ubicacion['entidad_id']])}}">{{$ubicacion['entidad']}}</a>
+    <span class="text-muted">Entidad federal:</span> <a class="text-primary" href="{{route('entidad.localidades', [$ubicacion['entidad_id']])}}">{{$ubicacion['entidad']}}</a>
 
 @stop
 
 
 @section('listar')
     Lugares
+@stop
+@section('ruta-pdf')
+    <a href="{{route('pdf.localidad.lugares', [$ubicacion['localidad_id']])}}">
 @stop
 
 @section('pertenece')
@@ -48,14 +51,19 @@
 
             <td class="perfil">
 
-                <a href="{{route('lugar.sitios', [$lugar['id']])}}">
-                    {{$lugar['nombre']}}
-
-                </a>
+                @if($lugar['sitios'] > 0)
+                    <a href="{{route('lugar.sitios', [$lugar['id']])}}">{{$lugar['nombre']}}</a>
+                @else
+                    <a class="not-active">{{$lugar['nombre']}}</a>
+                @endif
             </td>
 
-            <td >
-                <a class="action" href="{{route('lugar.especies', [$lugar['id']])}}"><i class="fa fa-eye"></i></a>
+            <td>
+                @if($lugar['especies'] > 0)
+                    <a class="action" href="{{route('lugar.especies', [$lugar['id']])}}">{{$lugar['especies']}}</a>
+                @else
+                    <a class="action not-active">-</a>
+                @endif
             </td>
 
 

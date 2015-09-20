@@ -33,9 +33,24 @@
 
 		&.action{
 			text-align: center;
-	
 		}
 
-		
+
+	}
+}
+
+.nueva-busqueda{
+	text-align:right;
+	margin-top: 10px;
+
+	a{
+	    color: #777;
+	    font-size: 14px;
+	    padding: 5px 0px;
+
+	    i{
+	    	color: $color-primary;
+	    	padding-right:10px;
+	    }
 	}
 }

@@ -15,6 +15,10 @@
         Género
     @stop
 
+    @section('ruta-pdf')
+        <a href="{{route('pdf.genero.especies', [$taxonomia['genero_id']])}}">
+    @stop
+
     @section('taxo-nombre')
         {{$taxonomia['genero']}}
     @stop
@@ -32,11 +36,7 @@
 
 
     @section('listar')
-        Especies
-    @stop
-
-    @section('pertenece')
-        al Género
+        Número de <b>Especies</b> reportadas para el género <em><b class="text-primary">{{$taxonomia['genero']}}</b></em>:
     @stop
 
     @section('taxo-listar')
