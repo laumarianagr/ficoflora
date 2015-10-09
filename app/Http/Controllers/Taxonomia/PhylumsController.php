@@ -29,4 +29,11 @@ class PhylumsController extends Controller
         return view('taxonomia.phylum.index_clases', compact('taxonomia', 'total', 'clases'));
     }
 
+
+    public function galeria()
+    {
+
+        return view('galeria');
+    }
+
 }

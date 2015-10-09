@@ -121,3 +121,13 @@ table.tabla-referencias tr{
 .sort.dt-sorting, #sort-fecha.dt-sorting{
     color: #ffffff;
 }
+
+@media only screen and (max-width: 767px) {
+
+    .pdf-img {
+        position: relative;
+    }
+    .pdf-img img{
+        width: 50px;
+    }
+}

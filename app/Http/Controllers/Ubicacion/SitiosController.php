@@ -19,7 +19,7 @@ class SitiosController extends Controller
     {
         $sitio = Sitio::find($id);
 
-        $especies_ids = $sitio->especies()->get();
+        $especies_ids = $sitio->especies()->conCatalogo(true)->get();
 
         $ubicacion = $this->ubicacionSitio($id);
 

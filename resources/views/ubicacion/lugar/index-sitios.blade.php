@@ -30,7 +30,7 @@
 
 
 @section('listar')
-    Sitios
+    sitios
 @stop
 
 @section('ruta-pdf')

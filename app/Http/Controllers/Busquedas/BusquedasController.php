@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Busquedas;
 
+use App\Modelos\Taxonomia\Autor;
 use App\Modelos\Taxonomia\Especie;
 use App\Modelos\Taxonomia\Genero;
 use Illuminate\Http\Request;
@@ -20,7 +21,9 @@ class BusquedasController extends Controller
     public function especies()
     {
 
-        return view('buscar.especies.index-buscar-especies');
+        $autores = Autor::lists('nombre');
+
+        return view('buscar.especies.index-buscar-especies', compact('autores'));
     }
 
     public function taxonomia()

@@ -32,7 +32,7 @@
 
 
         @section('listar')
-            Localidades
+            localidades
         @stop
 
         @section('pertenece')

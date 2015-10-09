@@ -20,7 +20,7 @@ $(document).ready(function() {
             }
 
         },
-        "pageLength": 5,
+        "pageLength": 10,
         "lengthMenu": [ 5,10,15, 25, 50, 75, 100 ],
         "columnDefs": [
             //{ "width": "50%", "targets": 5 },
@@ -112,7 +112,7 @@ $(document).ready(function() {
             }
 
         },
-        "pageLength": 5,
+        "pageLength": 10,
         "lengthMenu": [ 5,10,15, 25, 50, 75, 100 ],
         "columnDefs": [
             //{ "width": "50%", "targets": 5 },

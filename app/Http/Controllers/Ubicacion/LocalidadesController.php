@@ -20,7 +20,7 @@ class LocalidadesController extends Controller
     {
         $localidad = Localidad::find($id);
 
-        $especies_ids = $localidad->especies()->get();
+        $especies_ids = $localidad->especies()->conCatalogo(true)->get();
 //        dd(count($especies_ids));
 
         $ubicacion = $this->ubicacionLocalidad($id);

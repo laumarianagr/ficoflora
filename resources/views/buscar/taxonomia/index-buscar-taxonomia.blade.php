@@ -117,13 +117,15 @@
 @section('script_section')
     @parent
 
+    <script>
+
+        localStorage.setItem("menu", "m-buscar");
+    </script>
     <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\jquery.dataTables.min.js')}}'></script>
 
     <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\dataTables.bootstrap.js')}}'></script>
 
-    <script>
-        localStorage.setItem("menu", "m-buscar");
-    </script>
+
 
 
     <script type='text/javascript' src='{{ asset('js/busquedas/typeahead_busquedas.js')}}'></script>

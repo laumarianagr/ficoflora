@@ -29,7 +29,7 @@
 
 
         @section('listar')
-            Número de <b>Ordenes</b> reportados para la clase <em><b class="text-primary">{{$taxonomia['clase']}}</b></em>:
+            Número de <b>ordenes</b> reportados para la clase <b class="text-primary">{{$taxonomia['clase']}}</b>:
         @stop
 
         @section('taxo-listar')

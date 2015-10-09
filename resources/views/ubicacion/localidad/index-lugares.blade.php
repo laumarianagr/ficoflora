@@ -28,7 +28,7 @@
 
 
 @section('listar')
-    Lugares
+    lugares
 @stop
 @section('ruta-pdf')
     <a href="{{route('pdf.localidad.lugares', [$ubicacion['localidad_id']])}}">

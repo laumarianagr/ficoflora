@@ -38,7 +38,7 @@
                 <div class="panel-body">
                     <div class="row mb-sm">
                         <div class="col-md-8">
-                            <h5 class="">Total de <b>Especies</b> encontradas: <b>{{$total}}</b></h5>
+                            <h5 class="">Total de <b>especies</b> encontradas: <b>{{$total}}</b></h5>
                         </div>
                         <div class="col-md-4 nueva-busqueda">
                             <a class="dp-in-b" href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a>
@@ -50,8 +50,8 @@
                         <thead>
                         <tr>
                             <th class="numeros-dataTabla">#</th>
-                            <th class="th-dataTable text-center">Nombre</th>
-                            <th class="estatus text-center th-dataTable">Estatus nombre</th>
+                            <th class="th-dataTable ">Nombre</th>
+                            <th class="estatus th-dataTable">Estatus nombre</th>
                         </tr>
                         </thead>
 
@@ -79,9 +79,11 @@
                                     </a>
                                 </td>
 
-                                <td class="perfil text-center">
+                                <td class="perfil ">
                                     @if($especie->tipo == "especie")
-                                        aceptado
+                                        Válido
+                                        @else
+                                        Sinónimo
                                     @endif
                                 </td>
 

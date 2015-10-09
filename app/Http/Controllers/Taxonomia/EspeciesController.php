@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 
 class EspeciesController extends Controller
@@ -54,11 +55,29 @@ class EspeciesController extends Controller
         //para la sección de como citar la página
         $fecha = Carbon::now();
 
-        return view('taxonomia.especies.ficha', compact('especie', 'citas_reportes', 'sinonimias', 'referencias', 'fecha', 'coordenadas'));
+
+
+
+        $portada = $this->getPortada($obj_especie);
+        
+        dd($portada);
+
+        return view('taxonomia.especies.ficha', compact('especie', 'citas_reportes', 'sinonimias', 'referencias', 'fecha', 'coordenadas', 'portada'));
     }
 
 
+    public function getPortada($obj_especie)
+    {
 
+        $imagen = DB::table('imagenes_especies')
+            ->where('especie_id', $obj_especie->id)
+            ->where('tipo', 'h')
+            ->first();
+
+        
+        return $imagen;
+
+    }
 
 
 

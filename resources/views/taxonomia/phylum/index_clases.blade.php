@@ -25,7 +25,7 @@
         @stop
 
         @section('listar')
-            Número de <b>Clases</b> reportadas para el phylum <em><b class="text-primary">{{$taxonomia['phylum']}}</b></em>:
+            Número de <b>clases</b> reportadas para el phylum <b class="text-primary">{{$taxonomia['phylum']}}</b>:
         @stop
 
 

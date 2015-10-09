@@ -305,7 +305,7 @@ h5 {
     padding-top: 0; }
 
   .p-content {
-    padding: 0 15px 15px; }
+    padding: 20px 15px 15px; }
 
   .content-header {
     margin: 0 -15px 20px; }
@@ -7803,9 +7803,9 @@ html.dark .form-wizard .pager .disabled > a, html.dark .form-wizard .pager .disa
 
 #buscar-especie .panel-body {
   padding: 10px;
-  background: #121214; }
+  background: #efefef; }
   #buscar-especie .panel-body label {
-    color: #F5F5F5; }
+    color: #272E34; }
 
 /* Footer */
 footer {

@@ -1,7 +1,8 @@
 <div id="modal-mapa" class="zoom-anim-dialog modal-block mfp-hide">
     <section class="panel">
         <header class="panel-heading">
-            <h2 class="panel-title">Ubicación en Venezuela</h2>
+            <h4 class="panel-title" style="font-size: 13px;">Ubicación en Venezuela de la especie:</h4>
+            <h4 class="panel-title" style="font-size: 16px;">@yield('especie-mapa')</h4>
         </header>
 
 

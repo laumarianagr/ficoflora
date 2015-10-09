@@ -20,7 +20,7 @@ class EntidadesController extends Controller
     {
         $entidad = Entidad::find($id);
 
-        $especies_ids = $entidad->especies()->get();
+        $especies_ids = $entidad->especies()->conCatalogo(true)->get();
 
 //        dd(count($especies_ids));
         

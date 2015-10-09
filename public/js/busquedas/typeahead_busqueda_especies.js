@@ -20,7 +20,7 @@ var especie= new Bloodhound({
 $('#especie.typeahead').typeahead({
     hint: false,
     highlight: true,
-    minLength: 3
+    minLength: 2
 
 }, {
     limit: 50,

@@ -47,12 +47,16 @@ trait SinonimiasTrait {
 
     public function getSinonimias($obj_sinonimias)
     {
-        $sinonimias = array();
+        $sinonimias = collect();
 
         foreach ($obj_sinonimias as $sinonimia) {
             list($nombre, $autor)= $this->getSinonimia(null, $sinonimia);
-            array_push($sinonimias, ['nombre'=>$nombre, 'autor'=>$autor]);
+//            array_push($sinonimias, ['nombre'=>$nombre, 'autor'=>$autor, 'id'=>$sinonimia->id]);
+//            $sinonimias->push(collect(['nombre'=>$nombre, 'autor'=>$autor, 'id'=>$sinonimia->id]));
+            $sinonimias->push(['nombre'=>$nombre, 'autor'=>$autor, 'id'=>$sinonimia->id]);
         }
-        return $sinonimias;
+
+//        dd($sinonimias->sortBy('nombre'));
+        return $sinonimias->sortBy('nombre');
     }
 }

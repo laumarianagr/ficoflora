@@ -98,7 +98,7 @@ trait ReferenciasTrait {
 
     public function getTrabajoTexto($referecia)
     {
-        $texto = $referecia->titulo.'. <b><em>'.$referecia->tipo.'. '.$referecia->institucion.'. '.$referecia->lugar.'</em>, '.$referecia->paginas.'pp.</b>';
+        $texto = $referecia->titulo.'. <b><em>'.$referecia->tipo.'. '.$referecia->institucion.'. '.$referecia->lugar.'</em>, '.$referecia->paginas.' pp.</b>';
         return $texto;
     }
 
@@ -122,7 +122,7 @@ trait ReferenciasTrait {
         if($referecia->editorial != null){
             $texto = $texto.' <b><em>'.$referecia->editorial.'</em>.</b>';
         }
-        $texto = $texto.' <b><em>'.$referecia->lugar.'</em>. '.$referecia->paginas.'pp.</b>';
+        $texto = $texto.' <b><em>'.$referecia->lugar.'</em>. '.$referecia->paginas.' pp.</b>';
 
         return $texto;
 

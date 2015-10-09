@@ -64,8 +64,8 @@ trait EspecieDatosTrait {
         //nombre completo
         $nombre = $especie['genero']. " ". $especie['especifico'];
 
-        if ($especie['varietal']!= null)  $nombre .=  " var." . $especie['varietal'];
-        if ($especie['forma'] != null)  $nombre .=  " f." . $especie['forma'];
+        if ($especie['varietal']!= null)  $nombre .=  " var. " . $especie['varietal'];
+        if ($especie['forma'] != null)  $nombre .=  " f. " . $especie['forma'];
 
         $especie['nombre'] = $nombre;
 

@@ -26,7 +26,7 @@
 
 
         @section('listar')
-            Número de <b>Especies</b> reportadas para el autor <b class="text-primary">{{$autor['nombre']}}</b>:
+            Número de <b>especies</b> reportadas para el autor <b class="text-primary">{{$autor['nombre']}}</b>:
         @stop
 
         @section('taxo-listar')

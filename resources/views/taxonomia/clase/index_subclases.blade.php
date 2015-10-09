@@ -31,7 +31,7 @@
 
 
         @section('listar')
-            Número de <b>Subclases</b> reportadas para la clase <em><b class="text-primary">{{$taxonomia['clase']}}</b></em>:
+            Número de <b>subclases</b> reportadas para la clase <b class="text-primary">{{$taxonomia['clase']}}</b>:
         @stop
 
         @section('taxo-listar')

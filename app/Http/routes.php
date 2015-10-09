@@ -111,44 +111,36 @@ Route::get('clase/{id}/subclases', ['as' => 'clase.subclases', 'uses' => 'Taxono
 Route::get('phylum/{id}/clases', ['as' => 'phylum.clases', 'uses' => 'Taxonomia\PhylumsController@clases']);
 
 
-
-
+Route::get('galerias', ['as' => 'phylum.galeria', 'uses' => 'Taxonomia\PhylumsController@galeria']);
 
 
 
 
 //---------->>>>>>>>>>
-// PAIS
+// GEOGRÁFICO
 //---------->>>>>>>>>>
-Route::get('pais/venezuela/entidades', ['as' => 'pais.entidades', 'uses' => 'Ubicacion\PaisesController@entidades']);
+        //País
+        //----------------
+        Route::get('pais/venezuela/entidades', ['as' => 'pais.entidades', 'uses' => 'Ubicacion\PaisesController@entidades']);
 
+        // ENTIDAD
+        //--------------
+        Route::get('entidad/{id}/especies', ['as' => 'entidad.especies', 'uses' => 'Ubicacion\EntidadesController@especies']);
+        Route::get('entidad/{id}/localidades', ['as' => 'entidad.localidades', 'uses' => 'Ubicacion\EntidadesController@localidades']);
 
-//---------->>>>>>>>>>
-// ENTIDAD
-//---------->>>>>>>>>>
-Route::get('entidad/{id}/especies', ['as' => 'entidad.especies', 'uses' => 'Ubicacion\EntidadesController@especies']);
-Route::get('entidad/{id}/localidades', ['as' => 'entidad.localidades', 'uses' => 'Ubicacion\EntidadesController@localidades']);
+        // LOCALIDAD
+        //----------------------
+        Route::get('localidad/{id}/especies', ['as' => 'localidad.especies', 'uses' => 'Ubicacion\LocalidadesController@especies']);
+        Route::get('localidad/{id}/lugares', ['as' => 'localidad.lugares', 'uses' => 'Ubicacion\LocalidadesController@lugares']);
 
+        // LUGAR
+        //----------------
+        Route::get('lugar/{id}/especies', ['as' => 'lugar.especies', 'uses' => 'Ubicacion\LugaresController@especies']);
+        Route::get('lugar/{id}/sitios', ['as' => 'lugar.sitios', 'uses' => 'Ubicacion\LugaresController@sitios']);
 
-//---------->>>>>>>>>>
-// LOCALIDAD
-//---------->>>>>>>>>>
-Route::get('localidad/{id}/especies', ['as' => 'localidad.especies', 'uses' => 'Ubicacion\LocalidadesController@especies']);
-Route::get('localidad/{id}/lugares', ['as' => 'localidad.lugares', 'uses' => 'Ubicacion\LocalidadesController@lugares']);
-
-
-//---------->>>>>>>>>>
-// LUGAR
-//---------->>>>>>>>>>
-Route::get('lugar/{id}/especies', ['as' => 'lugar.especies', 'uses' => 'Ubicacion\LugaresController@especies']);
-Route::get('lugar/{id}/sitios', ['as' => 'lugar.sitios', 'uses' => 'Ubicacion\LugaresController@sitios']);
-
-//---------->>>>>>>>>>
-// SITIO
-//---------->>>>>>>>>>
-Route::get('sitio/{id}/especies', ['as' => 'sitio.especies', 'uses' => 'Ubicacion\SitiosController@especies']);
-
-
+        // SITIO
+        //----------------
+        Route::get('sitio/{id}/especies', ['as' => 'sitio.especies', 'uses' => 'Ubicacion\SitiosController@especies']);
 
 
 

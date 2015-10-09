@@ -20,7 +20,7 @@ class LugaresController extends Controller
     {
         $lugar = Lugar::find($id);
 
-        $especies_ids = $lugar->especies()->get();
+        $especies_ids = $lugar->especies()->conCatalogo(true)->get();
 //        dd(count($especies_ids));
 
         $ubicacion = $this->ubicacionLugar($id);

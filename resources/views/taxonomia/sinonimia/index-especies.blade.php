@@ -30,11 +30,11 @@
         @stop
 
         @section('taxo-superior')
-            <span class="text-muted">Especie con nombre no válido</span>
+
          @stop
 
         @section('listar')
-            Número de <b>Especies</b> con nombres válidos reportadas como <em><b class="text-primary">{{$sinonimia['nombre']}}</b></em>:
+            Número de <b>especies</b> con nombres válidos reportadas como <em><b class="text-primary">{{$sinonimia['nombre']}}</b></em>:
         @stop
 
         @section('taxo-listar')

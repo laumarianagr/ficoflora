@@ -7,7 +7,7 @@
                     <div class="widget-summary-col">
                         <div class="pdf-img">
                             @yield('ruta-pdf')
-                            <img src="{{ asset('img/pdf.jpg')}}" class="" alt="Exportar">
+                            <img src="{{ asset('img/png.jpg')}}" class="" alt="Exportar">
                             </a>
                         </div>
                         <div class="summary mb-sm">

@@ -31,7 +31,7 @@
 
 
 @section('listar')
-    Entidades federales
+    entidades federales
 @stop
 
 @section('pertenece')

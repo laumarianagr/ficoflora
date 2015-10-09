@@ -17,23 +17,29 @@
     </style>
 @stop
 
+@section('especie-mapa')
+    <em>{{$especie['nombre']}}</em> {{$especie['autor']}}
+@stop
+
 @section('content')
 
 
  <div class="row">
-     <div class="col-xs-3 col-xlg-2 col-xlg-offset-1">
+     <div class="col-md-3  hidden-xs hidden-sm col col-xlg-2 col-xlg-offset-1">
 
          <section class="panel">
              <div class="panel-body">
                  <div class="thumb-info mb-md">
-                     <img src="{{ asset('img/!logged-user.jpg')}}" class="rounded img-responsive" alt="John Doe">
+                     <img src="{{ asset('img/sin-imagen.png')}}" class="rounded img-responsive" alt="John Doe">
 
                  </div>
 
 
                  <ul class="opciones">
                      <li><a id="modal-vzla" href="#modal-mapa" class=" modal-basic modal-with-zoom-anim"><i class="fa fa-map-marker"></i>Ubicación en Venezuela </a></li>
+                     @if(false)
                      <li><a><i class="fa fa-picture-o"></i>Galería </a></li>
+                     @endif
                      <li><a href="{{route('pdf.especie', [$especie['id']])}}"><i class="fa fa-file-pdf-o"></i>Exportar ficha </a></li>
                      <li><a href="{{route('genero.especies', [$especie['genero_id']])}}"><i class="fa fa-list-ul"></i>Especies del género </a></li>
                  </ul>
@@ -43,24 +49,43 @@
                      <li><a  href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a></li>
                  </ul>
 
+                 <hr class="dotted short">
+
+                 @if(!empty($sinonimias))
+
+                     <section class="panel mb-sm">
+                         <div class="bg-dark p-sm ">
+                             <h5 class="m-none">Sinonimias</h5>
+                         </div>
+                     </section>
+
+                     <ul class="pl-lg">
+                         @foreach($sinonimias as $sinonimia)
+                             <li class="text-dark"><a class="text-dark" href="{{route('sinonimia.index',[$sinonimia['id']])}}">{{$sinonimia['nombre']}}</a></li>
+                         @endforeach
+                     </ul>
+                     <hr class="dotted short">
+
+                 @endif
+
 
              </div>
          </section>
 
      </div>
-     <div class="col-xs-9 col-xlg-8">
+     <div class="col-sm-12 col-md-9 col-xlg-8">
 
          <div class="row">
-             <div class="col-md-12 ">
+             <div class="col-xs-12 col-md-12 ">
                  <section class="panel panel-featured-bottom panel-featured-primary">
                      <div class="panel-body">
                          <div class="widget-summary">
 
                              <div class="widget-summary-col">
 
-                                 <div class="pdf-img">
+                                 <div class="hidden-xs hidden-sm pdf-img">
                                      <a href="{{route('pdf.especie', [$especie['id']])}}">
-                                         <img src="{{ asset('img/pdf.jpg')}}" class="" alt="Exportar">
+                                         <img src="{{ asset('img/pdf.png')}}" class="" alt="Exportar">
                                      </a>
                                  </div>
 
@@ -100,6 +125,25 @@
                  </section>
              </div>
 
+           <div class="col-xs-12 visible-xs visible-sm">
+               <section class="panel panel-featured-left panel-featured-primary">
+                   <div class="panel-body">
+                       <div class="widget-summary widget-summary-xs">
+                           <div class="widget-summary-col">
+                               <div class="summary">
+                                   <ul class="opciones">
+                                       <li><a id="modal-vzla" href="#modal-mapa" class=" modal-basic modal-with-zoom-anim"><i class="fa fa-map-marker"></i>Ubicación en Venezuela </a></li>
+                                       <li><a href="{{route('pdf.especie', [$especie['id']])}}"><i class="fa fa-file-pdf-o"></i>Exportar ficha </a></li>
+                                       <li><a href="{{route('genero.especies', [$especie['genero_id']])}}"><i class="fa fa-list-ul"></i>Especies del género </a></li>
+                                   </ul>
+
+                               </div>
+
+                           </div>
+                       </div>
+                   </div>
+               </section>
+           </div>
          </div>
 
 
@@ -112,7 +156,7 @@
                      <div class="panel panel-accordion">
                          <div class="panel-heading">
                              <h4 class="panel-title">
-                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1Two">
+                                 <a class="accordion-toggle" data-toggle="collapse" href="#collapse1Two">
                                      Especie reportada en
                                  </a>
                              </h4>
@@ -231,10 +275,11 @@
                      </div>
 
 
+                     @if(false)
                      <div class="panel panel-accordion">
                          <div class="panel-heading">
                              <h4 class="panel-title">
-                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#galeria">
+                                 <a class="accordion-toggle" data-toggle="collapse"  href="#galeria">
                                      Galería
                                  </a>
                              </h4>
@@ -245,15 +290,19 @@
                              </div>
                          </div>
                      </div>
+
+                     @endif
+
+
                      <div class="panel panel-accordion">
                          <div class="panel-heading">
                              <h4 class="panel-title">
-                                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapse1Three">
+                                 <a class="accordion-toggle" data-toggle="collapse"  href="#collapse1Three">
                                      Referencias bibliográficas
                                  </a>
                              </h4>
                          </div>
-                         <div id="collapse1Three" class="accordion-body collapse">
+                         <div id="collapse1Three" class="accordion-body collapse in">
                              <div class="panel-body ficha-referencias  pl-none pr-none">
 
 
@@ -272,7 +321,6 @@
 
                                      <tbody>
                                          @foreach($referencias as $referencia)
-
                                             <tr>
                                                 <td>
                                                     <h4>{{$referencia['cita']}}, {{$referencia['fecha']}}</h4>
@@ -283,9 +331,6 @@
 
                                             </tr>
                                          @endforeach
-
-
-
 
                                      </tbody>
 
@@ -365,10 +410,10 @@
     var osm = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 16, attribution: osmAttrib});
     map.addLayer(osm);
 
-
+//    var marker = L.marker([-11.19705555555, -70.01973]).addTo(map);
     for (coordenada in coordenadas) {
         var marker = L.marker([coordenadas[coordenada]['latitud'], coordenadas[coordenada]['longitud']]).addTo(map);
-        marker.bindPopup("<b>"+coordenadas[coordenada]['tipo']+":</b> "+coordenadas[coordenada]['nombre']);
+        marker.bindPopup("<h5 style='margin-top: 5px;margin-bottom: 5px;'><b>"+coordenadas[coordenada]['tipo']+":</b> "+coordenadas[coordenada]['nombre']+"</h5> <b>Latitud: </b>"+coordenadas[coordenada]['latitud']+"<br><b>Longitud: </b>"+coordenadas[coordenada]['longitud']);
 
     }
 

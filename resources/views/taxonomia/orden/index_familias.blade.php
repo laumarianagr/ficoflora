@@ -34,7 +34,7 @@
 
 
         @section('listar')
-            Número de <b>Familias</b> reportadas para el orden <em><b class="text-primary">{{$taxonomia['orden']}}</b></em>:
+            Número de <b>familias</b> reportadas para el orden <b class="text-primary">{{$taxonomia['orden']}}</b>:
         @stop
 
         @section('taxo-listar')
