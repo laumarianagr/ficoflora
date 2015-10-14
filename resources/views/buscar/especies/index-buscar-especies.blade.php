@@ -48,7 +48,7 @@
                       <section class="panel panel-featured-left panel-featured-primary">
                           <div class="panel-body">
 
-                              <label class="control-label" for="genero">Especies del Genero</label>
+                              <label class="control-label" for="genero">Especies del Género</label>
                               {!! Form::text('genero', null, ['id'=>'genero-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
 
                           </div>
@@ -142,11 +142,12 @@
     <script>
         var autores = <?php echo json_encode($autores); ?>;
 
-        localStorage.setItem("menu", "m-buscar");
+        localStorage.setItem("menu", "m-especie");
+
     </script>
 
 
     <script type='text/javascript' src='{{ asset('js/busquedas/typeahead_busquedas.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('js/busquedas/typeahead_busquedas.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('js/busquedas/typeahead_busqueda_autores.js')}}'></script>
 
 @stop

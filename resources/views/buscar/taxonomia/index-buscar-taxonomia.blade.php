@@ -33,7 +33,7 @@
                     <section class="panel panel-featured-left panel-featured-primary">
                         <div class="panel-body">
 
-                            <label class="control-label" for="genero">Genero</label>
+                            <label class="control-label" for="genero">Género</label>
                             {!! Form::text('genero', null, ['id'=>'genero-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
 
                         </div>
@@ -105,7 +105,7 @@
             </div>
         </div>
     </div>
-    </div>
+
 
 
 
@@ -119,7 +119,7 @@
 
     <script>
 
-        localStorage.setItem("menu", "m-buscar");
+        localStorage.setItem("menu", "m-taxonomia");
     </script>
     <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\jquery.dataTables.min.js')}}'></script>
 

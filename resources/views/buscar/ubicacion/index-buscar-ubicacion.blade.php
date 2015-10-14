@@ -27,7 +27,7 @@
         <div class="row mt-md mb-xlg">
 
 
-                <div class="col-xs-12 col-md-4  ">
+                <div class="col-xs-12 col-md-6  ">
                     <section class="panel panel-featured-left panel-featured-primary">
                         <div class="panel-body">
 
@@ -38,7 +38,7 @@
                     </section>
                 </div>
 
-                <div class="col-xs-12 col-md-4 ">
+                <div class="col-xs-12 col-md-6 ">
                     <section class="panel panel-featured-left panel-featured-primary">
                         <div class="panel-body">
 
@@ -52,7 +52,7 @@
 
 
 
-                <div class="col-xs-12 col-md-4 ">
+                <div class="col-xs-12 col-md-6 ">
 
 
                     <section class="panel panel-featured-left panel-featured-primary">
@@ -65,7 +65,21 @@
                     </section>
                 </div>
 
-    </div>
+
+                <div class="col-xs-12 col-md-6 ">
+
+
+                    <section class="panel panel-featured-left panel-featured-primary">
+                        <div class="panel-body">
+
+                            <label class="control-label" for="genero">Sitio</label>
+                            {!! Form::text('sitio', null, ['id'=>'sitio', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
+
+                        </div>
+                    </section>
+                </div>
+
+        </div>
     </div>
 
 
@@ -83,7 +97,7 @@
     <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\dataTables.bootstrap.js')}}'></script>
 
     <script>
-        localStorage.setItem("menu", "m-buscar");
+        localStorage.setItem("menu", "m-ubicacion");
     </script>
 
     <script type='text/javascript' src='{{ asset('js/busquedas/typeahead_busquedas.js')}}'></script>

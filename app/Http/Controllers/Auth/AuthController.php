@@ -21,7 +21,10 @@ class AuthController extends Controller
     |
     */
 
-    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+//    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    use AuthenticatesAndRegistersUsers;
+
+    protected $redirectTo = '/buscar/especies';
 
     /**
      * Create a new authentication controller instance.
@@ -42,12 +45,14 @@ class AuthController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+            'usuario' => 'required|max:255|unique:usuarios',
+            'email' => 'required|email|max:255|unique:usuarios',
             'password' => 'required|confirmed|min:6',
+            'nombre' => 'required|max:255',
+            'apellido' => 'required|max:255',
+
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *

@@ -18,19 +18,19 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li id="m-inicio" class="active"><a class="m-menu" href="#">Inicio</a></li>
-                    <li id="m-proyectos"><a class="m-menu" href="#">Proyecto</a></li>
-                    <li id="m-catalogo"><a hre class="m-menu" f="#">Catálogo Nacional</a></li>
-                    <li id="m-publicaciones"><a class="m-menu" href="#">Publicaciones</a></li>
-                    <li id="m-buscar" class="dropdown">
-                        <a href="#" class="dropdown-toggle m-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Búsquedas</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="{{route('buscar.especies.index')}}">Especies</a></li>
-                            <li><a href="{{route('buscar.taxonomia.index')}}">Taxonomía</a></li>
-                            <li><a href="{{route('buscar.ubicacion.index')}}">Ubicación</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">Créditos</a></li>
+                    {{--<li id="m-inicio" class="active"><a class="m-menu" href="#">Inicio</a></li>--}}
+                    <li id="m-especie" class="active"><a class="m-menu" href="{{route('buscar.especies.index')}}">Especie</a></li>
+                    <li id="m-taxonmia"><a  class="m-menu" href="{{route('buscar.taxonomia.index')}}">Taxonomía</a></li>
+                    <li id="m-ubicacion"><a class="m-menu" href="{{route('buscar.ubicacion.index')}}">Ubicación</a></li>
+                    {{--<li id="m-buscar" class="dropdown">--}}
+                        {{--<a href="#" class="dropdown-toggle m-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Búsquedas</a>--}}
+                        {{--<ul class="dropdown-menu">--}}
+                            {{--<li><a href="{{route('buscar.especies.index')}}">Especies</a></li>--}}
+                            {{--<li><a href="{{route('buscar.taxonomia.index')}}">Taxonomía</a></li>--}}
+                            {{--<li><a href="{{route('buscar.ubicacion.index')}}">Ubicación</a></li>--}}
+                        {{--</ul>--}}
+                    {{--</li>--}}
+                    {{--<li><a href="#">Créditos</a></li>--}}
 
                 </ul>
 

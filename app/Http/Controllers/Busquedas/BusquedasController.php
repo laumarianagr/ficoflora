@@ -21,7 +21,7 @@ class BusquedasController extends Controller
     public function especies()
     {
 
-        $autores = Autor::lists('nombre');
+        $autores = Autor::select('id','nombre')->get();
 
         return view('buscar.especies.index-buscar-especies', compact('autores'));
     }
@@ -125,9 +125,20 @@ class BusquedasController extends Controller
             ->select(DB::raw('sinonimias.id, epitetos_especificos.nombre as especifico, epitetos_varietales.nombre as varietal, epitetos_formas.nombre as forma, generos.nombre as genero, CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,epitetos_varietales.nombre,epitetos_formas.nombre)  as nombre, "s" as tipo'));
 
         $especies = DB::table('especies')
-            ->where(DB::raw('CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,epitetos_varietales.nombre,epitetos_formas.nombre)'), 'like' , '%'.$query.'%')
-            ->orwhere(DB::raw('CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,"f.",epitetos_formas.nombre)'), 'like' , '%'.$query.'%')
-            ->orwhere(DB::raw('CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,"var.",epitetos_varietales.nombre)'), 'like' , '%'.$query.'%')
+
+            ->where(function ($q) use ($query){
+                $q->orwhere('generos.nombre', 'like', $query.'%')
+                    ->orwhere('epitetos_especificos.nombre', 'like', $query.'%')
+                    ->orwhere('epitetos_varietales.nombre', 'like', $query.'%')
+                    ->orwhere('epitetos_formas.nombre', 'like', $query.'%')
+                    ->orwhere(DB::raw('CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,epitetos_varietales.nombre,epitetos_formas.nombre)'), 'like' , '%'.$query.'%')
+                    ->orwhere(DB::raw('CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,"f.",epitetos_formas.nombre)'), 'like' , '%'.$query.'%')
+                    ->orwhere(DB::raw('CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,"var.",epitetos_varietales.nombre)'), 'like' , '%'.$query.'%');//
+            })
+//            ->where(DB::raw('CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,epitetos_varietales.nombre,epitetos_formas.nombre)'), 'like' , '%'.$query.'%')
+//            ->orwhere(DB::raw('CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,"f.",epitetos_formas.nombre)'), 'like' , '%'.$query.'%')
+//            ->orwhere(DB::raw('CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,"var.",epitetos_varietales.nombre)'), 'like' , '%'.$query.'%')
+            ->where('especies.catalogo', 1)
             ->join('epitetos_especificos', 'especies.especifico_id', '=', 'epitetos_especificos.id')
             ->leftJoin('epitetos_varietales', 'especies.varietal_id', '=', 'epitetos_varietales.id')
             ->leftJoin('epitetos_formas', 'especies.forma_id', '=', 'epitetos_formas.id')
@@ -148,6 +159,7 @@ class BusquedasController extends Controller
     {
         $generos = DB::table('generos')
             ->where('generos.nombre', 'like', '%'.$query.'%')
+            ->where('generos.familia_id', '<>', -1)
             ->orderBy('nombre')
             ->get();
 
@@ -259,5 +271,18 @@ class BusquedasController extends Controller
             ->get();
 
         return $lugares;
+    }
+
+
+    //LISTA DE ENTIDADES
+    public function getSitios($query)
+    {
+        $sitios = DB::table('sitios')
+            ->where('sitios.nombre', 'like', '%'.$query.'%')
+            ->select('id','nombre')
+            ->orderBy('nombre')
+            ->get();
+
+        return $sitios;
     }
 }

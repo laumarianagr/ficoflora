@@ -12,7 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+    $usuario = \Illuminate\Support\Facades\Auth::user();
+    return view('welcome', compact('usuario'));
 });
 
 //Route::get('mapas', function () {
@@ -20,6 +22,11 @@ Route::get('/', function () {
 //
 //    return view('mapas.mapas');
 //});
+
+// Authenticacion
+Route::get('auth/login',  ['as' => 'auth', 'uses' =>'Auth\AuthController@getLogin']);
+Route::post('auth/login',  ['as' => 'auth.login', 'uses' =>'Auth\AuthController@postLogin']);
+Route::get('auth/logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 
 
@@ -50,6 +57,7 @@ Route::get('buscar/ubicacion', ['as' => 'buscar.ubicacion.index', 'uses' => 'Bus
     Route::get('buscar/entidades/{query}', ['as' => 'buscar.entidades', 'uses' => 'Busquedas\BusquedasController@getEntidades']);
     Route::get('buscar/localidades/{query}', ['as' => 'buscar.localidades', 'uses' => 'Busquedas\BusquedasController@getLocalidades']);
     Route::get('buscar/lugares/{query}', ['as' => 'buscar.lugares', 'uses' => 'Busquedas\BusquedasController@getLugares']);
+    Route::get('buscar/sitios/{query}', ['as' => 'buscar.sitios', 'uses' => 'Busquedas\BusquedasController@getSitios']);
 
 
 

@@ -1,45 +1,37 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Laravel</title>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
-        <link href="//fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
+    <title>Admin - Ficoflora Venezuela</title>
+    <link href='//fonts.googleapis.com/css?family=Lato:100' rel='stylesheet' type='text/css'>
+    <link rel="icon" type="image/png" href="{{ asset('img/favicon.ico')}}" />
 
-        <style>
-            html, body {
-                height: 100%;
-            }
+    <link rel="stylesheet" href="{{ asset('css/landing.css')}}">
 
-            body {
-                margin: 0;
-                padding: 0;
-                width: 100%;
-                display: table;
-                font-weight: 100;
-                font-family: 'Lato';
-            }
+</head>
+<body>
+<div class="container">
+    <div class="content">
 
-            .container {
-                text-align: center;
-                display: table-cell;
-                vertical-align: middle;
-            }
+        <div class="logo">
+            {{--            <img src="{{ asset('img/ficoflora_logo.png')}}" height="35" alt="Porto Admin" />--}}
 
-            .content {
-                text-align: center;
-                display: inline-block;
-            }
-
-            .title {
-                font-size: 96px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="content">
-                <div class="title">Laravel 5</div>
-            </div>
         </div>
-    </body>
+        <div class="title">Ficoflora Venezuela</div>
+        <hr/>
+        <div class="quote">Módulo de Consultas</div>
+
+        <div class="auth">
+
+            @if($usuario == null)
+            <a href="{{route('auth')}}">Ingresar</a>
+
+                @else
+                <a href="{{route('buscar.especies')}}">Ingresar</a>
+
+            @endif
+        </div>
+    </div>
+</div>
+</body>
 </html>

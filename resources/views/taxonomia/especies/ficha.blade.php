@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('plugins/leaflet/leaflet.css')}}">
     <link rel="stylesheet" href="{{ asset('plugins/magnific-popup/magnific-popup.css')}}">
     <link rel="stylesheet" href="{{ asset('plugins\DataTables-1.10.7\css\dataTables.bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ asset('plugins/fancybox/jquery.fancybox.css')}}">
 
     <style>
         #map { height:400px; }
@@ -30,15 +31,23 @@
          <section class="panel">
              <div class="panel-body">
                  <div class="thumb-info mb-md">
-                     <img src="{{ asset('img/sin-imagen.png')}}" class="rounded img-responsive" alt="John Doe">
+
+                     @if($portada == null)
+                     <img src="{{ asset('img/sin-imagen.png')}}" class="rounded img-responsive" alt="sin imagen disponible">
+
+                     @else
+                         <a class="galeria" rel="galeria" href="{{ asset('galeria/'.$portada->imagen.'_z.jpg')}}" title="{{$portada->leyenda}}">
+                             <img class="img-w100"  src="{{ asset('galeria/'.$portada->imagen.'.jpg')}}" alt="" />
+                         </a>
+                     @endif
 
                  </div>
 
 
                  <ul class="opciones">
                      <li><a id="modal-vzla" href="#modal-mapa" class=" modal-basic modal-with-zoom-anim"><i class="fa fa-map-marker"></i>Ubicación en Venezuela </a></li>
-                     @if(false)
-                     <li><a><i class="fa fa-picture-o"></i>Galería </a></li>
+                     @if(!empty($imagenes))
+                     <li><a  href="#galeria" ><i class="fa fa-picture-o"></i>Galería </a></li>
                      @endif
                      <li><a href="{{route('pdf.especie', [$especie['id']])}}"><i class="fa fa-file-pdf-o"></i>Exportar ficha </a></li>
                      <li><a href="{{route('genero.especies', [$especie['genero_id']])}}"><i class="fa fa-list-ul"></i>Especies del género </a></li>
@@ -133,6 +142,9 @@
                                <div class="summary">
                                    <ul class="opciones">
                                        <li><a id="modal-vzla" href="#modal-mapa" class=" modal-basic modal-with-zoom-anim"><i class="fa fa-map-marker"></i>Ubicación en Venezuela </a></li>
+                                       @if(!empty($imagenes))
+                                           <li><a  href="#galeria" ><i class="fa fa-picture-o"></i>Galería </a></li>
+                                       @endif
                                        <li><a href="{{route('pdf.especie', [$especie['id']])}}"><i class="fa fa-file-pdf-o"></i>Exportar ficha </a></li>
                                        <li><a href="{{route('genero.especies', [$especie['genero_id']])}}"><i class="fa fa-list-ul"></i>Especies del género </a></li>
                                    </ul>
@@ -275,18 +287,28 @@
                      </div>
 
 
-                     @if(false)
+                     @if($imagenes != null)
                      <div class="panel panel-accordion">
                          <div class="panel-heading">
                              <h4 class="panel-title">
-                                 <a class="accordion-toggle" data-toggle="collapse"  href="#galeria">
+                                 <a class="accordion-toggle" data-toggle="collapse" name="galery" href="#galeria">
                                      Galería
                                  </a>
                              </h4>
                          </div>
-                         <div id="galeria" class="accordion-body collapse">
+                         <div id="galeria" class="accordion-body collapse in">
                              <div class="panel-body">
-                                 Donec tellus massa, tristique sit amet condimentum vel, facilisis quis sapien.
+
+                                 <div class="galeria_box">
+
+                                     @foreach($imagenes as $imagen)
+                                         <a class="galeria" rel="galeria" href="{{ asset('galeria/'.$imagen->imagen.'_z.jpg')}}" title="{{$imagen->leyenda}}">
+                                             <img class=""  src="{{ asset('galeria/'.$imagen->imagen.'.jpg')}}" alt="" />
+                                         </a>
+
+                                     @endforeach
+                                 </div>
+
                              </div>
                          </div>
                      </div>
@@ -395,13 +417,35 @@
     <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\dataTables.bootstrap.js')}}'></script>
 
     <script type='text/javascript' src='{{ asset('js/ficha-especies.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('plugins/fancybox/jquery.fancybox.js')}}'></script>
 
 
 
     <script>
 
+
     var coordenadas = <?php echo $coordenadas; ?>;
 
+    $(document).ready(function() {
+        $("#portada").fancybox({
+            openEffect	: 'fade',
+            closeEffect	: 'fade',
+            helpers : {
+                title : {
+                    type : 'inside'
+                }
+            }
+        });
+        $(".galeria").fancybox({
+            openEffect	: 'fade',
+            closeEffect	: 'fade',
+            helpers : {
+                title : {
+                    type : 'inside'
+                }
+            }
+        });
+    });
 
     map = new L.Map('map');
     // create the tile layer with correct attribution
@@ -442,6 +486,7 @@
 
     }
 
+    localStorage.setItem("menu", "m-especie");
 
 
     </script>

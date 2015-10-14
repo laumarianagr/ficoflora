@@ -58,25 +58,37 @@ class EspeciesController extends Controller
 
 
 
-        $portada = $this->getPortada($obj_especie);
-        
-        dd($portada);
+        $portada = $this->getPortada($id);
 
-        return view('taxonomia.especies.ficha', compact('especie', 'citas_reportes', 'sinonimias', 'referencias', 'fecha', 'coordenadas', 'portada'));
+        $imagenes = $this->getImagenes($id);
+//        dd($imagenes);
+        return view('taxonomia.especies.ficha', compact('especie', 'citas_reportes', 'sinonimias', 'referencias', 'fecha', 'coordenadas', 'portada', 'imagenes'));
     }
 
 
-    public function getPortada($obj_especie)
+    public function getPortada($id)
     {
 
         $imagen = DB::table('imagenes_especies')
-            ->where('especie_id', $obj_especie->id)
+            ->where('especie_id', $id)
             ->where('tipo', 'h')
             ->first();
 
         
         return $imagen;
 
+    }
+
+
+    public function getImagenes($id)
+    {
+        $imagenes = DB::table('imagenes_especies')
+            ->where('especie_id', $id)
+            ->where('tipo', 'g')
+            ->get();
+
+
+        return $imagenes;
     }
 
 

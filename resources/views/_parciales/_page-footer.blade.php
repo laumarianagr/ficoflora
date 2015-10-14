@@ -4,11 +4,11 @@
             <div class="col-md-4">
                 <div class="">
                     <h5>Proyecto Ficoflora Venezuela  © 2015</h5>
-                    <ul>
-                        <li><a href="">Información</a> |</li>
-                        <li><a href=""><a href="">Editores</a> |</li>
-                        <li><a href=""><a href="">Copyright</a></li>
-                    </ul>
+                    {{--<ul>--}}
+                        {{--<li><a href="">Información</a> |</li>--}}
+                        {{--<li><a href=""><a href="">Editores</a> |</li>--}}
+                        {{--<li><a href=""><a href="">Copyright</a></li>--}}
+                    {{--</ul>--}}
 
                 </div>
             </div>

@@ -45,11 +45,6 @@ trait SinonimiaPDF {
                     </td>
                 </tr>
 
-                <tr>
-                    <td>
-                        Especie con nombre no válido
-                    </td>
-                </tr>
             </table>";
 
         return $contentido;

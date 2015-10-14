@@ -131,3 +131,8 @@ table.tabla-referencias tr{
         width: 50px;
     }
 }
+.img-w100{
+    width: 100%;
+    display: block;
+    height: auto;
+}
