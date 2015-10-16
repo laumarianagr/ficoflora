@@ -56,13 +56,13 @@ class EspeciesController extends Controller
         $fecha = Carbon::now();
 
 
-
+        $total = count($citas_reportes);
 
         $portada = $this->getPortada($id);
 
         $imagenes = $this->getImagenes($id);
 //        dd($imagenes);
-        return view('taxonomia.especies.ficha', compact('especie', 'citas_reportes', 'sinonimias', 'referencias', 'fecha', 'coordenadas', 'portada', 'imagenes'));
+        return view('taxonomia.especies.ficha', compact('especie', 'citas_reportes', 'sinonimias', 'referencias', 'fecha', 'coordenadas', 'portada', 'imagenes', 'total'));
     }
 
 

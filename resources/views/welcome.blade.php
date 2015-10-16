@@ -23,13 +23,13 @@
 
         <div class="auth">
 
-            @if($usuario == null)
-            <a href="{{route('auth')}}">Ingresar</a>
+            {{--@if($usuario == null)--}}
+            {{--<a href="{{route('auth')}}">Ingresar</a>--}}
 
-                @else
+                {{--@else--}}
                 <a href="{{route('buscar.especies')}}">Ingresar</a>
 
-            @endif
+            {{--@endif--}}
         </div>
     </div>
 </div>

@@ -136,3 +136,21 @@ table.tabla-referencias tr{
     display: block;
     height: auto;
 }
+
+.dp-iblock{
+    display: inline-block;
+}
+
+.h-200{
+    height: 200px;
+}
+
+.clear {
+    clear: both;
+}
+@media only screen and (min-width: 992px) {
+
+    #especie {
+        width: 400px;
+    }
+}

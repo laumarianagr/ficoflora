@@ -9,7 +9,6 @@
     <meta http-equiv="Content-Type" content="application/pdf; charset=utf-8">
     <link rel="stylesheet" href="{{ asset('plugins/leaflet/leaflet.css')}}">
     <link rel="stylesheet" href="{{ asset('plugins/magnific-popup/magnific-popup.css')}}">
-    <link rel="stylesheet" href="{{ asset('plugins\DataTables-1.10.7\css\dataTables.bootstrap.css')}}">
     <link rel="stylesheet" href="{{ asset('plugins/fancybox/jquery.fancybox.css')}}">
 
     <style>
@@ -181,6 +180,7 @@
                                      <thead>
                                      <tr>
                                          <th class="th-dataTable no-sort pr-md">
+                                             <h6 class="m-none dp-iblock">Número de registros: <b>{{$total}}</b></h6>
                                              <a id="sort-autor" class="pull-right pl-md sort">Autor <i class="fa "></i></a>
                                              <a id="sort-fecha" class="pull-right sort dt-sorting">Fecha <i class="fa fa-sort-amount-desc"></i></a>
                                              <h6 class="sort pull-right mb-none mr-sm mt-xs">ordenar por: </h6>
@@ -406,15 +406,13 @@
 
 @section('script_section')
     @parent
+
     <script type='text/javascript' src='{{ asset('plugins/leaflet/leaflet.js')}}'></script>
 
     <script type='text/javascript' src='{{ asset('plugins/magnific-popup/jquery.magnific-popup.min.js')}}'></script>
 
     <script type='text/javascript' src='{{ asset('js/examples.modals.js')}}'></script>
 
-    <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\jquery.dataTables.min.js')}}'></script>
-
-    <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\dataTables.bootstrap.js')}}'></script>
 
     <script type='text/javascript' src='{{ asset('js/ficha-especies.js')}}'></script>
     <script type='text/javascript' src='{{ asset('plugins/fancybox/jquery.fancybox.js')}}'></script>

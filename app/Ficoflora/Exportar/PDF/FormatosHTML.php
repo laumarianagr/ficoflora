@@ -110,10 +110,10 @@ trait FormatosHTML {
 
         $ubicacion="";
 
-        $ubicacion .="Pais: <b>Venezuela</b>";
+        $ubicacion .="País: <b>Venezuela</b>";
 
         if($tipo != 'e'){
-            $ubicacion .=" > Entidad: <b>".$datos['entidad']."</b>";
+            $ubicacion .=" > Entidad Federal: <b>".$datos['entidad']."</b>";
 
             if($tipo != 'lo'){
                 $ubicacion .=" > Localidad: <b>".$datos['localidad']."</b>";

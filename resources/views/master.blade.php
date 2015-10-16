@@ -11,7 +11,8 @@
 
     <link rel="stylesheet" href="{{ asset('plugins/bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{ asset('plugins/font-awesome/css/font-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{ asset('plugins\select2-4.0.0\css\select2.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('plugins/select2-4.0.0/css/select2.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('plugins/DataTables-1.10.7/css/dataTables.bootstrap.css')}}">
 
     <link rel="stylesheet" href="{{ asset('css/ficoflora.css')}}">
     <link rel="stylesheet" href="{{ asset('css/temporal.css')}}">
@@ -63,14 +64,21 @@
     </script>
     <script type='text/javascript' src='{{ asset('plugins/jquery/jquery-1.11.2.min.js')}}'></script>
     <script type='text/javascript' src='{{ asset('plugins/bootstrap/js/bootstrap.min.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('plugins\toastr\js\toastr.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('plugins/toastr/js/toastr.min.js')}}'></script>
     <script type='text/javascript' src='{{ asset('plugins/jquery/jquery-validation/jquery.validate.min.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('plugins\select2-4.0.0\js\select2.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('plugins/select2-4.0.0/js/select2.min.js')}}'></script>
+
+    <script type='text/javascript' src='{{ asset('plugins/DataTables-1.10.7/js/jquery.dataTables.min.js')}}'></script>
+
+    <script type='text/javascript' src='{{ asset('plugins/DataTables-1.10.7/js/dataTables.bootstrap.js')}}'></script>
 
     <script type='text/javascript' src='{{ asset('plugins/typeahead/typeahead.bundle.js')}}'></script>
 
     <script type='text/javascript' src='{{ asset('js/busquedas/typeahead_busqueda_especies.js')}}'></script>
-    <script>
+
+@show
+
+<script>
         $('ul.navbar-nav li  a.m-menu').click(function(){
             localStorage.setItem("menu", $(this).parent().attr('id'));
             console.log($(this).parent().attr('id'));
@@ -82,7 +90,6 @@
         $(menu).addClass("active");
     </script>
 
-@show
 {{--END Scripts--}}
 </body>
 

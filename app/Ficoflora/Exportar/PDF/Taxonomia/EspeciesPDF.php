@@ -49,20 +49,14 @@ trait EspeciesPDF {
 
                              <h3>Especie reportada en:</h3>
                              <br/>
-                             ".$reporatado."
 
                         </div>
                     </td>
                 </tr>
 
-
-                <tr>
-                   <td>
-
-                    </td>
-
-                </tr>
             </table>
+             ".$reporatado."
+
             <br/>
              ".$bibliografia;
 
@@ -79,18 +73,18 @@ trait EspeciesPDF {
 
         foreach ($citas_reportes as $referencia) {
 
-            $reportado .= "<h4>" . $referencia['cita'] . ", " . $referencia['fecha'] . "</h4>";
+            $reportado .= "<tr><td><h4>" . $referencia['cita'] . ", " . $referencia['fecha'] . "</h4></td></tr>";
 
             $text_reporte = "";
 
             foreach ($referencia['reportes'] as $reporte) {
 
                 if (!empty($reporte['sinonimia'])) {
-                    $text_reporte .= "<table class='sinonimia'><tr><td><h5>como: <em><b>" . $reporte['sinonimia']['nombre'] . "</b></em> <small>" . $reporte['sinonimia']['autor'] . "</small></h5></td></tr></table>";
+                    $text_reporte .= "<tr><td class='sinonimia'><h5>como: <em><b>" . $reporte['sinonimia']['nombre'] . "</b></em> <small>" . $reporte['sinonimia']['autor'] . "</small></h5></td></tr>";
                 }
                 if (!empty($reporte['ubicaciones'])) {
 
-                    $text_reporte .= "<ul>";
+                    $text_reporte .= "<tr><td><ul>";
 
                     foreach ($reporte['ubicaciones'] as $ubicacion) {
                         $text_reporte .= "<li><span>" . $ubicacion['entidad'];
@@ -126,12 +120,15 @@ trait EspeciesPDF {
                         }
                         $text_reporte .= "</span></li>";//
                     }
-                    $text_reporte .= "</ul>";//
+                    $text_reporte .= "</ul></td></tr>";//
                 }
             }
-            $reportado .="<table class='reportado'><tr><td>".$text_reporte.= "</td></tr></table>";
+            $reportado .="<table class='reportado'>".$text_reporte.= "</table>";
         }
-        return $reportado;
+
+        $reportes ="<table class=''>".$reportado.= "</table>";
+
+        return $reportes;
     }
 
 
