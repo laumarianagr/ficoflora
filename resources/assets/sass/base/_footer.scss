@@ -4,10 +4,13 @@ footer {
   background: #121214;
   border-top: 4px solid #1F1F1F;
   font-size: 0.9em;
+   color: #ccc;
   // margin-top: 50px;
   padding: 20px 0 0;
   position: relative;
   clear: both;
+ 
+
   div {
     &.footer-ribon {
       background: #999;

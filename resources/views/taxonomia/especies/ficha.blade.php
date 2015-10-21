@@ -54,7 +54,7 @@
 
                  <hr class="dotted short">
                  <ul class="opciones">
-                     <li><a  href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a></li>
+                     <li><a  href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva búsqueda</a></li>
                  </ul>
 
                  <hr class="dotted short">
@@ -63,13 +63,13 @@
 
                      <section class="panel mb-sm">
                          <div class="bg-dark p-sm ">
-                             <h5 class="m-none">Sinonimias</h5>
+                             <h5 class="m-none">Sinonimia</h5>
                          </div>
                      </section>
 
                      <ul class="pl-lg">
                          @foreach($sinonimias as $sinonimia)
-                             <li class="text-dark"><a class="text-dark" href="{{route('sinonimia.index',[$sinonimia['id']])}}">{{$sinonimia['nombre']}}</a></li>
+                             <li class="text-dark"><a class="text-dark" href="{{route('sinonimia.index',[$sinonimia['id']])}}"><em>{{$sinonimia['nombre']}}</em></a></li>
                          @endforeach
                      </ul>
                      <hr class="dotted short">
@@ -92,7 +92,7 @@
                              <div class="widget-summary-col">
 
                                  <div class="hidden-xs hidden-sm pdf-img">
-                                     <a href="{{route('pdf.especie', [$especie['id']])}}">
+                                     <a href="{{route('pdf.especie', [$especie['id']])}}" title="Exportar ficha">
                                          <img src="{{ asset('img/pdf.png')}}" class="" alt="Exportar">
                                      </a>
                                  </div>
@@ -303,7 +303,7 @@
 
                                      @foreach($imagenes as $imagen)
                                          <a class="galeria" rel="galeria" href="{{ asset('galeria/'.$imagen->imagen.'_z.jpg')}}" title="{{$imagen->leyenda}}">
-                                             <img class=""  src="{{ asset('galeria/'.$imagen->imagen.'.jpg')}}" alt="" />
+                                             <img class="img-galeria"  src="{{ asset('galeria/'.$imagen->imagen.'.jpg')}}" alt="" />
                                          </a>
 
                                      @endforeach
@@ -455,8 +455,15 @@
 //    var marker = L.marker([-11.19705555555, -70.01973]).addTo(map);
     for (coordenada in coordenadas) {
         var marker = L.marker([coordenadas[coordenada]['latitud'], coordenadas[coordenada]['longitud']]).addTo(map);
-        marker.bindPopup("<h5 style='margin-top: 5px;margin-bottom: 5px;'><b>"+coordenadas[coordenada]['tipo']+":</b> "+coordenadas[coordenada]['nombre']+"</h5> <b>Latitud: </b>"+coordenadas[coordenada]['latitud']+"<br><b>Longitud: </b>"+coordenadas[coordenada]['longitud']);
+        marker.bindPopup("<h5 style='margin-top: 5px;margin-bottom: 5px;'><b>" + coordenadas[coordenada]['tipo'] + ":</b> " + coordenadas[coordenada]['nombre'] + "</h5> <b>Latitud: </b>" + coordenadas[coordenada]['latitud'] + "<br><b>Longitud: </b>" + coordenadas[coordenada]['longitud']);
 
+
+        marker.on('mouseover', function (e) {
+            this.openPopup();
+        });
+        marker.on('mouseout', function (e) {
+            this.closePopup();
+        });
     }
 
     $("#modal-vzla").on('click', function(){

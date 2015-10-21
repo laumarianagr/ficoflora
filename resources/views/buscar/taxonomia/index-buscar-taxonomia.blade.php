@@ -19,7 +19,7 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="text-dark mb-xlg"><i class="fa fa-search pr-md"></i>Buscar Taxonomía</h2>
+                <h3 class="text-dark mb-xlg"><i class="fa fa-search pr-md"></i>Buscar Clasificación Taxonómica</h3>
             </div>
 
         </div>

@@ -28,22 +28,22 @@ $('#especie.typeahead').typeahead({
     displayKey: function($keys){
 
         if(($keys['varietal'] == null) && ($keys['forma'] == null)){
-            return $keys['genero']+' '+$keys['especifico'];
+            return $keys['genero']+' '+$keys['especifico']+' '+$keys['autor'];
         }else{
             if(($keys['varietal'] != null) && ($keys['forma'] == null)) {
-                return $keys['genero'] + ' ' + $keys['especifico'] + ' var. ' + $keys['varietal'];
+                return $keys['genero'] + ' ' + $keys['especifico'] + ' var. ' + $keys['varietal']+' '+$keys['autor'];
             }else{
                 if(($keys['varietal'] == null) && ($keys['forma'] != null)) {
-                    return $keys['genero'] + ' ' + $keys['especifico'] + ' f. ' + $keys['forma'];
+                    return $keys['genero'] + ' ' + $keys['especifico'] + ' f. ' + $keys['forma']+' '+$keys['autor'];
                 }else{
-                    return $keys['genero'] + ' ' + $keys['especifico']+ ' var. ' + $keys['varietal'] + ' f. ' + $keys['forma'];
+                    return $keys['genero'] + ' ' + $keys['especifico']+ ' var. ' + $keys['varietal'] + ' f. ' + $keys['forma']+' '+$keys['autor'];
                 }
             }
         }
     },
     templates: {
         empty: function(){
-            return '<p>No se encontro ninguna especie</p>'
+            return '<p>No se encontró ninguna especie</p>'
         }
         //suggestion: function ($keys) {
         //    return '<div><strong>'+$keys.nombre+'</strong></div>'

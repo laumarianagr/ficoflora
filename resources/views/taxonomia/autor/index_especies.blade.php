@@ -12,7 +12,7 @@
 @section('content')
 
 @section('taxo-tipo')
-    Autor
+    Autoridad
 @stop
 
 @section('ruta-pdf')

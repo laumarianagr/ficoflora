@@ -10,7 +10,7 @@ $(document).ready(function() {
         "language": {
             "lengthMenu": "Mostrar _MENU_ filas por página",
             "search": "Filtrar",
-            "zeroRecords": "Disculpe, no se encontro ninguno.",
+            "zeroRecords": "Disculpe, no se encontró ninguno.",
             "info": "Página _PAGE_ de _PAGES_",
             "infoEmpty": "No hay registros disponibles",
             "infoFiltered": "(filtrado de un total de _MAX_ registros)",

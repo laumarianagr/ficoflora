@@ -38,7 +38,7 @@
 @stop
 
 @section('pertenece')
-    a el lugar
+    al lugar
 @stop
 
 @section('ubicacion-listar')

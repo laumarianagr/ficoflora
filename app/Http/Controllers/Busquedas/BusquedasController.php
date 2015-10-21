@@ -121,8 +121,9 @@ class BusquedasController extends Controller
             ->join('epitetos_especificos', 'sinonimias.especifico_id', '=', 'epitetos_especificos.id')
             ->leftJoin('epitetos_varietales', 'sinonimias.varietal_id', '=', 'epitetos_varietales.id')
             ->leftJoin('epitetos_formas', 'sinonimias.forma_id', '=', 'epitetos_formas.id')
+            ->leftJoin('autores', 'sinonimias.autor_id', '=', 'autores.id')
             ->join('generos', 'sinonimias.genero_id', '=', 'generos.id')
-            ->select(DB::raw('sinonimias.id, epitetos_especificos.nombre as especifico, epitetos_varietales.nombre as varietal, epitetos_formas.nombre as forma, generos.nombre as genero, CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,epitetos_varietales.nombre,epitetos_formas.nombre)  as nombre, "s" as tipo'));
+            ->select(DB::raw('sinonimias.id, autores.nombre as autor , epitetos_especificos.nombre as especifico, epitetos_varietales.nombre as varietal, epitetos_formas.nombre as forma, generos.nombre as genero, CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,epitetos_varietales.nombre,epitetos_formas.nombre)  as nombre, "s" as tipo'));
 
         $especies = DB::table('especies')
 
@@ -143,7 +144,8 @@ class BusquedasController extends Controller
             ->leftJoin('epitetos_varietales', 'especies.varietal_id', '=', 'epitetos_varietales.id')
             ->leftJoin('epitetos_formas', 'especies.forma_id', '=', 'epitetos_formas.id')
             ->join('generos', 'especies.genero_id', '=', 'generos.id')
-            ->select(DB::raw('especies.id, epitetos_especificos.nombre as especifico, epitetos_varietales.nombre as varietal, epitetos_formas.nombre as forma, generos.nombre as genero, CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,epitetos_varietales.nombre,epitetos_formas.nombre)  as nombre, "e" as tipo'))
+            ->leftJoin('autores', 'especies.autor_id', '=', 'autores.id')
+            ->select(DB::raw('especies.id, autores.nombre as autor , epitetos_especificos.nombre as especifico, epitetos_varietales.nombre as varietal, epitetos_formas.nombre as forma, generos.nombre as genero, CONCAT_WS(" ",generos.nombre,epitetos_especificos.nombre,epitetos_varietales.nombre,epitetos_formas.nombre)  as nombre, "e" as tipo'))
             ->union($sinonimias)
             ->orderBy('nombre')
             ->get();

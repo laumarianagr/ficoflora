@@ -35,7 +35,7 @@
                         <h5 class="">@yield('listar') <b>{{$total}}</b></h5>
                     </div>
                 <div class="col-md-4 nueva-busqueda">
-                       <a class="dp-in-b" href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a>
+                       <a class="dp-in-b" href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva búsqueda</a>
                     </div>
                 </div>
                 <hr class="dotted short mb-lg mt-sm">

@@ -37,7 +37,7 @@
 
 
         @section('listar')
-            Número de <b>Géneros</b> reportados para la familia <b class="text-primary">{{$taxonomia['familia']}}</b>:
+            Número de <b>géneros</b> reportados para la familia <b class="text-primary">{{$taxonomia['familia']}}</b>:
         @stop
 
         @section('taxo-listar')

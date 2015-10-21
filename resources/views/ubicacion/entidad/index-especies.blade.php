@@ -26,7 +26,7 @@
 
 
     @section('ubicacion-superior')
-        <span class="text-muted">Pais:</span> <a class="text-primary" href="{{route('pais.entidades', 'venezuela')}}">{{$ubicacion['pais']}} </a>
+        <span class="text-muted">País:</span> <a class="text-primary" href="{{route('pais.entidades', 'venezuela')}}">{{$ubicacion['pais']}} </a>
     @stop
 
 

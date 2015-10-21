@@ -67,7 +67,7 @@ $('#autor-especies.typeahead').typeahead({
     name: 'autor',
     displayKey: 'nombre',
     templates: {
-        header: '<h6 class="type-header">Seleccione un autor</h6>'
+        header: '<h6 class="type-header">Seleccione una autoridad</h6>'
     },
     //source: autor.ttAdapter()
     source: nombres.ttAdapter()

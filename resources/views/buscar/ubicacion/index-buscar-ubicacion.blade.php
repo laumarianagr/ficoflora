@@ -19,7 +19,7 @@
 
         <div class="row">
             <div class="col-xs-12">
-                <h2 class="text-dark mb-xlg"><i class="fa fa-search pr-md"></i>Buscar Ubicación</h2>
+                <h3 class="text-dark mb-xlg"><i class="fa fa-search pr-md"></i>Buscar Ubicación</h3>
             </div>
 
         </div>
@@ -31,7 +31,7 @@
                     <section class="panel panel-featured-left panel-featured-primary">
                         <div class="panel-body">
 
-                            <label class="control-label" for="genero">Entidad</label>
+                            <label class="control-label" for="genero">Entidad federal</label>
                             {!! Form::text('entidad', null, ['id'=>'entidad', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
 
                         </div>

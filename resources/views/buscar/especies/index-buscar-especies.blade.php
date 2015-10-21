@@ -19,7 +19,7 @@
 
       <div class="row">
           <div class="col-xs-12">
-              <h2 class="text-dark mb-xlg"><i class="fa fa-search pr-md"></i>Buscar Especies</h2>
+              <h3 class="text-dark mb-xlg"><i class="fa fa-search pr-md"></i>Buscar Especies</h3>
           </div>
 
 
@@ -90,7 +90,7 @@
                       <section class="panel panel-featured-left panel-featured-primary">
                           <div class="panel-body">
 
-                              <label class="control-label" for="genero">Especies de la Entidad</label>
+                              <label class="control-label" for="genero">Especies de la Entidad federal</label>
                               {!! Form::text('entidad', null, ['id'=>'entidad-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
 
                           </div>

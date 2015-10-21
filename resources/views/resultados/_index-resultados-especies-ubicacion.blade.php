@@ -35,10 +35,10 @@
 
                 <div class="row mb-md ">
                     <div class="col-md-8">
-                        <h5 class="mt-md "><b>especies</b> reportadas para @yield('pertenece') <b class="text-primary">@yield('ubicacion-nombre')</b>: <b>{{$total}}</b></h5>
+                        <h5 class="mt-md ">Número de <b>especies</b> reportadas para @yield('pertenece') <b class="text-primary">@yield('ubicacion-nombre'):</b> <b>{{$total}}</b></h5>
                     </div>
                     <div class="col-md-4 nueva-busqueda">
-                        <a class="dp-in-b" href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva Búsqueda</a>
+                        <a class="dp-in-b" href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva búsqueda</a>
                     </div>
                 </div>
                 <hr class="dotted short mb-lg mt-sm">

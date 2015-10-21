@@ -35,7 +35,7 @@
 
 
     @section('listar')
-        Número de <b>Especies</b> reportadas para la familia <b class="text-primary">{{$taxonomia['familia']}}</b>:
+        Número de <b>especies</b> reportadas para la familia <b class="text-primary">{{$taxonomia['familia']}}</b>:
     @stop
 
 

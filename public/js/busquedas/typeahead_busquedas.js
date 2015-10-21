@@ -257,7 +257,7 @@ $('#entidad-especies.typeahead').typeahead({
     name: 'entidad',
     displayKey: 'nombre',
     templates: {
-        header: '<h6 class="type-header">Seleccione una entidad</h6>'
+        header: '<h6 class="type-header">Seleccione una entidad federal</h6>'
     },
     source: entidad.ttAdapter()
 
@@ -275,7 +275,7 @@ $('#entidad.typeahead').typeahead({
     name: 'entidad',
     displayKey: 'nombre',
     templates: {
-        header: '<h6 class="type-header">Seleccione una entidad</h6>'
+        header: '<h6 class="type-header">Seleccione una entidad federal</h6>'
     },
     source: entidad.ttAdapter()
 
@@ -361,7 +361,7 @@ $('#lugar-especies.typeahead').typeahead({
     name: 'lugar',
     displayKey: 'nombre',
     templates: {
-        header: '<h6 class="type-header">Seleccione una lugar</h6>'
+        header: '<h6 class="type-header">Seleccione un lugar</h6>'
     },
     source: lugar.ttAdapter()
 
@@ -379,7 +379,7 @@ $('#lugar.typeahead').typeahead({
     name: 'lugar',
     displayKey: 'nombre',
     templates: {
-        header: '<h6 class="type-header">Seleccione una lugar</h6>'
+        header: '<h6 class="type-header">Seleccione un lugar</h6>'
     },
     source: lugar.ttAdapter()
 
@@ -420,6 +420,6 @@ $('#sitio.typeahead').typeahead({
     source: sitio.ttAdapter()
 
 }).bind('typeahead:select', function (ev, suggestion) {
-    window.location.replace(root_url+'sitios/'+suggestion.id);
+    window.location.replace(root_url+'sitio/'+suggestion.id+'/especies');
 });
 

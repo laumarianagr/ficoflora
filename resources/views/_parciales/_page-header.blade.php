@@ -10,7 +10,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="{{route('buscar.especies.index')}}">
                     <img src="{{ asset('img/logo.png')}}" class="img-responsive">
                 </a>
             </div>
@@ -21,7 +21,7 @@
                    <ul class="nav navbar-nav">
                        {{--<li id="m-inicio" class="active"><a class="m-menu" href="#">Inicio</a></li>--}}
                        <li id="m-especie" class="active"><a class="m-menu" href="{{route('buscar.especies.index')}}">Especie</a></li>
-                       <li id="m-taxonmia"><a  class="m-menu" href="{{route('buscar.taxonomia.index')}}">Taxonomía</a></li>
+                       <li id="m-taxonmia"><a  class="m-menu" href="{{route('buscar.taxonomia.index')}}">Clasificación Taxonómica</a></li>
                        <li id="m-ubicacion"><a class="m-menu" href="{{route('buscar.ubicacion.index')}}">Ubicación</a></li>
                        {{--<li id="m-buscar" class="dropdown">--}}
                        {{--<a href="#" class="dropdown-toggle m-menu" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Búsquedas</a>--}}
@@ -40,7 +40,7 @@
                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                        <i class="fa fa-search mr-sm"></i>
                        <div class="form-group">
-                           {!! Form::text('especie', null, ['id'=>'especie', 'class' => 'form-control typeahead', 'autocomplete' => 'off', 'placeholder' => 'buscar especies']) !!}
+                           {!! Form::text('especie', null, ['id'=>'especie', 'class' => 'form-control typeahead header', 'autocomplete' => 'off', 'placeholder' => 'buscar especies']) !!}
                        </div>
                    </form>
 
