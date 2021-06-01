@@ -6,14 +6,13 @@
 
 @section('css_section')
     @parent
-    <link rel="stylesheet" href="{{ asset('plugins\DataTables-1.10.7\css\dataTables.bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ asset('plugins/DataTables-1.10.7/css/dataTables.bootstrap.css')}}">
 @stop
 
 @section('content')
 
-        @section('taxo-tipo')
-            Clase
-        @stop
+        @section('taxo-tipo'){{"Clase"}}@stop
+
 
         @section('taxo-nombre')
             {{$taxonomia['clase']}}
@@ -29,11 +28,11 @@
 
 
         @section('listar')
-            Número de <b>ordenes</b> reportados para la clase <b class="text-primary">{{$taxonomia['clase']}}</b>:
+            Número de <b>órdenes</b> reportados para la clase <b class="text-primary">{{$taxonomia['clase']}}</b>:
         @stop
 
         @section('taxo-listar')
-            del Orden
+            del orden
         @stop
 
 
@@ -59,8 +58,8 @@
     @parent
 
 
-    <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\jquery.dataTables.min.js')}}'></script>
-    <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\dataTables.bootstrap.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('plugins/DataTables-1.10.7/js/jquery.dataTables.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('plugins/DataTables-1.10.7/js/dataTables.bootstrap.js')}}'></script>
 
     <script type='text/javascript' src='{{ asset('js/busquedas/dataTable_resultados.js')}}'></script>
     <script>

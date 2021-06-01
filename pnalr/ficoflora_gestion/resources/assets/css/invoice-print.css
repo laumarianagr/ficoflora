@@ -1,0 +1,377 @@
+/* Headings */
+/* Divider Line */
+hr {
+  border: 0;
+  height: 1px;
+  background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
+  background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
+  background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
+  background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.2), transparent);
+  margin: 22px 0 22px 0; }
+
+hr.short {
+  margin: 11px 0 11px 0; }
+
+hr.tall {
+  margin: 44px 0 44px 0; }
+
+hr.taller {
+  margin: 66px 0 66px 0; }
+
+hr.light {
+  background-image: -webkit-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  background-image: -ms-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(left, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0)); }
+
+hr.dotted {
+  height: 0;
+  border-bottom: 1px dotted #ddd; }
+
+hr.solid {
+  height: 0;
+  border-bottom: 1px solid #ddd; }
+
+/* Miscellaneous */
+body a, body a:focus, body a:hover, body a:active, body a:visited {
+  outline: none !important; }
+
+.center {
+  text-align: center; }
+
+ul,
+ol {
+  margin-bottom: 0;
+  padding-left: 27px; }
+
+/* Navs */
+ul.nav-list.primary > li {
+  margin: 0;
+  padding: 0; }
+  ul.nav-list.primary > li:last-child a {
+    border-bottom: transparent !important; }
+  ul.nav-list.primary > li a {
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    background-position: 9px 16px;
+    background-repeat: no-repeat;
+    border-bottom: 1px solid #EDEDDE;
+    padding: 8px 20px; }
+
+/* Tables - Basic */
+.table {
+  width: 100%; }
+  .table .table {
+    background: transparent; }
+
+/* Bootstrap uses important, we need to force it here */
+.table.mb-none {
+  margin-bottom: 0 !important; }
+
+/* In case you dont want a border in some row */
+.table .b-top-none td {
+  border-top: none; }
+
+/* Tables - Actions */
+.table .actions,
+.table .actions-hover {
+  vertical-align: middle; }
+  .table .actions a,
+  .table .actions-hover a {
+    display: inline-block;
+    margin-right: 5px;
+    color: #666; }
+    .table .actions a:last-child,
+    .table .actions-hover a:last-child {
+      margin-right: 0; }
+  .table .actions a:hover,
+  .table .actions-hover a:hover {
+    color: #333; }
+.table .actions-hover a {
+  opacity: 0; }
+.table tr:hover .actions-hover a {
+  opacity: 1; }
+.table .actions-fade a {
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  transition: all 0.2s linear; }
+
+/* Tables - No More Tables technique (991px is the bootstrap SM max-width) */
+@media only screen and (max-width: 991px) {
+  .table.table-no-more,
+  .table.table-no-more thead,
+  .table.table-no-more tbody,
+  .table.table-no-more tr,
+  .table.table-no-more th,
+  .table.table-no-more td {
+    display: block; }
+  .table.table-no-more thead tr {
+    left: -9999px;
+    position: absolute;
+    top: -9999px; }
+  .table.table-no-more tr {
+    border-bottom: 1px solid #DDD; }
+  .table.table-no-more td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: left;
+    white-space: normal; }
+    .table.table-no-more td:before {
+      content: attr(data-title);
+      font-weight: bold;
+      left: 6px;
+      padding-right: 10px;
+      position: absolute;
+      text-align: left;
+      top: 8px;
+      white-space: nowrap;
+      width: 45%; }
+  .table.table-no-more.table-bordered td {
+    border-bottom: 1px solid #EFEFEF; }
+  .table.table-no-more.table-condensed td:before {
+    top: 5px; } }
+/* Dark - Tables */
+html.dark .table > thead > tr > th,
+html.dark .table > tbody > tr > th,
+html.dark .table > tfoot > tr > th,
+html.dark .table > thead > tr > td,
+html.dark .table > tbody > tr > td,
+html.dark .table > tfoot > tr > td,
+html.dark .table-bordered {
+  border-color: #262b33; }
+html.dark .table-striped > tbody > tr:nth-child(2n+1) > td,
+html.dark .table-striped > tbody > tr:nth-child(2n+1) > th {
+  background-color: #282d36; }
+html.dark .table-hover > tbody > tr:hover > td,
+html.dark .table-hover > tbody > tr:hover > th {
+  background-color: #272c34; }
+html.dark .table .actions a,
+html.dark .table .actions-hover a {
+  color: #808697; }
+
+@media screen and (max-width: 991px) {
+  html.dark .table-responsive {
+    border-color: #262b33; } }
+@media only screen and (max-width: 991px) {
+  html.dark .table.table-no-more tr,
+  html.dark .table.table-no-more.table-bordered td {
+    border-bottom-color: #262b33; } }
+/* Tables - States */
+.table > thead > tr > td.primary,
+.table > tbody > tr > td.primary,
+.table > tfoot > tr > td.primary,
+.table > thead > tr > th.primary,
+.table > tbody > tr > th.primary,
+.table > tfoot > tr > th.primary,
+.table > thead > tr.primary > td,
+.table > tbody > tr.primary > td,
+.table > tfoot > tr.primary > td,
+.table > thead > tr.primary > th,
+.table > tbody > tr.primary > th,
+.table > tfoot > tr.primary > th {
+  color: #FFF;
+  background-color: #9cbc1f; }
+
+.table > thead > tr > td.success,
+.table > tbody > tr > td.success,
+.table > tfoot > tr > td.success,
+.table > thead > tr > th.success,
+.table > tbody > tr > th.success,
+.table > tfoot > tr > th.success,
+.table > thead > tr.success > td,
+.table > tbody > tr.success > td,
+.table > tfoot > tr.success > td,
+.table > thead > tr.success > th,
+.table > tbody > tr.success > th,
+.table > tfoot > tr.success > th {
+  color: #FFF;
+  background-color: #90b456; }
+
+.table > thead > tr > td.warning,
+.table > tbody > tr > td.warning,
+.table > tfoot > tr > td.warning,
+.table > thead > tr > th.warning,
+.table > tbody > tr > th.warning,
+.table > tfoot > tr > th.warning,
+.table > thead > tr.warning > td,
+.table > tbody > tr.warning > td,
+.table > tfoot > tr.warning > td,
+.table > thead > tr.warning > th,
+.table > tbody > tr.warning > th,
+.table > tfoot > tr.warning > th {
+  color: #FFF;
+  background-color: #ed9c28; }
+
+.table > thead > tr > td.danger,
+.table > tbody > tr > td.danger,
+.table > tfoot > tr > td.danger,
+.table > thead > tr > th.danger,
+.table > tbody > tr > th.danger,
+.table > tfoot > tr > th.danger,
+.table > thead > tr.danger > td,
+.table > tbody > tr.danger > td,
+.table > tfoot > tr.danger > td,
+.table > thead > tr.danger > th,
+.table > tbody > tr.danger > th,
+.table > tfoot > tr.danger > th {
+  color: #FFF;
+  background-color: #d2322d; }
+
+.table > thead > tr > td.info,
+.table > tbody > tr > td.info,
+.table > tfoot > tr > td.info,
+.table > thead > tr > th.info,
+.table > tbody > tr > th.info,
+.table > tfoot > tr > th.info,
+.table > thead > tr.info > td,
+.table > tbody > tr.info > td,
+.table > tfoot > tr.info > td,
+.table > thead > tr.info > th,
+.table > tbody > tr.info > th,
+.table > tfoot > tr.info > th {
+  color: #FFF;
+  background-color: #5bc0de; }
+
+.table > thead > tr > td.dark,
+.table > tbody > tr > td.dark,
+.table > tfoot > tr > td.dark,
+.table > thead > tr > th.dark,
+.table > tbody > tr > th.dark,
+.table > tfoot > tr > th.dark,
+.table > thead > tr.dark > td,
+.table > tbody > tr.dark > td,
+.table > tfoot > tr.dark > td,
+.table > thead > tr.dark > th,
+.table > tbody > tr.dark > th,
+.table > tfoot > tr.dark > th {
+  color: #FFF;
+  background-color: #272E34; }
+
+.table > thead > tr > td.dark,
+.table > tbody > tr > td.dark,
+.table > tfoot > tr > td.dark,
+.table > thead > tr > th.dark,
+.table > tbody > tr > th.dark,
+.table > tfoot > tr > th.dark,
+.table > thead > tr.dark > td,
+.table > tbody > tr.dark > td,
+.table > tfoot > tr.dark > td,
+.table > thead > tr.dark > th,
+.table > tbody > tr.dark > th,
+.table > tfoot > tr.dark > th {
+  color: #FFF;
+  background-color: #272E34; }
+
+.table > thead > tr > td.dark,
+.table > tbody > tr > td.dark,
+.table > tfoot > tr > td.dark,
+.table > thead > tr > th.dark,
+.table > tbody > tr > th.dark,
+.table > tfoot > tr > th.dark,
+.table > thead > tr.dark > td,
+.table > tbody > tr.dark > td,
+.table > tfoot > tr.dark > td,
+.table > thead > tr.dark > th,
+.table > tbody > tr.dark > th,
+.table > tfoot > tr.dark > th {
+  background-color: #53626e;
+  color: #FFF; }
+
+/* Invoice */
+.invoice {
+  padding: 0 15px 15px; }
+
+/* Invoice Address Tag */
+.invoice address {
+  color: #7F8597;
+  line-height: 1.5em; }
+
+/* Invoice header */
+.invoice header {
+  border-bottom: 1px solid #DADADA;
+  margin-bottom: 15px; }
+  .invoice header .h2,
+  .invoice header .h4 {
+    letter-spacing: 0; }
+
+/* Invoice Billing Information */
+.invoice .bill-to,
+.invoice .bill-data {
+  padding: 15px 0; }
+.invoice .bill-data .value {
+  display: inline-block;
+  margin-left: 10px;
+  width: 90px; }
+
+/* Invoice table */
+.invoice table.table {
+  table-layout: fixed; }
+  .invoice table.table > thead:first-child > tr > th {
+    background-color: #F8F8F8;
+    border-bottom: 1px solid #DADADA;
+    border-top: 1px solid #DADADA; }
+  .invoice table.table > tbody tr > td {
+    border-color: #DADADA; }
+
+/* Invoice table items */
+.invoice .invoice-items > tbody tr:last-child > td {
+  border-bottom: 1px solid #DADADA; }
+.invoice .invoice-items #cell-id {
+  width: 10%; }
+.invoice .invoice-items #cell-item {
+  width: 20%; }
+.invoice .invoice-items #cell-desc {
+  width: 20%; }
+.invoice .invoice-items #cell-price {
+  width: 10%; }
+.invoice .invoice-items #cell-qty {
+  width: 10%; }
+.invoice .invoice-items #cell-total {
+  width: 10%; }
+
+/* Invoice summary */
+.invoice-summary .col-sm-4 {
+  padding-left: 0; }
+
+/* Invoice Responsiveness */
+@media only screen and (max-width: 991px) {
+  .invoice .table-responsive > table.table {
+    table-layout: auto; }
+
+  .invoice-summary .col-sm-4 {
+    padding-left: 15px; } }
+/* Invoice Print */
+@media print {
+  .invoice .table-responsive {
+    border: none !important;
+    overflow: visible !important;
+    width: auto !important; }
+  .invoice table.table.invoice-items {
+    table-layout: auto; }
+  .invoice header .col-sm-6:first-child,
+  .invoice header .col-sm-6:last-child,
+  .invoice .bill-info .col-md-6 {
+    float: left !important; }
+  .invoice header .col-sm-6:first-child {
+    width: 25% !important; }
+  .invoice header .col-sm-6:last-child {
+    width: 75% !important; }
+  .invoice .bill-info .col-md-6 {
+    width: 50% !important; }
+  .invoice .invoice-summary .col-sm-4 {
+    float: right;
+    padding: 0;
+    width: 40%; } }
+/* dark */
+html.dark .invoice header {
+  border-bottom-color: #282d36; }
+html.dark .invoice table.table > thead:first-child > tr > th {
+  background-color: #282d36;
+  border-bottom-color: #282d36;
+  border-top-color: #282d36; }
+html.dark .invoice table.table > tbody tr > td {
+  border-color: #282d36; }
+
+/*# sourceMappingURL=invoice-print.css.map */

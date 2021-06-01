@@ -12,6 +12,7 @@ use App\Modelos\Taxonomia\Autor;
 use App\Modelos\Taxonomia\Epitetos\Especifico;
 use App\Modelos\Taxonomia\Epitetos\Forma;
 use App\Modelos\Taxonomia\Epitetos\Varietal;
+use App\Modelos\Taxonomia\Epitetos\Subespecie;
 use App\Modelos\Taxonomia\Genero;
 
 trait SinonimiasTrait {
@@ -29,10 +30,16 @@ trait SinonimiasTrait {
 
         $especie = $genero['nombre'].' '.$especifico['nombre'];
 
+        if($sinonimia['subespecie_id'] != null){
+            $varietal= Subespecie::find($sinonimia['subespecie_id']);
+            $especie = $especie.' subsp. '.$varietal['nombre'];
+        }
+
         if($sinonimia['varietal_id'] != null){
             $varietal= Varietal::find($sinonimia['varietal_id']);
             $especie = $especie.' var. '.$varietal['nombre'];
         }
+
         if($sinonimia['forma_id'] != null){
             $forma= Forma::find($sinonimia['forma_id']);
             $especie= $especie.' f. '.$forma['nombre'];

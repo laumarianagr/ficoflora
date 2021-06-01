@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/app/Http/Controllers/Taxonomia/EspeciesController.php" line="39" mnemonic="1" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d7a3f73-6afa-4287-9c89-d3e5b2588efc" name="Default" comment="" />
-    <ignored path="ficoflora.iws" />
+    <list default="true" id="0e203714-1ee0-4637-b4c3-0b79c1864b33" name="Default" comment="" />
+    <ignored path="ficofloravenezuela.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,112 +24,50 @@
     <option name="GROUP_BY_TYPE" value="true" />
     <option name="SORT_CHILDREN" value="false" />
     <option name="SHOW_TABLE_CONSTRAINTS" value="true" />
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - ficofloravenezuela@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="ficofloravenezuela" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DbRootNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - ficofloravenezuela@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="ficofloravenezuela" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="referencias_revistas" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
-    <favorites_list name="ficoflora">
-      <favorite_root url="file://$PROJECT_DIR$/app/Http/Controllers/Ubicacion/EntidadesController.php" type="psiFile" klass="com.intellij.ide.projectView.impl.nodes.PsiFileNode" />
-    </favorites_list>
+    <favorites_list name="ficofloravenezuela" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="EspeciesController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Taxonomia/EspeciesController.php">
+      <file leaf-file-name="index.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/publicas/index.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1729">
-              <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ficha.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/especies/ficha.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="7068" max-vertical-offset="9576">
-              <caret line="384" column="70" selection-start-line="384" selection-start-column="70" selection-end-line="384" selection-end-column="84" />
-              <folding>
-                <marker date="1445094409132" expanded="true" signature="22925:22960" placeholder="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AppServiceProvider.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EventServiceProvider.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="722">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_page-footer.blade.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/_parciales/_page-footer.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4586207" vertical-offset="114" max-vertical-offset="1007">
-              <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_modal-mapa.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/mapas/_modal-mapa.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="228" max-vertical-offset="665">
-              <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_index-resultados-ubicacion.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/resultados/_index-resultados-ubicacion.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="1444">
-              <caret line="51" column="87" selection-start-line="51" selection-start-column="87" selection-end-line="51" selection-end-column="87" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_index-resultados-especies-ubicacion.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/resultados/_index-resultados-especies-ubicacion.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="492" max-vertical-offset="1349">
-              <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_index-resultados-especies-taxo.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/resultados/_index-resultados-especies-taxo.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1349">
-              <caret line="37" column="110" selection-start-line="37" selection-start-column="110" selection-end-line="37" selection-end-column="110" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index-especies.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/sinonimia/index-especies.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="741" max-vertical-offset="1805">
-              <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
+            <state vertical-scroll-proportion="-0.17957747" vertical-offset="2295" max-vertical-offset="4284">
+              <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -143,74 +78,69 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Ficoflora/Sinonimias/SinonimiasTrait.php" />
-        <option value="$PROJECT_DIR$/resources/views/taxonomia/sinonimia/index-especies.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ubicacion/LugaresController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ubicacion/LocalidadesController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ubicacion/EntidadesController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Ubicacion/SitiosController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Taxonomia/PhylumsController.php" />
-        <option value="$PROJECT_DIR$/resources/views/galeria.blade.php" />
-        <option value="$PROJECT_DIR$/public/css/landing.css" />
-        <option value="$PROJECT_DIR$/config/auth.php" />
-        <option value="$PROJECT_DIR$/app/Modelos/Cuentas/Usuario.php" />
-        <option value="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" />
-        <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Foundation/Auth/RedirectsUsers.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/AuthController.php" />
-        <option value="$PROJECT_DIR$/app/Http/routes.php" />
-        <option value="$PROJECT_DIR$/app/Ficoflora/Exportar/PDF/Taxonomia/SinonimiaPDF.php" />
-        <option value="$PROJECT_DIR$/app/Ficoflora/Exportar/PDF/FormatosHTML.php" />
-        <option value="$PROJECT_DIR$/app/Ficoflora/Exportar/PDF/Taxonomia/EspeciesPDF.php" />
-        <option value="$PROJECT_DIR$/public/css/mpdf.css" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Taxonomia/EspeciesController.php" />
-        <option value="$PROJECT_DIR$/resources/views/master.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/welcome.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Kernel.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/Busquedas/BusquedasController.php" />
-        <option value="$PROJECT_DIR$/resources/views/resultados/_index-resultados-especies-taxo.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/buscar/especies/resultados-especies.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/taxonomia/familia/index_especies.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/taxonomia/familia/index_generos.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/taxonomia/autor/index_especies.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/busquedas/typeahead_busqueda_autores.js" />
-        <option value="$PROJECT_DIR$/resources/views/resultados/_index-resultados-especies-ubicacion.blade.php" />
-        <option value="$PROJECT_DIR$/public/js/ficha-especies.js" />
-        <option value="$PROJECT_DIR$/public/js/busquedas/dataTable_resultados.js" />
-        <option value="$PROJECT_DIR$/public/js/busquedas/typeahead_busqueda_especies.js" />
-        <option value="$PROJECT_DIR$/public/js/busquedas/typeahead_busquedas.js" />
-        <option value="$PROJECT_DIR$/public/css/temporal.css" />
-        <option value="$PROJECT_DIR$/resources/views/ubicacion/lugar/index-sitios.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ubicacion/lugar/index-especies.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ubicacion/localidad/index-lugares.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ubicacion/localidad/index-especies.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ubicacion/entidad/index-localidades.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ubicacion/entidad/index-especies.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/buscar/ubicacion/index-buscar-ubicacion.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/buscar/especies/index-buscar-especies.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/ubicacion/sitio/index-especies.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/taxonomia/especies/ficha.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/buscar/taxonomia/index-buscar-taxonomia.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/_parciales/_page-header.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/mapas/_modal-mapa.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/resultados/_index-resultados-ubicacion.blade.php" />
-        <option value="$PROJECT_DIR$/resources/views/_parciales/_page-footer.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/sinonimia/crear.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Ficoflora/Funcionalidades/Nombres/EspecieDatosTrait.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Requests/Sinonimia/CrearSinonimiaRequest.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Modelos/Sinonimias/Sinonimia.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Ficoflora/Registros/Taxonomia/SubespecieRegistro.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/sinonimia/_parciales/_form-editar-sinonimia.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/sinonimia/_parciales/_resultado-sinonimia.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/sinonimia/editar.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/temporales/_parciales/_modal-agregar-sinonimia-ubicacion.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/Catalogo/RegistrosController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/catalogo/modales/modal-actualizar-sinonimia-ubicacion.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/catalogo/modales/modal-agregar-sinonimia-ubicacion.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/catalogo/mostrar.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Modelos/Bibliografia/Referencias/Catalogo.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Modelos/Bibliografia/Referencias/Enlace.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/RegistrosVenezuela/Taxonomia/EspeciesController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/RegistrosTemporales/TemporalesController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/temporales/crear.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/temporales/index.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/RegistrosVenezuela/Catalogo/CatalogoController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/temporales/mostrar.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/registros/mis-registros/bibliografico/trabajos-usuario.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/reporte/crear.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/RegistrosVenezuela/Reportes/ReportesController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/Buscar/BusquedasController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/public/js/busquedas/typeahead_busquedas_referencias.js" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/buscar/referencia/index-buscar-referencia.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/Bibliografia/ReferenciasController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/Bibliografia/Referencias/CatalogosController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/Bibliografia/Referencias/EnlacesController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/bibliograficos/referencias/enlaces/editar.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/bibliograficos/referencias/modales/modal-agregar-registro.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/bibliograficos/referencias/catalogos/mostrar.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/bibliograficos/referencias/enlaces/mostrar.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/routes.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Requests/Bibliografia/Referencias/CrearEnlaceRequest.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/resources/views/sinonimia/mostrar.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/RegistrosVenezuela/Sinonimia/SinonimiaController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_gestion/app/Ficoflora/Registros/Sinonimia/SinonimiaRegistro.php" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/config/app.php" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/resources/views/listados/referencias/referencia.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/app/Ficoflora/Referencias/ReportesReferenciaEspeciesTrait.php" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/app/Modelos/Catalogo/Registro.php" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/app/Ficoflora/Especies/ReportesReferenciasTrait.php" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/resources/views/listados/referencias/_index_referencia.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/resources/views/publicas/index.blade.php" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/.env" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/app/Http/Controllers/Taxonomia/EspeciesController.php" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/app/Ficoflora/Especies/EspecieDatosTrait.php" />
+        <option value="$PROJECT_DIR$/ficoflora_consultas/app/Http/Controllers/Listados/ListadosReferenciasController.php" />
+        <option value="$PROJECT_DIR$/resources/views/publicas/index.blade.php" />
       </list>
     </option>
   </component>
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
-    <gulpfiles>
-      <GulpfileState>
-        <gulpfile-path>$PROJECT_DIR$/gulpfile.js</gulpfile-path>
-      </GulpfileState>
-    </gulpfiles>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -230,8 +160,8 @@
       <showLibraryContents />
       <hideEmptyPackages />
       <abbreviatePackageNames />
-      <autoscrollToSource ProjectPane="true" />
-      <autoscrollFromSource ProjectPane="false" />
+      <autoscrollToSource />
+      <autoscrollFromSource />
       <sortByType />
     </navigator>
     <panes>
@@ -239,27 +169,27 @@
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -273,11 +203,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -289,17 +219,17 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="_parciales" />
+              <option name="myItemId" value="publicas" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -309,77 +239,15 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
+              <option name="myItemId" value="ficofloravenezuela" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ficoflora" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ficoflora" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Referencias" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ficoflora" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Ficoflora" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Exportar" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -389,36 +257,43 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="options.lastSelected" value="reference.settings.ide.settings.file-colors" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ficoflora_consultas/app/Ficoflora/Referencias" />
+    <property name="options.lastSelected" value="configurable.group.tools" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tesis" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="dynamic.classpath" value="false" />
     <property name="FullScreen" value="false" />
-    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="SearchEverywhereHistoryKey" value="especieDatos&#9;FILE&#9;file://C:/xampp/htdocs/ficofloravenezuela/ficoflora_consultas/app/Ficoflora/Especies/EspecieDatosTrait.php&#10;contai&#9;null&#9;null" />
+    <property name="recentsLimit" value="5" />
+    <property name="restartRequiresConfirmation" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\proyectos\git\ficoflora\app\Modelos" />
-      <recent name="C:\xampp\htdocs\proyectos\git\ficoflora\public\css" />
-      <recent name="C:\xampp\htdocs\proyectos\git\ficoflora\resources\views" />
-      <recent name="C:\xampp\htdocs\proyectos\git\ficoflora\public\js" />
-      <recent name="C:\xampp\htdocs\proyectos\git\ficoflora\resources\views\mapas" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\xampp\htdocs\proyectos\git\ficoflora\resources\views\buscar\especies" />
-      <recent name="C:\xampp\htdocs\proyectos\git\ficoflora\app\Ficoflora\Exportar\PDF\Taxonomia" />
-      <recent name="C:\xampp\htdocs\proyectos\git\ficoflora\app\Ficoflora\Ubicacion" />
-      <recent name="C:\xampp\htdocs\proyectos\git\ficoflora\app\Ficoflora\Reportes" />
-      <recent name="C:\xampp\htdocs\proyectos\git\ficoflora\app\Ficoflora\Especies" />
+      <recent name="C:\xampp\htdocs\ficofloravenezuela\ficoflora_consultas\app\Ficoflora\Referencias" />
+      <recent name="C:\xampp\htdocs\ficofloravenezuela\ficoflora_gestion\app\Ficoflora\Registros\Taxonomia" />
+      <recent name="C:\xampp\htdocs\ficofloravenezuela\ficoflora_gestion\app\Http\Controllers\Bibliografia\Referencias" />
+      <recent name="C:\xampp\htdocs\ficofloravenezuela\ficoflora_gestion\resources\views\estadisticas\bibliograficas" />
+      <recent name="C:\xampp\htdocs\ficofloravenezuela\ficoflora_consultas\app\Modelos\Bibliografia\Referencias" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.ListadosReferenciasController.php">
+    <configuration default="false" name="ListadosReferenciasController.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/ficofloravenezuela/ficoflora_consultas/app/Http/Controllers/Listados/ListadosReferenciasController.php">
+      <RunnerSettings RunnerId="JavascriptDebugRunner" />
+      <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="com.intellij.database.run.ConsoleRunConfigurationType" factoryName="Query Language Console">
+      <option name="VM_PARAMETERS" value="" />
+      <option name="USER_CFG_CLASS" />
+      <option name="CONTEXT_PROVIDER" />
       <method />
     </configuration>
     <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
@@ -440,40 +315,47 @@
       <envs />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.ListadosReferenciasController.php" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.ListadosReferenciasController.php" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\Yusneyi\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8d7a3f73-6afa-4287-9c89-d3e5b2588efc" name="Default" comment="" />
-      <created>1440734526271</created>
+      <changelist id="0e203714-1ee0-4637-b4c3-0b79c1864b33" name="Default" comment="" />
+      <created>1458208305188</created>
       <option name="number" value="Default" />
-      <updated>1440734526271</updated>
+      <updated>1458208305188</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="0" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.1380597" sideWeight="0.5016216" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.20644216" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18869936" sideWeight="0.49837837" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1954612" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3264865" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3264865" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32861635" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -499,376 +381,160 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/ficoflora_consultas/app/Http/routes.php</url>
+          <line>203</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/Bibliografia/Referencias/EnlacesController.php</url>
+          <line>218</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="9" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Ficoflora/Exportar/PDF/Ubicacion/LugarPDF.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/bibliograficos/referencias/enlaces/mostrar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.4814816" vertical-offset="99" max-vertical-offset="1197">
-          <caret line="18" column="45" selection-start-line="18" selection-start-column="45" selection-end-line="18" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Exportar/PDFsController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58965516" vertical-offset="627" max-vertical-offset="6365">
-          <caret line="87" column="37" selection-start-line="87" selection-start-column="37" selection-end-line="87" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Ficoflora/Especies/EspecieDatosTrait.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.740741" vertical-offset="0" max-vertical-offset="2071">
-          <caret line="26" column="20" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Ficoflora/Exportar/PDF/Taxonomia/EspeciesPDF.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.925926" vertical-offset="1100" max-vertical-offset="2641">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/mpdf.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72017837" vertical-offset="627" max-vertical-offset="1767">
-          <caret line="67" column="1" selection-start-line="67" selection-start-column="1" selection-end-line="67" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Ficoflora/Exportar/PDF/FormatosHTML.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15519254" vertical-offset="1596" max-vertical-offset="5130">
-          <caret line="96" column="0" selection-start-line="96" selection-start-column="0" selection-end-line="96" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Ficoflora/Exportar/PDF/Taxonomia/GeneroPDF.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.61149424" vertical-offset="0" max-vertical-offset="870">
-          <caret line="33" column="37" selection-start-line="33" selection-start-column="37" selection-end-line="33" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="935" max-vertical-offset="1919">
-          <caret line="78" column="5" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-23.925926" vertical-offset="0" max-vertical-offset="760">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Busquedas/BusquedasController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-26.037037" vertical-offset="2052" max-vertical-offset="5491">
-          <caret line="152" column="25" selection-start-line="152" selection-start-column="25" selection-end-line="152" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6988506" vertical-offset="0" max-vertical-offset="870">
-          <caret line="32" column="14" selection-start-line="32" selection-start-column="14" selection-end-line="32" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/buscar/index-buscar.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="897">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6358">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/buscar/especies/resultados-especies.blade.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/Bibliografia/Referencias/CatalogosController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.0" vertical-offset="627" max-vertical-offset="2451">
-          <caret line="60" column="32" selection-start-line="60" selection-start-column="32" selection-end-line="60" selection-end-column="32" />
+        <state vertical-scroll-proportion="-3.819788" vertical-offset="6650" max-vertical-offset="7216">
+          <caret line="204" column="38" selection-start-line="204" selection-start-column="38" selection-end-line="204" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/subclase/index_ordenes.blade.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/app/Http/Requests/Bibliografia/Referencias/CrearEnlaceRequest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1482">
+        <state vertical-scroll-proportion="0.69602764" vertical-offset="675" max-vertical-offset="1254">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/bibliograficos/referencias/enlaces/editar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.8657243" vertical-offset="462" max-vertical-offset="8052">
+          <caret line="69" column="72" selection-start-line="69" selection-start-column="67" selection-end-line="69" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/registros/mis-registros/_parciales/_modal-quitar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.30397236" vertical-offset="0" max-vertical-offset="748">
+          <caret line="8" column="32" selection-start-line="8" selection-start-column="32" selection-end-line="8" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/registros/mis-registros/_parciales/_modal-eliminar.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26597583" vertical-offset="0" max-vertical-offset="704">
+          <caret line="7" column="39" selection-start-line="7" selection-start-column="39" selection-end-line="7" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/registros/mis-registros/_parciales/_modal-agregar-sinonimia.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="748">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/phylum/index_clases.blade.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/bibliograficos/referencias/modales/modal-agregar-registro.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1387">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.51766783" vertical-offset="191" max-vertical-offset="770">
+          <caret line="22" column="74" selection-start-line="22" selection-start-column="74" selection-end-line="22" selection-end-column="74" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/orden/index_familias.blade.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/buscar/referencia/index-buscar-referencia.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1539">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="-8.344828" vertical-offset="3762" max-vertical-offset="4884">
+          <caret line="182" column="0" selection-start-line="182" selection-start-column="0" selection-end-line="182" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/genero/index_especies.blade.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/temporales/_parciales/_paso-sinonimia.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1843">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.15547703" vertical-offset="1540" max-vertical-offset="2684">
+          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/familia/index_especies.blade.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/sinonimia/_parciales/_form-editar-sinonimia.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.11111" vertical-offset="0" max-vertical-offset="1824">
-          <caret line="30" column="23" selection-start-line="30" selection-start-column="23" selection-end-line="30" selection-end-column="23" />
+        <state vertical-scroll-proportion="0.30035335" vertical-offset="820" max-vertical-offset="2376">
+          <caret line="45" column="51" selection-start-line="45" selection-start-column="51" selection-end-line="45" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/familia/index_generos.blade.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/sinonimia/editar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.444445" vertical-offset="0" max-vertical-offset="1691">
-          <caret line="39" column="26" selection-start-line="39" selection-start-column="26" selection-end-line="39" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="528" max-vertical-offset="2838">
+          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/clase/index_subclases.blade.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/resources/views/sinonimia/mostrar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1634">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="308" max-vertical-offset="3190">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/clase/index_ordenes.blade.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/app/Ficoflora/Registros/Sinonimia/SinonimiaRegistro.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.61130744" vertical-offset="2316" max-vertical-offset="4400">
+          <caret line="132" column="0" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/autor/index_especies.blade.php">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/app/Http/Controllers/RegistrosVenezuela/Sinonimia/SinonimiaController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-19.703703" vertical-offset="0" max-vertical-offset="1653">
-          <caret line="28" column="108" selection-start-line="28" selection-start-column="108" selection-end-line="28" selection-end-column="108" />
+        <state vertical-scroll-proportion="0.7773852" vertical-offset="2398" max-vertical-offset="6270">
+          <caret line="129" column="41" selection-start-line="129" selection-start-column="41" selection-end-line="129" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/busquedas/typeahead_busqueda_autores.js">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/app/Http/routes.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1577">
-          <caret line="64" column="4" selection-start-line="64" selection-start-column="4" selection-end-line="64" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.7773852" vertical-offset="6974" max-vertical-offset="13046">
+          <caret line="337" column="27" selection-start-line="337" selection-start-column="27" selection-end-line="337" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/busquedas/dataTable_resultados.js">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/app/Modelos/Taxonomia/Subclase.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="969">
-          <caret line="12" column="52" selection-start-line="12" selection-start-column="52" selection-end-line="12" selection-end-column="52" />
+        <state vertical-scroll-proportion="0.46537843" vertical-offset="51" max-vertical-offset="782">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/busquedas/typeahead_busqueda_especies.js">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/app/Modelos/Bibliografia/Referencias/Trabajo.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="547" max-vertical-offset="1444">
-          <caret line="58" column="81" selection-start-line="58" selection-start-column="81" selection-end-line="58" selection-end-column="81" />
+        <state vertical-scroll-proportion="-10.461538" vertical-offset="0" max-vertical-offset="748">
+          <caret line="16" column="15" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="15" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/busquedas/typeahead_busquedas.js">
+    <entry file="file://$PROJECT_DIR$/ficoflora_gestion/app/Modelos/Taxonomia/Genero.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7292" max-vertical-offset="8189">
-          <caret line="409" column="20" selection-start-line="409" selection-start-column="20" selection-end-line="409" selection-end-column="20" />
+        <state vertical-scroll-proportion="1.0240964" vertical-offset="0" max-vertical-offset="901">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/temporal.css">
+    <entry file="file://$PROJECT_DIR$/resources/views/publicas/index.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2447" max-vertical-offset="3344">
-          <caret line="155" column="0" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/ficha-especies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1037" max-vertical-offset="3648">
-          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.666667" vertical-offset="228" max-vertical-offset="3591">
-          <caret line="39" column="61" selection-start-line="39" selection-start-column="56" selection-end-line="39" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/buscar/especies/index-buscar-especies.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0" vertical-offset="1578" max-vertical-offset="3021">
-          <caret line="93" column="70" selection-start-line="93" selection-start-column="70" selection-end-line="93" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/buscar/ubicacion/index-buscar-ubicacion.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0" vertical-offset="457" max-vertical-offset="2147">
-          <caret line="34" column="68" selection-start-line="34" selection-start-column="68" selection-end-line="34" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ubicacion/entidad/index-especies.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0" vertical-offset="343" max-vertical-offset="1672">
-          <caret line="28" column="90" selection-start-line="28" selection-start-column="90" selection-end-line="28" selection-end-column="90" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ubicacion/localidad/index-especies.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.851852" vertical-offset="328" max-vertical-offset="1672">
-          <caret line="27" column="167" selection-start-line="27" selection-start-column="167" selection-end-line="27" selection-end-column="167" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ubicacion/localidad/index-lugares.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.125" vertical-offset="281" max-vertical-offset="1843">
-          <caret line="24" column="159" selection-start-line="24" selection-start-column="159" selection-end-line="24" selection-end-column="159" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ubicacion/lugar/index-especies.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.851852" vertical-offset="347" max-vertical-offset="1729">
-          <caret line="28" column="159" selection-start-line="28" selection-start-column="159" selection-end-line="28" selection-end-column="159" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ubicacion/lugar/index-sitios.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.851852" vertical-offset="290" max-vertical-offset="1805">
-          <caret line="25" column="159" selection-start-line="25" selection-start-column="159" selection-end-line="25" selection-end-column="159" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ubicacion/pais/index-entidades.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.0" vertical-offset="970" max-vertical-offset="1805">
-          <caret line="61" column="53" selection-start-line="61" selection-start-column="53" selection-end-line="61" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ubicacion/sitio/index-especies.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.703703" vertical-offset="347" max-vertical-offset="1748">
-          <caret line="42" column="35" selection-start-line="42" selection-start-column="35" selection-end-line="42" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/buscar/taxonomia/index-buscar-taxonomia.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.62963" vertical-offset="4" max-vertical-offset="2660">
-          <caret line="21" column="99" selection-start-line="21" selection-start-column="99" selection-end-line="21" selection-end-column="99" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/_parciales/_page-header.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.148149" vertical-offset="180" max-vertical-offset="1064">
-          <caret line="31" column="36" selection-start-line="31" selection-start-column="36" selection-end-line="31" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/ubicacion/entidad/index-localidades.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21724138" vertical-offset="362" max-vertical-offset="1843">
-          <caret line="29" column="94" selection-start-line="29" selection-start-column="94" selection-end-line="29" selection-end-column="94" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/mapas/_modal-mapa.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="228" max-vertical-offset="665">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/resultados/_index-resultados-ubicacion.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="551" max-vertical-offset="1444">
-          <caret line="51" column="87" selection-start-line="51" selection-start-column="87" selection-end-line="51" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/resultados/_index-resultados-especies-ubicacion.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="492" max-vertical-offset="1349">
-          <caret line="21" column="30" selection-start-line="21" selection-start-column="30" selection-end-line="21" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/resultados/_index-resultados-especies-taxo.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1349">
-          <caret line="37" column="110" selection-start-line="37" selection-start-column="110" selection-end-line="37" selection-end-column="110" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/sinonimia/index-especies.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="741" max-vertical-offset="1805">
-          <caret line="39" column="31" selection-start-line="39" selection-start-column="31" selection-end-line="39" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AppServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="897">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/EventServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="897">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/taxonomia/especies/ficha.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="7068" max-vertical-offset="9576">
-          <caret line="384" column="70" selection-start-line="384" selection-start-column="70" selection-end-line="384" selection-end-column="84" />
-          <folding>
-            <marker date="1445094409132" expanded="true" signature="22925:22960" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Taxonomia/EspeciesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="342" max-vertical-offset="1729">
-          <caret line="58" column="40" selection-start-line="58" selection-start-column="40" selection-end-line="58" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/_parciales/_page-footer.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4586207" vertical-offset="114" max-vertical-offset="1007">
-          <caret line="27" column="14" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+        <state vertical-scroll-proportion="-0.17957747" vertical-offset="2295" max-vertical-offset="4284">
+          <caret line="129" column="0" selection-start-line="129" selection-start-column="0" selection-end-line="129" selection-end-column="0" />
           <folding />
         </state>
       </provider>

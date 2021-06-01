@@ -45,14 +45,15 @@
 			}
 		}
 
-		.reporte-lugar{
+		span.reporte-lugar{
 
-			&:first-child:before{
+			&:first-of-type:before{
  				content: "(";
+
 			}
 
 			&:after{
-				content: ','
+				content: ',';
 			}
 
 			&:last-child:after{
@@ -60,10 +61,12 @@
 			}
 		}
 
-		.reporte-sitio{
+		span.reporte-sitio{
 
-				&:first-child:before{
-	 				content: "[";
+				// &:first-child:before{
+			&:first-of-type:before{
+
+	 				content:"[";
 				}
 
 				&:after{

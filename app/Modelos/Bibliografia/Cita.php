@@ -10,8 +10,7 @@ class Cita extends Model {
         'autores',
         'fecha',
         'letra',
-        'tipo',
-        'referencia_id',
+        'tipo'
     ];
 
     /**
@@ -34,10 +33,6 @@ class Cita extends Model {
     {
         return $this->hasMany('App\Modelos\Reportes\Reporte');
     }
-
-
-
-
 
     public function scopeConFecha($query,$fecha)
     {

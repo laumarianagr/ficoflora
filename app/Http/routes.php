@@ -14,7 +14,10 @@
 Route::get('/', function () {
 
     $usuario = \Illuminate\Support\Facades\Auth::user();
+    return view('publicas.index', compact('usuario'));
+    /* antes para que apreciera la venta de bienvenida previa
     return view('welcome', compact('usuario'));
+    */
 });
 
 //Route::get('mapas', function () {
@@ -29,19 +32,39 @@ Route::post('auth/login',  ['as' => 'auth.login', 'uses' =>'Auth\AuthController@
 Route::get('auth/logout', ['as' => 'auth.logout', 'uses' => 'Auth\AuthController@getLogout']);
 
 
+//---------->>>>>>>>>>
+// INICIO Y PÁGINAS PÚBLICAS
+//---------->>>>>>>>>>
+    Route::get('index', ['as' => 'index', function() {return view('publicas.index');}]);
+    //Route::get('index', ['as' => 'index', 'uses' => 'Estadisticas\EstadisticasTotalesController@totalesIndex']);
+    Route::get('proyecto', ['as' => 'proyecto', function() {return view('publicas.proyecto');}]);
+    Route::get('proyecto#creditos', ['as' => 'proyecto_creditos', function() {return view('publicas.proyecto');}]);
+    Route::get('catalogo', ['as' => 'catalogo', 'uses' => 'Estadisticas\EstadisticasTotalesController@totalesCatalogo']);
+    Route::get('contactos', ['as' => 'contactos', function() {return view('publicas.contactos');}]);
+    Route::get('otroscatalogos', ['as' => 'otroscatalogos', 'uses' => 'Listados\ListadosReferenciasController@catalogos']);
 
-Route::get('mapas', ['as' => 'mapas', 'uses' => 'Taxonomia\EspeciesController@mapas']);
+
+//---------->>>>>>>>>>
+// MAPAS
+//---------->>>>>>>>>>
+    Route::get('mapas', ['as' => 'mapas', 'uses' => 'Taxonomia\EspeciesController@mapas']);
+
+    //Route::get('pruebas', function(){return view('_modal-mapa.blade.php');});
 
 
 //---------->>>>>>>>>>
 // BUSQUEDAS
 //---------->>>>>>>>>>
-Route::get('buscar', ['as' => 'buscar.index', 'uses' => 'Busquedas\BusquedasController@especies']);
-Route::get('buscar/especies', ['as' => 'buscar.especies.index', 'uses' => 'Busquedas\BusquedasController@especies']);
-Route::post('buscar/especies', ['as' => 'buscar.especies', 'uses' => 'Busquedas\BusquedasController@buscarEspeciesYSinonimias']);
 
-Route::get('buscar/taxonomia', ['as' => 'buscar.taxonomia.index', 'uses' => 'Busquedas\BusquedasController@taxonomia']);
-Route::get('buscar/ubicacion', ['as' => 'buscar.ubicacion.index', 'uses' => 'Busquedas\BusquedasController@ubicacion']);
+    Route::get('buscar', ['as' => 'buscar.index', 'uses' => 'Busquedas\BusquedasController@especies']);
+    Route::get('buscar/especies', ['as' => 'buscar.especies.index', 'uses' => 'Busquedas\BusquedasController@especies']);
+    Route::post('buscar/especies', ['as' => 'buscar.especies', 'uses' => 'Busquedas\BusquedasController@buscarEspeciesYSinonimias']);
+
+    Route::get('buscar/taxonomia', ['as' => 'buscar.taxonomia.index', 'uses' => 'Busquedas\BusquedasController@taxonomia']);
+    Route::get('buscar/ubicacion', ['as' => 'buscar.ubicacion.index', 'uses' => 'Busquedas\BusquedasController@ubicacion']);
+
+    Route::get('buscar/referencias', ['as' => 'buscar.referencias.index', 'uses' => 'Busquedas\BusquedasController@referencias']);
+
 
 //Taxonomias
     Route::get('buscar/autores/{query}', ['as' => 'buscar.autores', 'uses' => 'Busquedas\BusquedasController@getAutores']);
@@ -53,12 +76,17 @@ Route::get('buscar/ubicacion', ['as' => 'buscar.ubicacion.index', 'uses' => 'Bus
     Route::get('buscar/clases/{query}', ['as' => 'buscar.clases', 'uses' => 'Busquedas\BusquedasController@getClases']);
     Route::get('buscar/phylums/{query}', ['as' => 'buscar.phylums', 'uses' => 'Busquedas\BusquedasController@getPhylums']);
 
-    //Ubicacion
+
+ //Ubicacion
     Route::get('buscar/entidades/{query}', ['as' => 'buscar.entidades', 'uses' => 'Busquedas\BusquedasController@getEntidades']);
     Route::get('buscar/localidades/{query}', ['as' => 'buscar.localidades', 'uses' => 'Busquedas\BusquedasController@getLocalidades']);
     Route::get('buscar/lugares/{query}', ['as' => 'buscar.lugares', 'uses' => 'Busquedas\BusquedasController@getLugares']);
     Route::get('buscar/sitios/{query}', ['as' => 'buscar.sitios', 'uses' => 'Busquedas\BusquedasController@getSitios']);
 
+    Route::get('buscar/ubicaciones/{query}', ['as' => 'buscar.ubicaciones', 'uses' => 'Busquedas\BusquedasController@getUbicaciones']);
+
+ //Referencias
+    Route::get('buscar/referencia/{query}', ['as' => 'buscar.referencia', 'uses' => 'Busquedas\BusquedasController@getReferencias']);
 
 
 //---------->>>>>>>>>>
@@ -71,7 +99,6 @@ Route::get('autor/{id}/especies', ['as' => 'autor.especies', 'uses' => 'Taxonomi
 // SINONIMIAS
 //---------->>>>>>>>>>
 Route::get('sinonimia/{id}/especies', ['as' => 'sinonimia.index', 'uses' => 'Taxonomia\SinonimiasController@especies']);
-
 
 
 //---------->>>>>>>>>>
@@ -122,6 +149,11 @@ Route::get('phylum/{id}/clases', ['as' => 'phylum.clases', 'uses' => 'Taxonomia\
 Route::get('galerias', ['as' => 'phylum.galeria', 'uses' => 'Taxonomia\PhylumsController@galeria']);
 
 
+//---------->>>>>>>>>>
+// FICHA DE REPORTES Y REFERENCIAS BIBLIOGRÁFICAS POR INVESTIGADOR
+//---------->>>>>>>>>>
+Route::get('listado/{id}/{tipo}/referencia', ['as' => 'listado.referencia', 'uses' => 'Listados\ListadosReferenciasController@referenciaInfo']);
+Route::get('investigador/{id}/referencias', ['as' => 'investigador.referencias', 'uses' => 'Investigador\InvestigadorReferenciasController@reportesyReferencias']);
 
 
 //---------->>>>>>>>>>
@@ -139,21 +171,18 @@ Route::get('galerias', ['as' => 'phylum.galeria', 'uses' => 'Taxonomia\PhylumsCo
         // LOCALIDAD
         //----------------------
         Route::get('localidad/{id}/especies', ['as' => 'localidad.especies', 'uses' => 'Ubicacion\LocalidadesController@especies']);
-        Route::get('localidad/{id}/lugares', ['as' => 'localidad.lugares', 'uses' => 'Ubicacion\LocalidadesController@lugares']);
+        Route::get('localidad/{id}/lugares', ['as' => 'localidad.lugares', 'uses' => 'Ubicacion\LocalidadesController@lugaresyespecies']);
+        Route::get('localidad/{id}/lugaresyespecies', ['as' => 'localidad.lugaresyespecies', 'uses' => 'Ubicacion\LocalidadesController@lugaresyespecies']);
 
         // LUGAR
         //----------------
         Route::get('lugar/{id}/especies', ['as' => 'lugar.especies', 'uses' => 'Ubicacion\LugaresController@especies']);
-        Route::get('lugar/{id}/sitios', ['as' => 'lugar.sitios', 'uses' => 'Ubicacion\LugaresController@sitios']);
+        Route::get('lugar/{id}/sitios', ['as' => 'lugar.sitios', 'uses' => 'Ubicacion\LugaresController@sitiosyespecies']);
+        Route::get('lugar/{id}/sitiosyespecies', ['as' => 'lugar.sitiosyespecies', 'uses' => 'Ubicacion\LugaresController@sitiosyespecies']);
 
         // SITIO
         //----------------
         Route::get('sitio/{id}/especies', ['as' => 'sitio.especies', 'uses' => 'Ubicacion\SitiosController@especies']);
-
-
-
-
-
 
 
 //---------->>>>>>>>>>
@@ -174,7 +203,6 @@ Route::get('galerias', ['as' => 'phylum.galeria', 'uses' => 'Taxonomia\PhylumsCo
     Route::get('exportar/pdf/phylum/{id}/clases', ['as' => 'pdf.phylum.clases', 'uses' => 'Exportar\PDFsController@clasesPorPhylum']);
 
 
-
     //Ubicación
     Route::get('exportar/pdf/pais/entidades', ['as' => 'pdf.pais.entidades', 'uses' => 'Exportar\PDFsController@entidadesPorPais']);
 
@@ -188,5 +216,68 @@ Route::get('galerias', ['as' => 'phylum.galeria', 'uses' => 'Taxonomia\PhylumsCo
     Route::get('exportar/pdf/lugar/{id}/sitios', ['as' => 'pdf.lugar.sitios', 'uses' => 'Exportar\PDFsController@sitiosPorLugar']);
 
     Route::get('exportar/pdf/sitios/{id}/especies', ['as' => 'pdf.sitio.especies', 'uses' => 'Exportar\PDFsController@especiesPorSitio']);
+
+
+    //Listados
+    Route::get('exportar/pdf/listado/especies', ['as' => 'pdf.listado.especies', 'uses' => 'Exportar\PDFsController@listadoEspecies']);
+    Route::get('exportar/pdf/listado/generos', ['as' => 'pdf.listado.generos', 'uses' => 'Exportar\PDFsController@listadoGeneros']);
+    Route::get('exportar/pdf/listado/familias', ['as' => 'pdf.listado.familias', 'uses' => 'Exportar\PDFsController@listadoFamilias']);
+    Route::get('exportar/pdf/listado/ordenes', ['as' => 'pdf.listado.ordenes', 'uses' => 'Exportar\PDFsController@listadoOrdenes']);
+    Route::get('exportar/pdf/listado/subclases', ['as' => 'pdf.listado.subclases', 'uses' => 'Exportar\PDFsController@listadoSubclases']);
+    Route::get('exportar/pdf/listado/clases', ['as' => 'pdf.listado.clases', 'uses' => 'Exportar\PDFsController@listadoClases']);
+    Route::get('exportar/pdf/listado/phylum', ['as' => 'pdf.listado.phylum', 'uses' => 'Exportar\PDFsController@listadoPhylum']);
+
+
+    //Geográficos
+    Route::get('exportar/pdf/listado/entidades', ['as' => 'pdf.listado.entidades', 'uses' => 'Exportar\PDFsController@listadoEntidades']);
+    Route::get('exportar/pdf/listado/localidades', ['as' => 'pdf.listado.localidades', 'uses' => 'Exportar\PDFsController@listadoLocalidades']);
+    Route::get('exportar/pdf/listado/lugares', ['as' => 'pdf.listado.lugares', 'uses' => 'Exportar\PDFsController@listadoLugares']);
+    Route::get('exportar/pdf/listado/sitios', ['as' => 'pdf.listado.sitios', 'uses' => 'Exportar\PDFsController@listadoSitios']);
+
+
+    //Referencias Bibliográficas
+    Route::get('exportar/pdf/investigador/{id}', ['as' => 'pdf.investigador', 'uses' => 'Exportar\PDFsController@investigador']);
+
+    Route::get('exportar/pdf/listado/referencias', ['as' => 'pdf.listado.referencias', 'uses' => 'Exportar\PDFsController@listadoReferencias']);
+    Route::get('exportar/pdf/listado/revistas', ['as' => 'pdf.listado.revistas', 'uses' => 'Exportar\PDFsController@listadoRevistas']);
+    Route::get('exportar/pdf/listado/libros', ['as' => 'pdf.listado.libros', 'uses' => 'Exportar\PDFsController@listadoLibros']);
+    Route::get('exportar/pdf/listado/enlaces', ['as' => 'pdf.listado.enlaces', 'uses' => 'Exportar\PDFsController@listadoEnlaces']);
+    Route::get('exportar/pdf/listado/trabajos', ['as' => 'pdf.listado.trabajos', 'uses' => 'Exportar\PDFsController@listadoTrabajos']);
+    Route::get('exportar/pdf/listado/catalogos', ['as' => 'pdf.listado.catalogos', 'uses' => 'Exportar\PDFsController@listadoCatalogos']);
+
+
+
+//---------->>>>>>>>>>
+// LISTADOS
+//---------->>>>>>>>>>
+
+    //Taxonomia
+    Route::get('listado/especies', ['as' => 'listado.especies', 'uses' => 'Listados\ListadosTaxonomiasController@especies']);
+    Route::get('listado/generos', ['as' => 'listado.generos', 'uses' => 'Listados\ListadosTaxonomiasController@generos']);
+    Route::get('listado/familias', ['as' => 'listado.familias', 'uses' => 'Listados\ListadosTaxonomiasController@familias']);
+    Route::get('listado/ordenes', ['as' => 'listado.ordenes', 'uses' => 'Listados\ListadosTaxonomiasController@ordenes']);
+    Route::get('listado/subclases', ['as' => 'listado.subclases', 'uses' => 'Listados\ListadosTaxonomiasController@subclases']);
+    Route::get('listado/clases', ['as' => 'listado.clases', 'uses' => 'Listados\ListadosTaxonomiasController@clases']);
+    Route::get('listado/phylum', ['as' => 'listado.phylum', 'uses' => 'Listados\ListadosTaxonomiasController@phylum']);
+
+    //Ubicacion
+    Route::get('listado/entidades', ['as' => 'listado.entidades', 'uses' => 'Listados\ListadosUbicacionController@entidades']);
+    Route::get('listado/localidades', ['as' => 'listado.localidades', 'uses' => 'Listados\ListadosUbicacionController@localidades']);
+    Route::get('listado/lugares', ['as' => 'listado.lugares', 'uses' => 'Listados\ListadosUbicacionController@lugares']);
+    Route::get('listado/sitios', ['as' => 'listado.sitios', 'uses' => 'Listados\ListadosUbicacionController@sitios']);
+
+    //Referencias Bibliograficas
+    Route::get('listado/referencias', ['as' => 'listado.referencias', 'uses' => 'Listados\ListadosReferenciasController@referencias']);
+    Route::get('listado/revistas', ['as' => 'listado.revistas', 'uses' => 'Listados\ListadosReferenciasController@revistas']);
+    Route::get('listado/libros', ['as' => 'listado.libros', 'uses' => 'Listados\ListadosReferenciasController@libros']);
+    Route::get('listado/enlaces', ['as' => 'listado.enlaces', 'uses' => 'Listados\ListadosReferenciasController@enlaces']);
+    Route::get('listado/trabajos', ['as' => 'listado.trabajos', 'uses' => 'Listados\ListadosReferenciasController@trabajos']);
+    Route::get('listado/catalogos', ['as' => 'listado.catalogos', 'uses' => 'Listados\ListadosReferenciasController@catalogos']);
+
+//SideBar
+
+    Route::get('sidebar', ['as' => 'sidebar', function(){
+        return view ('publicas.sidebar');
+    }]);    
 
 

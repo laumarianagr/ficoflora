@@ -1,16 +1,11 @@
 @extends('master')
 
 @section('title')
-
 @stop
 
 @section('css_section')
     @parent
-    <link rel="stylesheet" href="{{ asset('plugins\DataTables-1.10.7\css\dataTables.bootstrap.css')}}">
-
-
-
-
+    <link rel="stylesheet" href="{{ asset('plugins/DataTables-1.10.7/css/dataTables.bootstrap.css')}}">
 @stop
 
 @section('content')
@@ -21,7 +16,6 @@
           <div class="col-xs-12">
               <h3 class="text-dark mb-xlg"><i class="fa fa-search pr-md"></i>Buscar Especies</h3>
           </div>
-
 
           <div class="col-xs-12 ">
               <section class="panel panel-featured-left panel-featured-primary">
@@ -39,105 +33,69 @@
 
       <div class="row mt-md mb-xlg">
 
-              <div class="col-xs-12 col-md-6 ">
-                  <div class="col-xs-12">
-                      <h3 class="mb-xlg text-dark">Especies por Categoría Taxonómica</h3>
+          <div class="col-xs-12 ">
+              <h3 class="mb-xlg text-dark">Especies por Categoría Taxonómica</h3>
+          </div>
+
+          <div class="col-xs-12 col-sm-4 ">
+              <section class="panel panel-featured-left panel-featured-primary">
+                  <div class="panel-body">
+
+                      <label class="control-label" for="genero">Especies del Género</label>
+                      {!! Form::text('genero', null, ['id'=>'genero-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
 
                   </div>
-                  <div class="col-xs-12  ">
-                      <section class="panel panel-featured-left panel-featured-primary">
-                          <div class="panel-body">
+              </section>
+          </div>
 
-                              <label class="control-label" for="genero">Especies del Género</label>
-                              {!! Form::text('genero', null, ['id'=>'genero-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
+          <div class="col-xs-12 col-sm-4 ">
+              <section class="panel panel-featured-left panel-featured-primary">
+                  <div class="panel-body">
 
-                          </div>
-                      </section>
-                  </div>
-
-                  <div class="col-xs-12 ">
-                      <section class="panel panel-featured-left panel-featured-primary">
-                          <div class="panel-body">
-
-                              <label class="control-label" for="genero">Especies de la Familia</label>
-                              {!! Form::text('familia', null, ['id'=>'familia-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
-
-                          </div>
-                      </section>
-                  </div>
-                  <div class="col-xs-12 ">
-                      <section class="panel panel-featured-left panel-featured-primary">
-                          <div class="panel-body">
-
-                              <label class="control-label" for="autor">Especies de la Autoridad</label>
-                              {!! Form::text('autor', null, ['id'=>'autor-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
-
-                          </div>
-                      </section>
-                  </div>
-              </div>
-
-
-              <div class="col-xs-12 col-md-6">
-                  <div class="col-xs-12">
-                      <h3 class="mb-xlg text-dark">Especies por Ubicación</h3>
+                      <label class="control-label" for="genero">Especies de la Familia</label>
+                      {!! Form::text('familia', null, ['id'=>'familia-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
 
                   </div>
+              </section>
+          </div>
+          <div class="col-xs-12 col-sm-4">
+              <section class="panel panel-featured-left panel-featured-primary">
+                  <div class="panel-body">
 
-                  <div class="col-xs-12 ">
+                      <label class="control-label" for="autor">Especies de la Autoridad</label>
+                      {!! Form::text('autor', null, ['id'=>'autor-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
 
-
-                      <section class="panel panel-featured-left panel-featured-primary">
-                          <div class="panel-body">
-
-                              <label class="control-label" for="genero">Especies de la Entidad federal</label>
-                              {!! Form::text('entidad', null, ['id'=>'entidad-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
-
-                          </div>
-                      </section>
                   </div>
+              </section>
+          </div>
 
-                  <div class="col-xs-12 ">
+          <div class="col-xs-12">
+              <h3 class="mb-xlg text-dark">Especies por Ubicación</h3>
 
-                      <section class="panel panel-featured-left panel-featured-primary">
-                          <div class="panel-body">
+          </div>
 
-                              <label class="control-label" for="genero">Especies de la Localidad</label>
-                              {!! Form::text('localidad', null, ['id'=>'localidad-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
+          <div class="col-xs-12 ">
+              <section class="panel panel-featured-left panel-featured-primary">
+                  <div class="panel-body">
 
-                          </div>
-                      </section>
+                      <label class="control-label" for="genero">Especies por entidad federal, localidad, lugar o sitio</label>
+                      {!! Form::text('entidad', null, ['id'=>'ubicacion-especie', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
+
                   </div>
-
-                  <div class="col-xs-12  ">
-
-                      <section class="panel panel-featured-left panel-featured-primary">
-                          <div class="panel-body">
-
-                              <label class="control-label" for="genero">Especies del Lugar</label>
-                              {!! Form::text('lugar', null, ['id'=>'lugar-especies', 'class' => 'form-control typeahead', 'autocomplete' => 'off']) !!}
-
-                          </div>
-                      </section>
-                  </div>
-              </div>
+              </section>
+          </div>
       </div>
-  </div>
-  </div>
 
-
-
-
-
+      </div>
 
 @stop
 
 @section('script_section')
     @parent
 
-    <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\jquery.dataTables.min.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('plugins/DataTables-1.10.7/js/jquery.dataTables.min.js')}}'></script>
 
-    <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\dataTables.bootstrap.js')}}'></script>
+    <script type='text/javascript' src='{{ asset('plugins/DataTables-1.10.7/js/dataTables.bootstrap.js')}}'></script>
 
     <script>
         var autores = <?php echo json_encode($autores); ?>;

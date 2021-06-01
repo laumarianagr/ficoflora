@@ -1,10 +1,12 @@
 /**
  * Created by Lupita on 04/09/2015.
+ * Modify María Pinzón y Yusneyi Carballo Barrera, 2016-2017
  */
 
 
 
 $(document).ready(function() {
+
 
     var table = $('#datatable').DataTable({
         "language": {
@@ -20,8 +22,8 @@ $(document).ready(function() {
             }
 
         },
-        "pageLength": 15,
-        "lengthMenu": [ 15, 25, 50, 75, 100 ],
+        "pageLength": 25,  /* antes 15 */
+        "lengthMenu": [ 15, 25, 50, 75, 100, 200 ],
         "columnDefs": [
             //{ "width": "50%", "targets": 5 },
 
@@ -36,11 +38,15 @@ $(document).ready(function() {
     });
 
 
+
+
 //Numeracion de filas de la tabla
     table.on('order.dt search.dt', function () {
         table.column(0, {search: 'applied', order: 'applied'}).nodes().each(function (cell, i) {
             cell.innerHTML = i + 1;
         });
     }).draw();
+
+
 
 });

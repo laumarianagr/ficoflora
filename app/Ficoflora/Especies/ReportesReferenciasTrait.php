@@ -22,26 +22,80 @@ trait ReportesReferenciasTrait {
     use SinonimiasTrait;
     use ReferenciasTrait;
 
+    public function getReferenciaTextoPorId($id, $tipo){
+
+        if ($tipo == 'r') {//consulta para un artículo específico en Revista
+            $referencia = Revista::find($id);
+            $tipo = "Artículo en Revista";
+            return view('listados.referencias.referencia', compact('tipo', 'referencia'));
+
+        }elseif ($tipo == 'l') {//consulta para una referencia en un Libro
+            $referencia = Libro::find($id);
+            $tipo = "Libro";
+            return view('listados.referencias.referencia', compact('tipo', 'referencia'));
+
+        }elseif ($tipo == 'c') {//consulta para una referencia en un Catálogo
+            $referencia = Catalogo::find($id);
+            $tipo = "Catálogo";
+            return view('listados.referencias.referencia', compact('tipo', 'referencia'));
+
+        }elseif ($tipo == 'e') {//consulta para una referencia en un Sitio Web
+            $referencia = Enlace::find($id);
+            $tipo = "Sitio Web";
+            return view('listados.referencias.referencia', compact('tipo', 'referencia'));
+
+        }elseif ($tipo == 't') {//consulta para una referencia en un Trabajo Académico
+            $referencia = Trabajo::find($id)
+                ->where('comentarios', 'not LIKE', '%NSM%')
+                ->orwhereNull('comentarios');
+            $tipo = "Trabajo Académico";
+            return view('listados.referencias.referencia', compact('tipo', 'referencia'));
+        }
+    }
+
+    public function getEliminarHTML($texto)
+    {
+        $texto = str_replace('<i>', '', $texto);
+        $texto = str_replace('</i>', '', $texto);
+        $texto = str_replace('<b>', '', $texto);
+        $texto = str_replace('</b>', '', $texto);
+        $texto = str_replace('<em>', '', $texto);
+        $texto = str_replace('</em>', '', $texto);
+        $texto = str_replace('<br/>', '', $texto);
+        $texto = str_replace('<br />', '', $texto);
+    return $texto;
+    }
+
     public function getReportesReferenciasEspecie($id)
     {
 
         //obtengo todos los registros asociados con la especie (relacion especie_id, referencia_id)
         $registros = Registro::where('especie_id', $id)->get();
 
-
         $citas_reportes = Array();
         $referencias = Array();
         $ubicaciones_ids = Array();
 
+
         foreach ($registros as $registro) {// id (registro), especie_id, referencia_id
 
-            $obj_referencia = $this->getReferenciaPorTipo($registro->referencia_id, $registro->tipo_referencia);  //obtiene el obj referencia, de acuerdo al tipo
-            array_push($referencias, ['referencia' => $obj_referencia, 'tipo' =>$registro->tipo_referencia]);//Guardamos en un arreglo todas las referencias de la especie
+            $referencia_id = $registro->referencia_id;
+            $tipo_referencia = $registro->tipo_referencia;
 
+            $obj_referencia = $this->getReferenciaPorTipo($referencia_id, $tipo_referencia);  //obtiene el obj referencia, de acuerdo al tipo
+            array_push($referencias, ['referencia' => $obj_referencia, 'tipo' =>$tipo_referencia]);//Guardamos en un arreglo todas las referencias de la especie
 
             //NIVEL A
-            $cita_reporte['cita'] = $obj_referencia['cita'];
+            $autor = $obj_referencia['cita'];$et = 'et al.'; $et2 = '<i>et al.</i>';
+            $cita_reporte['cita'] =str_replace($et, $et2, $autor);
             $cita_reporte['fecha'] = $obj_referencia['fecha'];
+            $cita_reporte['letra'] = $obj_referencia['letra'];
+            $cita_reporte['referencia_id'] = $registro->referencia_id;
+            $cita_reporte['comentario'] = $registro->comentario;
+
+            $texto = trim($cita_reporte['cita']) .', '. $cita_reporte['fecha'] . $cita_reporte['letra'] .'. '.
+                    $this->getTextoReferenciaTooltip($referencia_id, $tipo_referencia);
+            $cita_reporte['referencia'] =  $this->getEliminarHTML($texto);
 
             $reportes = Array();
 
@@ -102,7 +156,9 @@ trait ReportesReferenciasTrait {
 
                         //Nivel C-2
                         $ubicacion['entidad'] =  Entidad::find($values_ubicacion[0]['entidad'])->nombre;
+                        $ubicacion['entidad_id'] =  $values_ubicacion[0]['entidad'];
                         $ubicacion['localidad'] =  Localidad::find($keyL)->nombre;
+                        $ubicacion['localidad_id'] =  $keyL;
 
                         //ordenamos las unicaciones por lugares
                         $by_lugares = collect($values_ubicacion->groupBy('lugar'));
@@ -115,12 +171,14 @@ trait ReportesReferenciasTrait {
 
                                 //Nivel D
                                 $lugar['lugar'] = Lugar::find($keyLug)->nombre;
+                                $lugar['lugar_id'] = $keyLug;
                                 $sitios = Array();
 
                                 foreach ($valuesL as $valueS) {
                                     if($valueS['sitio']!= null){//posee sitios
                                         //Nivel E
                                         $sitio['sitio'] = Sitio::find($valueS['sitio'])->nombre;
+                                        $sitio['sitio_id'] = $valueS['sitio'];
                                         $sitio['ubicacion_id'] = $valueS['id'];//id de la ubicacion
                                         array_push($sitios, $sitio);
                                     }else{
@@ -150,14 +208,13 @@ trait ReportesReferenciasTrait {
                         foreach ($values_ubicacion as $val_ubi) {
 
                             $ubicacion['ubicacion_id'] =  $val_ubi['id'];//id de la ubicacion
+                            $ubicacion['entidad_id'] =  Entidad::find($val_ubi['entidad'])->id;
                             $ubicacion['entidad'] =  Entidad::find($val_ubi['entidad'])->nombre;
                             $ubicacion['localidad'] = null;
                             $ubicacion['lugares']= [];
                             array_push($ubicacion_nombres, $ubicacion);//Objeto con Entidad Localidad y [] de lugares y sitios
                         }
                     }
-
-
                 }
 
 
@@ -178,20 +235,5 @@ trait ReportesReferenciasTrait {
         //Formato texto html a las referencias
 //        dd($citas_reportes);
         return [$citas_reportes, $referencias, $ubicaciones_ids];
-
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

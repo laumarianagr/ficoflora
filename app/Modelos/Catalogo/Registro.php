@@ -12,7 +12,8 @@ class Registro extends Model
         'especie_id',
         'referencia_id',
         'tipo_referencia',
-        'creador_id'
+        'creador_id',
+        'comentario'
     ];
 
 

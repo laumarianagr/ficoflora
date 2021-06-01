@@ -6,6 +6,13 @@ namespace App\Http\Controllers\Exportar;
 use App\Ficoflora\Especies\EspecieDatosTrait;
 use App\Ficoflora\Exportar\PDF\BasePDF;
 use App\Ficoflora\Exportar\PDF\FormatosHTML;
+
+use App\Ficoflora\Exportar\PDF\Listados\ListadoEspeciesPDF;
+use App\Ficoflora\Exportar\PDF\Listados\ListadoGenerosPDF;
+use App\Ficoflora\Exportar\PDF\Listados\ListadoGeograficoPDF;
+use App\Ficoflora\Exportar\PDF\Listados\ListadoTaxonomicoPDF;
+use App\Ficoflora\Exportar\PDF\Listados\ListadoReferenciasPDF;
+
 use App\Ficoflora\Exportar\PDF\Taxonomia\AutorPDF;
 use App\Ficoflora\Exportar\PDF\Taxonomia\EspeciesPDF;
 use App\Ficoflora\Exportar\PDF\Taxonomia\GeneroPDF;
@@ -15,16 +22,20 @@ use App\Ficoflora\Exportar\PDF\Taxonomia\OrdenPDF;
 use App\Ficoflora\Exportar\PDF\Taxonomia\PhylumPDF;
 use App\Ficoflora\Exportar\PDF\Taxonomia\SinonimiaPDF;
 use App\Ficoflora\Exportar\PDF\Taxonomia\SubclasePDF;
+
 use App\Ficoflora\Exportar\PDF\Ubicacion\EntidadPDF;
 use App\Ficoflora\Exportar\PDF\Ubicacion\LocalidadPDF;
 use App\Ficoflora\Exportar\PDF\Ubicacion\LugarPDF;
 use App\Ficoflora\Exportar\PDF\Ubicacion\PaisPDF;
 use App\Ficoflora\Exportar\PDF\Ubicacion\SitioPDF;
+
 use App\Ficoflora\Funcionalidades\TaxonomiaSuperiorTrait;
 use App\Ficoflora\Ubicacion\UbicacionSuperiorTrait;
+
 use App\Modelos\Sinonimias\Sinonimia;
 use App\Modelos\Taxonomia\Autor;
 use App\Modelos\Taxonomia\Genero;
+
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -59,83 +70,65 @@ class PDFsController extends Controller
     use LugarPDF;
     use SitioPDF;
 
+    use ListadoEspeciesPDF;
+    use ListadoTaxonomicoPDF;
+    use ListadoGeograficoPDF;
+    use ListadoReferenciasPDF;
 
+//---------->>>>>>>>>>
+// LISTADOS TAXONÓMICOS
+//---------->>>>>>>>>>
+
+    //LISTADO de Especies
     public function especies($id)
     {
         $especie_nombre = $this->especieDatos(null, $id, false);
         $html = $this->pdfEspecie($id);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Especie " . $especie_nombre['nombre']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Especie " . $especie_nombre['nombre'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
 
-    //LISTADO de Especies por Género
+    //LISTADO de Especies por Familia
     public function especiesPorFamilia($id)
     {
         $familia = $this->taxoFamilia($id);
         $html = $this->pdfEspeciesPorFamilia($familia);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Especies_de_la_familia " . $familia['familia']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Especies_de_la_familia " . $familia['familia'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
-        //LISTADO de Especies por Género
+    //LISTADO de Especies por Género
     public function especiesPorGenero($id)
     {
         $genero = $this->taxoGenero($id);
         $html = $this->pdfEspeciesPorGenero($genero);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Especies_del_género " . $genero['genero']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Especies_del_género " . $genero['genero'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
-        //LISTADO de Especies por Género
+    //LISTADO de Especies por Autor
     public function especiesPorAutor($id)
     {
         $autor = Autor::find($id);
         $html = $this->pdfEspeciesPorAutor($autor);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Especies_del_autor " . $autor['nombre']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Especies_del_autor " . $autor['nombre'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
-
-        //LISTADO de Especies por Sinonimia
+    //LISTADO de Especies por Sinonimia
     public function especiesPorSinonimia($id)
     {
         $obj_sinonimia = Sinonimia::find($id);
         $sinonimia = $this->especieDatos($obj_sinonimia, null, false);
         $html = $this->pdfEspeciesPorSinonimia($sinonimia,$obj_sinonimia);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Especies_de_la_sinonimia " . $sinonimia['nombre']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Especies_de_la_sinonimia " . $sinonimia['nombre'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
 
@@ -145,14 +138,9 @@ class PDFsController extends Controller
     {
         $entidad = $this->ubicacionEntidad($id);
         $html = $this->pdfEspeciesPorEntidad($entidad);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Especies_de_la_entidad_federal" . $entidad['entidad']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Especies_de_la_entidad_federal" . $entidad['entidad'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
     //LISTADO de Especies por LOCALIDAD
@@ -160,14 +148,9 @@ class PDFsController extends Controller
     {
         $localidad = $this->ubicacionLocalidad($id);
         $html = $this->pdfEspeciesPorLocalidad($localidad);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Especies_de_la_localidad " . $localidad['localidad']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Especies_de_la_localidad " . $localidad['localidad'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
     //LISTADO de Especies por LUGAR
@@ -175,14 +158,9 @@ class PDFsController extends Controller
     {
         $lugar = $this->ubicacionLugar($id);
         $html = $this->pdfEspeciesPorLugar($lugar);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Especies_del_lugar " . $lugar['lugar']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Especies_del_lugar " . $lugar['lugar'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
     //LISTADO de Especies por SITIO
@@ -190,14 +168,9 @@ class PDFsController extends Controller
     {
         $sitio = $this->ubicacionSitio($id);
         $html = $this->pdfEspeciesPorSitio($sitio);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Especies_del_sitio " . $sitio['sitio']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Especies_del_sitio " . $sitio['sitio'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
 
@@ -206,14 +179,9 @@ class PDFsController extends Controller
     {
         $familia = $this->taxoFamilia($id);
         $html = $this->pdfGenerosPorFamilia($familia);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Géneros_de_la_familia " . $familia['familia']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Géneros_de_la_familia " . $familia['familia'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
     //Listado de FAMILIAS
@@ -221,14 +189,9 @@ class PDFsController extends Controller
     {
         $orden = $this->taxoOrden($id);
         $html = $this->pdfFamiliasPorOrden($orden);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Familias_del_orden " . $orden['orden']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Familias_del_orden " . $orden['orden'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
     //Listado de ORDENES por SUBCLASE
@@ -236,14 +199,9 @@ class PDFsController extends Controller
     {
         $subclase = $this->taxoSubclase($id);
         $html = $this->pdfOrdenesPorSubclase($subclase);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Ordenes_de_la_subclase " . $subclase['subclase']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Ordenes_de_la_subclase " . $subclase['subclase'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
     //Listado de ORDENES por CLASE
@@ -251,14 +209,9 @@ class PDFsController extends Controller
     {
         $clase = $this->taxoClase($id);
         $html = $this->pdfOrdenesPorClase($clase);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Ordenes_de_la_clase " . $clase['clase']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Ordenes_de_la_clase " . $clase['clase'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
     //Listado de SUBCLASES por CLASE
@@ -266,14 +219,9 @@ class PDFsController extends Controller
     {
         $clase = $this->taxoClase($id);
         $html = $this->pdfSubclasesPorclase($clase);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Subclases_de_la_clase " . $clase['clase']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Subclases_de_la_clase " . $clase['clase'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
 
@@ -282,29 +230,18 @@ class PDFsController extends Controller
     {
         $phylum = $this->taxoClase($id);
         $html = $this->pdfClasesPorPhylum($phylum);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Clases_del_phylum " . $phylum['phylum']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Clases_del_phylum " . $phylum['phylum'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
-
 
     //LISTADO de entidades por PAis
     public function entidadesPorPais()
     {
         $html = $this->pdfEntidadesPorPais();
-        $fecha = Carbon::now();
-        $nombreArchivo = "Entidades_federales_del_país Venezuela (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Entidades_federales_del_país Venezuela";
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
     //LISTADO de Localidades por Entidad
@@ -312,14 +249,9 @@ class PDFsController extends Controller
     {
         $entidad = $this->ubicacionEntidad($id);
         $html = $this->pdfLocalidadesPorEntidad($entidad);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Localidades_de_la_entidad_federal " . $entidad['entidad']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Localidades_de_la_entidad_federal " . $entidad['entidad'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
     //LISTADO de Lugares por LOCALIDAD
@@ -327,14 +259,9 @@ class PDFsController extends Controller
     {
         $localidad = $this->ubicacionLocalidad($id);
         $html = $this->pdfLugaresPorLocalidad($localidad);
-        $fecha = Carbon::now();
-        $nombreArchivo = "Lugares_de_la_localidad " . $localidad['localidad']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo = "Lugares_de_la_localidad " . $localidad['localidad'];
 
-        $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
-        $html .= $this->citaPagina();
-        $this->encabezado_pie_marcaAgua($mpdf);
-        $this->estilos($mpdf);
-        $this->generar($mpdf, $html, $nombreArchivo);
+        $this->generarPDF($html, $nombreArchivo);
     }
 
     //LISTADO de Especies por LUGAR
@@ -342,8 +269,177 @@ class PDFsController extends Controller
     {
         $lugar = $this->ubicacionLugar($id);
         $html = $this->pdfSitiosPorLugar($lugar);
+        $nombreArchivo = "Sitios_del_lugar " . $lugar['lugar'];
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+
+    //LISTADO de Especies
+    public function listadoEspecies()
+    {
+        $html = $this->pdfListadoEspecies();
+        $nombreArchivo = "Listado_especies_variedades_formas";
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Géneros
+    public function listadoGeneros()
+    {
+        $html = $this->pdfListadoGeneros();
+        $nombreArchivo = "Listado_géneros";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Familias
+    public function listadoFamilias()
+    {
+        $html = $this->pdfListadoFamilias();
+        $nombreArchivo = "Listado_familias";
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Órdenes
+    public function listadoOrdenes()
+    {
+        $html = $this->pdfListadoOrdenes();
+        $nombreArchivo = "Listado_órdenes";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de subclases
+    public function listadoSubclases()
+    {
+        $html = $this->pdfListadoSubclases();
+        $nombreArchivo = "Listado_subclases";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de clases
+    public function listadoClases()
+    {
+        $html = $this->pdfListadoClases();
+        $nombreArchivo = "Listado_Clases";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Phylum
+    public function listadoPhylum()
+    {
+        $html = $this->pdfListadoPhylum();
+        $nombreArchivo = "Listado_Phylum";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+//---------->>>>>>>>>>
+// LISTADOS UBICACIÓN GEOGRÁFICA
+//---------->>>>>>>>>>
+
+    //LISTADO de Entidades
+    public function listadoEntidades()
+    {
+        $html = $this->pdfListadoEntidades();
+        $nombreArchivo = "Listado_Entidades";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Localidades
+    public function listadoLocalidades()
+    {
+        $html = $this->pdfListadoLocalidades();
+        $nombreArchivo = "Listado_Localidades";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Lugares
+    public function listadoLugares()
+    {
+        $html = $this->pdfListadoLugares();
+        $nombreArchivo = "Listado_Lugares";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+    //LISTADO de Sitios
+    public function listadoSitios()
+    {
+        $html = $this->pdfListadoSitios();
+        $nombreArchivo = "Listado_Sitios";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+
+//---------->>>>>>>>>>
+// LISTADOS REFERENCIAS
+//---------->>>>>>>>>>
+
+    //LISTADO de Referencias bibliograficas
+    public function listadoReferencias()
+    {
+        $html = $this->pdfListadoReferencias();
+        $nombreArchivo = "Listado_ReferenciasBibliograficas";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Revistas
+    public function listadoRevistas()
+    {
+        $html = $this->pdfListadoRevistas();
+        $nombreArchivo = "Listado_ReferenciasBibliograficas_Revistas";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Libros
+    public function listadoLibros()
+    {
+        $html = $this->pdfListadoLibros();
+        $nombreArchivo = "Listado_ReferenciasBibliograficas_Libros";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Enlaces
+    public function listadoEnlaces()
+    {
+        $html = $this->pdfListadoEnlaces();
+        $nombreArchivo = "Listado_ReferenciasBibliograficas_SitiosWeb";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Trabajos Académicos
+    public function listadoTrabajos()
+    {
+        $html = $this->pdfListadoTrabajos();
+        $nombreArchivo = "Listado_ReferenciasBibliograficas_TrabajosAcademicos";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+    //LISTADO de Trabajos Catálogos
+    public function listadoCatalogos()
+    {
+        $html = $this->pdfListadoCatalogos();
+        $nombreArchivo = "Listado_ReferenciasBibliograficas_Catalogos";
+
+        $this->generarPDF($html, $nombreArchivo);
+    }
+
+
+    // se indican los atributos del pdf y crea la instancia del documento
+    public function generarPDF($html, $nombreArchivo)
+    {
         $fecha = Carbon::now();
-        $nombreArchivo = "Sitios_del_lugar " . $lugar['lugar']. " (versión_" . $fecha->format('d-m-y') . ").pdf";
+        $nombreArchivo.= " (versión_" . $fecha->format('d-m-y') . ").pdf";
 
         $mpdf = new mPDF('utf-8', 'Letter', 0, '', 18, 18, 15, 15, 6, 6, '');
         $html .= $this->citaPagina();
@@ -351,6 +447,4 @@ class PDFsController extends Controller
         $this->estilos($mpdf);
         $this->generar($mpdf, $html, $nombreArchivo);
     }
-
-
 }

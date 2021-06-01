@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="autenticacion.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130201924872595768" remote="130202262600000000" />
+<file name="cabecera&Pie.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130249363739884336" remote="130249365000000000" />
+<file name="generos.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130245427526161320" remote="130245435000000000" />
+<file name="tools.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130103761477822950" remote="130202262600000000" />
+<file name="especies.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130247152697493773" remote="130247183400000000" />
+<file name="localidades.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130246375487637937" remote="130246383600000000" />
+<file name="mapa.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130230691964605389" remote="130230855000000000" />
+<file name="colecciones.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130202271652322562" remote="130202280600000000" />
+<file name="taxonomia.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130245431879830336" remote="130245435000000000" />
+<file name="conexion.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130202274508043810" remote="130202280600000000" />
+<file name="especiesRegNacional.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130203394099080585" remote="130203467400000000" />
+<file name="registrar.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130209134585089144" remote="130209187200000000" />
+<file name="coleccionesMuestras.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130209183137266170" remote="130209203400000000" />
+<file name="generarPdf.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130232116027687378" remote="130232286600000000" />
+<file name="generarPdf_autor_funciones.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130232103450347995" remote="130232286600000000" />
+<file name="generarPdf_especie_funciones.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130247517344204449" remote="130247517600000000" />
+<file name="generarPdf_genero.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130232081519193605" remote="130232286600000000" />
+<file name="generarPdf_genero_funciones.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130245427285877577" remote="130245435000000000" />
+<file name="generarPdf_localidad.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130232206768027428" remote="130232302800000000" />
+<file name="generarPdf_localidad_funciones.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130247507257887544" remote="130247517600000000" />
+<file name="generarPdf_mpdf_funciones.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130232080560158751" remote="130232286600000000" />
+<file name="generarPdf_taxonomia_funciones.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130245431859089149" remote="130245435000000000" />
+<file name="generarPdf_especie.php" server="host.caracastelecom.com/www/ficoflorapnalr-vNueva/" local="130232226756270690" remote="130232302800000000" />
+</dwsync>

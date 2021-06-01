@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script type="text/javascript" src="tinymce.min.js"></script>
+</head>
+<body>
+	  <h1>TinyMCE Getting Started Guide</h1>
+    <form method="post">
+        <textarea id="mytextarea"></textarea>
+    </form>
+</body>
+
+<script type="text/javascript">
+        tinymce.init({
+            selector: "#mytextarea",
+            menubar : false,
+            language : 'es',
+             plugins: "charmap paste code",
+             valid_elements: "p,b,i,strong,em",
+             paste_word_valid_elements: "p,b,i,strong,em",
+
+             toolbar: [
+		        "undo redo | copy paste | bold italic underline | charmap  code"
+		    ]
+        });
+    </script>
+</html>

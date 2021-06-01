@@ -17,10 +17,13 @@ class Kernel extends HttpKernel
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \App\Http\Middleware\VerifyCsrfToken::class,
-//        \App\Http\Middleware\Authenticate::class,
+        \App\Http\Middleware\VerifyCsrfToken::class
+    ]; /*
+     \App\Http\Middleware\Authenticate::class,
+     agregar esta línea activa la solicitud de autenticación y muestra la página de solicitud de usuario y clave
+    */
 
-    ];
+
 
     /**
      * The application's route middleware.
@@ -28,7 +31,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
+//        'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
     ];
 }

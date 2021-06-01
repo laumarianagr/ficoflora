@@ -27,7 +27,8 @@
             {{--<a href="{{route('auth')}}">Ingresar</a>--}}
 
                 {{--@else--}}
-                <a href="{{route('buscar.especies')}}">Ingresar</a>
+            <!-- <a href="{{--route('buscar.especies')--}}">Ingresar</a> -->
+            <a href="{{route('index')}}">Ingresar</a>
 
             {{--@endif--}}
         </div>

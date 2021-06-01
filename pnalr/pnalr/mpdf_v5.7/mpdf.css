@@ -1,0 +1,35 @@
+/* This is a secondary default stylesheet for mPDF 
+	It will only parse element-level CSS here 
+*/
+
+h1, h2, h3, div, p { line-height: 16px; }
+
+body { font-size: 12px; font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif; }
+
+h1 { font-size: 150%; font-weight: normal; }
+
+h2 { font-size: 125%; font-weight: normal;  }
+
+h3 { font-size: 115%; font-weight: normal;  }
+
+table.tablaPie { width: 100%;  border-top: #999 1px solid; margin-top: 10px;  }
+
+table.tablaPie td { padding:0; margin:0; height: 20px; }
+ 
+table { width: 100%; margin-top: 4px;}
+
+caption { text-align: left; font-size: 110%;  }
+
+th { background-color: #d9edf7; height: 30px; }
+
+td {  height: 25px; padding: 2px; vertical-align:top; }  
+
+p, td, th {  font-size: 90%; }  
+
+.sombra { background-color:#EEE;   }
+
+.destacado { font-weight:normal; color:#666; font-size: 150%; }
+
+div.encabezado, table.tablaPie  { font-size: 75%; font-weight: bold;}
+
+div.encabezado  {text-align:right;  border-bottom:#F5F5F5 3px solid; }

@@ -7949,3 +7949,7 @@ footer ul.list.icons li {
   margin-bottom: 5px; }
 
 /*# sourceMappingURL=ficoflora.css.map */
+
+.comentario {  /* se utiliza en los listados de referencias bibliográficas */
+    font-size: 11px; color:#9b9b9b;
+}

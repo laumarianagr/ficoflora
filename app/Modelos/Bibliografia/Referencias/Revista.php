@@ -9,7 +9,6 @@ class Revista extends Model
     protected $table = 'referencias_revistas';
 
     protected $fillable = [
-
         'autores',
         'fecha',
         'cita',

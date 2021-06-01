@@ -1,0 +1,31 @@
+.navbar-default {
+
+	ul.navbar-nav{
+		li{
+			&.active{
+				>a{
+				    background-color: transparent;
+				    color: $color-primary;
+				    font-weight: bold;
+				    font-size: 14px;
+				    border-bottom: 2px solid $color-primary;
+
+				    &:hover{
+						background-color: transparent;
+				    	color: $color-primary;
+				    }
+				}
+			}
+			a{
+
+				&:hover{
+				    border-bottom: 2px solid $color-primary;
+					
+				}
+				 	
+			}
+		}
+	}
+}
+
+

@@ -6,24 +6,31 @@ use App\Ficoflora\Especies\EspecieDatosTrait;
 use App\Ficoflora\Ubicacion\UbicacionSuperiorTrait;
 use App\Modelos\Geografico\Entidad;
 use Illuminate\Http\Request;
+use App\Ficoflora\Especies\ReportesReferenciasTrait;
+use App\Modelos\Taxonomia\Especie;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+
+use App\Modelos\Taxonomia\Prueba;
+
 
 class EntidadesController extends Controller
 {
 
     use UbicacionSuperiorTrait;
-    use EspecieDatosTrait;
+    use EspecieDatosTrait; 
+    use ReportesReferenciasTrait;
 
     public function especies($id)
     {
         $entidad = Entidad::find($id);
 
+
         $especies_ids = $entidad->especies()->conCatalogo(true)->get();
 
 //        dd(count($especies_ids));
-        
+
         $ubicacion = $this->ubicacionEntidad($id);
 
         $especies = Array();
@@ -38,8 +45,16 @@ class EntidadesController extends Controller
                 $total++;
             }
         }
+        $obj_especie = Especie::find($id);
+        $especie = $this->especieDatos($obj_especie, $id, true);
+        list($citas_reportes, $referencias, $ubicaciones_ids) = $this->getReportesReferenciasEspecie($id);
 
-        return view('ubicacion.entidad.index-especies', compact('especies', 'ubicacion', 'total'));
+
+
+
+        return view('ubicacion.entidad.index-especies', compact('especies', 'ubicacion', 'total', 'citas_reportes'));
+        //return view('ubicacion.entidad.index-localidades', compact('especies', 'ubicacion', 'total'));
+
     }
 
 
@@ -47,19 +62,36 @@ class EntidadesController extends Controller
     public function localidades($id)
     {
         $entidad = Entidad::find($id);
+        $info_coordenadasUbicacion = null;
+        $info_coordenadasUbicacion[0] = ['latitud' =>$entidad['latitud'], 'longitud'=>$entidad['longitud'], 'nombre'=>$entidad['nombre']];
+        $coordenadasUbicacion = collect($info_coordenadasUbicacion);
 
         $localidades = $entidad->localidades()->get();
 
         $ubicacion = $this->ubicacionEntidad($id);
 
         $total = count($localidades);
+        $info_coordenadas = null;
 
         foreach ($localidades as $localidad) {
             $localidad['especies'] = count($localidad->especies()->conCatalogo(true)->get());
             $localidad['lugares'] = count($localidad->lugares()->get());
-        }
+            $info_coordenadas[$localidad['id']] = ['latitud' =>$localidad['latitud'], 'longitud'=>$localidad['longitud'], 'nombre'=>$localidad['nombre']];
 
-        return view('ubicacion.entidad.index-localidades', compact('localidades', 'ubicacion', 'total'));
+        }
+        $coordenadas = collect($info_coordenadas);
+
+        return view('ubicacion.entidad.index-localidades', compact('localidades', 'ubicacion', 'total', 'coordenadas', 'coordenadasUbicacion'));
     }
+
+    //para infromacion extra
+
+    public function a($id){
+
+        $pruebas = DB::table('pruebas')->get();
+        return view('ubicacion.entidad.index-localidades', compact('pruebas'));
+
+    }
+
 
 }

@@ -32,7 +32,7 @@ td, th {  font-size: 90%; }
 
 .sombra { background-color:#EEE;   }
 .destacado { font-weight:normal; color:#666; font-size: 150%; }
-.mutted { font-weight:normal; color:#666; font-size: 70%; }
+.mutted { font-weight:normal; color:#666; font-size: 80%; }
 
 
 table.tablaPie  { padding-top:3px; width: 100%;  border-top: #999 1px solid; margin-top: 10px;  }

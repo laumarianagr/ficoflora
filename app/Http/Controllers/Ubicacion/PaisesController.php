@@ -18,13 +18,16 @@ class PaisesController extends Controller
         $ubicacion['pais'] = 'Venezuela';
 
         $total = count($entidades);
+        $info_coordenadas = null;
 
         foreach ($entidades as $entidad) {
             $entidad['especies'] = count($entidad->especies()->conCatalogo(true)->get());
             $entidad['localidades'] = count($entidad->localidades()->get());
+            $info_coordenadas[$entidad['id']] = ['latitud' =>$entidad['latitud'], 'longitud'=>$entidad['longitud'], 'nombre'=>$entidad['nombre']];
+
         }
 
-
-        return view('ubicacion.pais.index-entidades', compact('entidades', 'ubicacion', 'total'));
+        $coordenadas = collect($info_coordenadas);
+        return view('ubicacion.pais.index-entidades', compact('entidades', 'ubicacion', 'total', 'coordenadas'));
     }
 }

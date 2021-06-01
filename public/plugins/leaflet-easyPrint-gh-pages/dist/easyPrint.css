@@ -1,0 +1,21 @@
+.leaflet-control-easyPrint a {
+  background:#fff url(print.png) no-repeat 5px;
+  background-size:16px 16px;
+  display: block;
+  }
+
+._epHidden{display:none!important;}
+
+
+@media print {
+    /* print styles here */
+	html {padding: 10px!important;}
+	.leaflet-control-easyPrint-button{display: none!important;}
+    a[href]:after { /* elimina los urls en los enlaces asociados a los textos */
+        content: none !important;
+    }
+    @page {
+        size: landscape;
+        margin: 20px;
+    }
+}

@@ -1,0 +1,42 @@
+body{
+    background-color: #4B4B4B;
+    color: #fff;
+
+}
+
+button{
+    background: transparent !important ;
+    color: #C5EC2C !important;
+    border-radius:  0px !important;
+    border: 1px solid #ccc !important;
+}
+button:hover{
+background-color: rgba(241, 241, 241, 0.08) !important;
+
+}
+.mt-md{
+    margin-top: 20px !important;
+}
+.panel-text h1{
+    font-family: 'Lato';
+    font-size: 55px;
+}
+
+.panel-text{
+    margin-top: 10%;
+    text-align: center;
+}
+
+.checkbox{
+    display: inline-block;
+    margin-left: 20px;
+}
+hr{
+    width: 45%;
+    border-color: #9cbc1f;
+
+}
+
+.panel-box{
+    margin-top: 5%;
+}

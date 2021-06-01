@@ -11,11 +11,11 @@ class Especie extends Model {
         'especifico_id',
         'varietal_id',
         'forma_id',
+        'subespecie_id',
         'autor_id',
         'descripcion',
         'creador_id',
         'catalogo'
-
     ];
 
 
@@ -132,6 +132,15 @@ class Especie extends Model {
         return $this->belongsToMany('App\Modelos\Sinonimias\Sinonimia', 'sinonimias_especies')->withTimestamps();
     }
 
+    /**
+     * Busca en la BDD si hay SUBESPECIES con un nombre determinado.
+     *
+     * @param $query
+     */
+    public function scopeConSubespecie($query,$subespecie_id)
+    {
+        return $query->where('subespecie_id', $subespecie_id);
+    }
 
 
     /**
@@ -164,7 +173,6 @@ class Especie extends Model {
         return $query->where('id',$id);
     }
 
-
     public function scopeConEspecieId($query,$especie_id)
     {
         return $query->where('especie_id',$especie_id);
@@ -179,7 +187,5 @@ class Especie extends Model {
     {
         return $query->where('catalogo',$catalogo);
     }
-
-
 
 }

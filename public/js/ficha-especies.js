@@ -20,7 +20,7 @@ $(document).ready(function() {
             }
 
         },
-        "pageLength": 10,
+        "pageLength": 50,  /* antes 10 */
         "lengthMenu": [ 5,10,15, 25, 50, 75, 100 ],
         "columnDefs": [
             //{ "width": "50%", "targets": 5 },
@@ -96,8 +96,6 @@ $(document).ready(function() {
 
 
 
-
-
     var table_referencias = $('#datatable-referencias').DataTable({
         "language": {
             "lengthMenu": "Mostrar _MENU_ filas por página",
@@ -112,7 +110,7 @@ $(document).ready(function() {
             }
 
         },
-        "pageLength": 10,
+        "pageLength": 50,
         "lengthMenu": [ 5,10,15, 25, 50, 75, 100 ],
         "columnDefs": [
             //{ "width": "50%", "targets": 5 },

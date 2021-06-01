@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+
+<!-- Add jQuery library -->
+<script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+
+<!-- Add fancyBox -->
+<link rel="stylesheet" href="js/galleria_fancyBox_v2.1.5/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="js/galleria_fancyBox_v2.1.5/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+</head>
+
+<body>
+
+<a class="fancybox" rel="group" href="../images_especies/Acanthophora_spicifera_5_z.jpg" title="Leyenda imagen 5">
+<img src="images_especies/Acanthophora_spicifera_5.jpg" alt="" /></a>
+<a class="fancybox" rel="group" href="images_especies/Acanthophora_spicifera_4_z.jpg" title="Leyenda imagen 4">
+<img src="images_especies/Acanthophora_spicifera_4.jpg" alt="" /></a>
+<a class="fancybox" rel="group" href="images_especies/Acanthophora_spicifera_3_z.jpg" title="Leyenda imagen 3">
+<img src="images_especies/Acanthophora_spicifera_3.jpg" alt="" /></a>
+<a class="fancybox" rel="group" href="images_especies/Acanthophora_spicifera_2_z.jpg" title="Leyenda imagen 2">
+<img src="images_especies/Acanthophora_spicifera_2.jpg" alt="" /></a>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$(".fancybox").fancybox();
+	});
+	
+	$(".fancybox").fancybox({
+    helpers : {
+        title: {
+            type: 'float'
+        }
+    }
+});
+</script>
+
+</body>
+</html>

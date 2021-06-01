@@ -13,7 +13,7 @@
                         <div class="summary mb-sm">
                             <div class="info">
 
-                                @yield('ubicacion-tipo'): <b class="amount">@yield('ubicacion-nombre')</b>
+                                @yield('ubicacion-tipo'): <b class="amount">@yield('ubicacion-nombre1')</b>
 
                             </div>
                         </div>
@@ -34,10 +34,10 @@
 
 
                 <div class="row mb-md ">
-                    <div class="col-md-8">
-                        <h5 class="mt-md ">Número de <b>especies</b> reportadas para @yield('pertenece') <b class="text-primary">@yield('ubicacion-nombre'):</b> <b>{{$total}}</b></h5>
+                    <div class="col-md-9">
+                        <h5 class="mt-md ">Número de <b>especies</b> reportadas para @yield('pertenece') <b class="text-primary">@yield('ubicacion-nombre2'):</b> <b>{{$total}}</b></h5>
                     </div>
-                    <div class="col-md-4 nueva-busqueda">
+                    <div class="col-md-3 nueva-busqueda">
                         <a class="dp-in-b" href="{{route('buscar.index')}}"><i class="fa fa-search"></i>Nueva búsqueda</a>
                     </div>
                 </div>
@@ -48,7 +48,7 @@
                     <thead>
                     <tr>
                         <th class="numeros-dataTabla">N°</th>
-                        <th class="th-dataTable ">Nombre de la Especie</th>
+                        <th class="th-dataTable ">Nombre de la especie</th>
                     </tr>
                     </thead>
 

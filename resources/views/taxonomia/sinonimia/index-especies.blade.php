@@ -6,14 +6,12 @@
 
 @section('css_section')
     @parent
-    <link rel="stylesheet" href="{{ asset('plugins\DataTables-1.10.7\css\dataTables.bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ asset('plugins/DataTables-1.10.7/css/dataTables.bootstrap.css')}}">
 @stop
 
 @section('content')
 
-@section('taxo-tipo')
-    Sinonimia
-@stop
+@section('taxo-tipo'){{"Sinonimia"}}@stop
 
 
         @section('taxo-nombre')
@@ -38,7 +36,7 @@
         @stop
 
         @section('taxo-listar')
-            de la Especie
+            de la especie
         @stop
 
 
@@ -51,6 +49,10 @@
 
                         <a href="{{route('especie.index', [$especie['id']])}}">
                             <em>{{$especie['genero']}} {{$especie['especifico']}}</em>
+
+                            @if($especie['subespecie'] != null)
+                                <em>subsp. {{$especie['subespecie']}}</em>
+                            @endif
 
                             @if($especie['varietal'] != null)
                                 <em>var. {{$especie['varietal']}}</em>
@@ -79,8 +81,8 @@
             @parent
 
 
-            <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\jquery.dataTables.min.js')}}'></script>
-            <script type='text/javascript' src='{{ asset('plugins\DataTables-1.10.7\js\dataTables.bootstrap.js')}}'></script>
+            <script type='text/javascript' src='{{ asset('plugins/DataTables-1.10.7/js/jquery.dataTables.min.js')}}'></script>
+            <script type='text/javascript' src='{{ asset('plugins/DataTables-1.10.7/js/dataTables.bootstrap.js')}}'></script>
 
             <script type='text/javascript' src='{{ asset('js/busquedas/dataTable_resultados.js')}}'></script>
             <script>

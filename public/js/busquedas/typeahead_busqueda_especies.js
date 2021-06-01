@@ -1,6 +1,7 @@
 
 /**
  * Created by Lupita on 14/09/2015.
+ * Modify María Pinzón y Yusneyi Carballo Barrera, 2016-2017
  */
 
 //---Especie------------
@@ -27,19 +28,21 @@ $('#especie.typeahead').typeahead({
     name: 'especie',
     displayKey: function($keys){
 
-        if(($keys['varietal'] == null) && ($keys['forma'] == null)){
-            return $keys['genero']+' '+$keys['especifico']+' '+$keys['autor'];
-        }else{
-            if(($keys['varietal'] != null) && ($keys['forma'] == null)) {
-                return $keys['genero'] + ' ' + $keys['especifico'] + ' var. ' + $keys['varietal']+' '+$keys['autor'];
-            }else{
-                if(($keys['varietal'] == null) && ($keys['forma'] != null)) {
-                    return $keys['genero'] + ' ' + $keys['especifico'] + ' f. ' + $keys['forma']+' '+$keys['autor'];
-                }else{
-                    return $keys['genero'] + ' ' + $keys['especifico']+ ' var. ' + $keys['varietal'] + ' f. ' + $keys['forma']+' '+$keys['autor'];
-                }
-            }
+        var $esp = ' ';
+
+        if($keys['subespecie'] != null) {
+            $esp = $esp + ' subsp. ' + $keys['subespecie'];
         }
+
+        if($keys['varietal'] != null) {
+            $esp = $esp + ' var. ' + $keys['varietal'];
+        }
+
+        if($keys['forma'] != null) {
+            $esp = $esp + ' f. ' + $keys['forma'];
+        }
+
+        return $keys['genero'] + ' ' + $keys['especifico'] + $esp + ' ' + $keys['autor'];
     },
     templates: {
         empty: function(){
@@ -62,9 +65,4 @@ $('#especie.typeahead').typeahead({
     console.log($(this) );
     console.log(suggestion.id );
     console.log(suggestion);
-
-
 });
-
-
-

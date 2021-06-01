@@ -70,7 +70,7 @@
 .pdf-img {
     position: absolute;
     right: 0;
-    top: 12%;
+    top: 0;
 }
 .pdf-img img{
     width: 50px;
@@ -86,7 +86,7 @@
 }
 .navbar-brand img{
     padding:8px 15px ;
-    width: 250px;
+    width: 350px;
 }
 
 .navbar{

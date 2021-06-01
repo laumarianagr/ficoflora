@@ -13,14 +13,14 @@ class Trabajo extends Model
         'autores',
         'fecha',
         'cita',
-//        'cita_cita',
         'letra',
         'titulo',
         'institucion',
         'lugar',
         'paginas',
         'enlace',
-        'archivo'
+        'archivo',
+        'comentarios'
     ];
 
 

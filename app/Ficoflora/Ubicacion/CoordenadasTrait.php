@@ -51,7 +51,6 @@ trait CoordenadasTrait {
 
             $coordenadas[$id] = ['latitud' =>$ubicacion['latitud'], 'longitud'=>$ubicacion['longitud'], 'nombre'=>$nombre, 'tipo'=>$tipo];
         }
-
         return $coordenadas;
     }
 }

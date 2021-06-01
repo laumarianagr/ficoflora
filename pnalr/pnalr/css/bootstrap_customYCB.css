@@ -1,0 +1,175 @@
+/* estilos personalizados por Yusneyi Carballo Barrera, extendiendo el formato de Bootstrap */
+body { padding-top: 48px; padding-bottom: 5px;  font-family:  Tahoma, Geneva, sans-serif ;  }
+
+p { line-height: 20px; }
+
+footer {  margin-top: 5px;}	 /*  margen superior del footer */
+footer a.sinColor { color:#333333; } 
+footer hr {  border-color:#d9edf7; } 
+
+.navbar .nav .especial { color:#FFF; font-weight:bold; }
+.navbar .nav .especial>p { padding-left:10px; padding-top: 12px;}
+.navbar .nav .especial>a { color:#FF0; padding-left: 8px; padding-top: 12px;}	
+
+p.smaller{color: #999999; font-size:20px; margin-top:10px; line-height:26px;} 
+
+span.smaller-en, span.smaller-en-pq { font-style:italic;  color: #009999; font-size:16px;   
+	font-family: Georgia, "Times New Roman", Times, serif }
+
+
+span.smaller-en-pq { font-size:95%; }	
+	
+img.media-ima { margin-right:5px; margin-top:10px; height:50px;}	
+
+#hero {padding:5px;margin-bottom:5px;background-color:#eeeeee;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px;}
+
+#hero-imagen {padding:5px;padding-top:5px;background-color:#fff; -webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px; text-align:center;  }
+
+#hero-right {padding:5px; padding-left:0px; text-align:center; }
+#hero-right img { width:100px;}
+
+#hero-texto  h1 {margin-bottom:0;font-size:33px;line-height:1;color: #039;}
+#hero-texto h2 {color:#069; }
+#hero-texto p {font-size:16px;font-weight:normal;line-height:25px;color:inherit; margin-top: 10px}
+
+#seccion1 {padding:5px; margin-top:10px;background-color:#eeeeee;-webkit-border-radius:6px;-moz-border-radius:6px;border-radius:6px; text-align:left}
+
+#seccion1 img { height:60px;}
+
+#proyecto { font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;} 
+
+	
+/* ****************   *** estilos para los listados   ****    *********************/
+
+#refBiblio li { padding-bottom: 35px; }
+#refBiblio span { color: #666; }
+
+
+.destacado { color: #F30; font-weight: bold }  /*  .taxon, .especie, .autor  */
+
+.textoClaro, .leyendaFoto  { color: #999; }  /*  .taxon    .localidadesConsultarVisitas*/
+
+.especie { font-style:italic; }
+
+td.center, th.center { text-align:center; }
+
+.listado { border-bottom: 4px solid #ddd; }
+
+.list  >li {  line-height: 30px; padding-top: 12px; }
+
+.list   { list-style: circle; }
+
+.textopq   { font-size:90%; } 
+
+.postlink {	 padding: 0px 0px 20px 20px;  margin-right: 20px; }
+
+.postlink img  { vertical-align: middle; border:0px; }
+
+.ico { margin-right:3px; }
+
+#galeriaEspecieInf {	 margin: 10px 0px 10px 0px; }
+
+.leyendaFoto  {  margin-top: 5px; margin-bottom: 0px; font-size: 90% }
+  
+.thumbnails  {
+  text-align:center;
+  /* para centrar la imagen:   */
+  float: none !important;  to overwrite the default property on the bootstrap stylesheet 
+  display: inline-block;
+  *display: inline;  ie7 support
+}
+
+.thumbnails > li.galeriaEspecie {
+  margin: 0 130px 10px 0px;   /* margin izq 130 separa la fotos  */
+  float: left;
+  text-align:center;
+  /*  para centrar la imagen:   
+  float: none !important;  to overwrite the default property on the bootstrap stylesheet 
+  display: inline-block;
+  *display: inline;  ie7 support */
+}
+
+.thumbnails >  li.galeriaOpciones  { text-align:center; }
+.thumbnails >  li.galeriaEspecie  img {  height: 150px;  /* alto para las fotos secundarias de la especie */ }
+.thumbnails >  li.galeriaOpciones img {  height: 80px; }
+.thumbnail >   .fotoLocalidad {  height: 250px; }
+
+.thumbnail.galeriaLocalidad {  
+  text-align:center; 
+  margin: 0 0 15px 10px;
+  float: left;
+  padding: 15px;
+}
+
+.galeriaGenero {
+  text-align:center; 
+  margin: 0 0 15px 10px;
+  float: left;
+  padding: 15px;
+}
+
+#celdaListado { background:none; }
+
+#celdaListado td  { text-align:left }
+
+#celdaListado li  { color: #ACACAC; padding-top: 5px;  }
+
+#listadoEspecies li { font-size: 90%;}
+
+#celdaListado li:hover,  #celdaListado a:hover  { color:#03C; font-weight: bold;  background-color: : #DEE1FE;}
+
+#listadoEspecies li:hover, #listadoEspecies a:hover  {  font-weight: normal; background-color: #DEE1FE; }
+
+
+/* *********  estilos para las fichas de información  **************/
+
+.well .icons {   float:right; padding: 20px 30px 0 0;  }   /* iconos, barra de identificación de la especie o género */
+
+.well a.icon { background: none; border:none; width: 55px;  box-shadow: none; }
+
+.well a img { background: none; border:none;  }
+
+.image-block { margin-top: 15px;  }
+.image-block img { width: 240px;  }
+
+#ficha { font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif  }
+
+#ficha >h1{ font-size: 22px; margin-top: 20px;}
+
+#ficha >h2{font-size: 18px; margin-top: 5px;}
+
+#ficha a  { color: #333333;   }
+
+#ficha .listaLocalidades, #ficha .listaVisitas {color:#000;  list-style-type:none; margin-top: 5px;} 
+
+#mapa_pnalr { margin:20px 0 30px 25px; }
+
+#mapa_pnalr table { width:880px; padding:0px; }
+
+#mapa_pnalr td { padding:0px; }
+
+
+
+/* ***************** estilos para formularios   ************************************ */
+
+.label-inline { display:inline;   }
+
+.margenIzq {  margin-left: 15px; }
+
+.rta-icon-group .btn-group {margin-left:330px; margin-right:2px; margin-bottom:2px;  }  
+	/* modificados los campos textarea RTA, iconos con margen a la izquierda */
+	
+#comentarios.rta {display: none; width: 450px; height: 100px; }
+
+.boton { color: #036; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 14px; }
+
+
+/* ***************** estilos para las imágenes    ******************************** */
+
+.recuadro { margin-top:46px; }
+
+.borde { border: 1px solid #DDD;  }
+
+#fotosPie  { display:table-cell; text-align:center; padding-top: 20px; }
+
+#fotosPie img { height:50px; margin-left: 15px; }

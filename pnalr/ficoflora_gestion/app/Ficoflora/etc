@@ -1,0 +1,103 @@
+@extends('master')
+
+@section('css_section')
+    @parent
+    <link rel="stylesheet" href="plugins\DataTables-1.10.7\css\dataTables.bootstrap.css">
+
+
+
+@stop
+@section('content')
+    @include('errors._listar')
+
+    <h1>Index Perfiles</h1>
+
+    <table id="datatable-editable"  class="table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Perfil</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>#</th>
+                <th>Usuario</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Email</th>
+                <th>Perfil</th>
+            </tr>
+        </tfoot>
+        <tbody>
+        <?php $i=1 ?>
+            @foreach($usuarios as $usuario)
+
+                <tr>
+                    <th scope="row">{{$i}}</th>
+                    <td>{{$usuario->usuario}}</td>
+                    <td>{{$usuario->nombre}}</td>
+                    <td>{{$usuario->apellido}}</td>
+                    <td>{{$usuario->email}}</td>
+                    <td>{{$usuario->tipo}}</td>
+                </tr>
+                <?php $i++ ?>
+            @endforeach
+        </tbody>
+
+    </table>
+@stop
+
+@section('script_section')
+    @parent
+
+
+    {{--<script type='text/javascript' src='plugins\DataTables-1.10.7\js\jquery.dataTables.min.js'></script>--}}
+    {{--<script type='text/javascript' src='plugins\DataTables-1.10.7\js\dataTables.bootstrap.js'></script>--}}
+    <script>
+//        $(document).ready(function() {
+//            // Setup - add a text input to each footer cell
+//            $('#example tfoot th').each( function () {
+//                var title = $('#example thead th').eq( $(this).index() ).text();
+//                if(title != '#') {
+//                    $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+//                }
+//            } );
+//
+//            // DataTable
+//            var table = $('#example').DataTable({
+//                "language": {
+//                    "lengthMenu": "Mostrar _MENU_ filas por página",
+//                    "zeroRecords": "Disculpe, no se encontro ninguno.",
+//                    "info": "Página _PAGE_ de _PAGES_",
+//                    "infoEmpty": "No hay registros disponibles",
+//                    "infoFiltered": "(filtrado de un total de _MAX_ registros)",
+//                    "paginate": {
+//                        "previous": "Anterior",
+//                        "next": "Siguiente"
+//                    }
+//                }
+//            });
+//
+//            // Apply the search
+//            table.columns().every( function () {
+//                var that = this;
+//
+//                $( 'input', this.footer() ).on( 'keyup change', function () {
+//                    that
+//                            .search( this.value )
+//                            .draw();
+//                } );
+//            } );
+//        } );
+    </script>
+    <script type='text/javascript' src='js\jquery.dataTables.js'></script>
+    <script type='text/javascript' src='js\examples.datatables.editable.js'></script>
+
+@stop
+
+

@@ -19,12 +19,12 @@ class AuthController extends Controller
     | authentication of existing users. By default, this controller uses
     | a simple trait to add these behaviors. Why don't you explore it?
     |
-    */
 
-//    use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+    */
     use AuthenticatesAndRegistersUsers;
 
-    protected $redirectTo = '/buscar/especies';
+    //protected $redirectTo = '/buscar/especies';
+    protected $redirectTo = '/index'; // llevará a la página index del Catálogo Ficoflora
 
     /**
      * Create a new authentication controller instance.
@@ -67,4 +67,10 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    protected function getFailedLoginMessage()
+    {
+        return 'Correo y/o clave incorrecto';
+    }
+
 }

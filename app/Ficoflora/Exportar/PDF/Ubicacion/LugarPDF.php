@@ -36,7 +36,7 @@ trait LugarPDF {
 
 
 
-    //LISTADO de localidades por lugar
+    //LISTADO de sitios por lugar
     public function pdfSitiosPorLugar($lugar)
     {
         $titulo_ubicacion = $this->tituloUbicacionHTML($lugar['lugar'],$lugar,"Lugar", 'lu');

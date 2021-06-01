@@ -7,23 +7,44 @@
 				    background-color: transparent;
 				    color: $color-primary;
 				    font-weight: bold;
-				    font-size: 14px;
-				    border-bottom: 2px solid $color-primary;
+				    // border-bottom: 2px solid $color-primary;
+				     background: #89c236;
+				    color:#fff;
 
 				    &:hover{
-						background-color: transparent;
-				    	color: $color-primary;
+						// background-color: transparent;
+				  //   	color: $color-primary;
+				  //   	 background: $color-primary;
+				  //   color:#fff;
+				      background: #89c236;
+
+				    color:#fff;
 				    }
 				}
 			}
 			a{
 
+				    font-size: 15px;
+
 				&:hover{
-				    border-bottom: 2px solid $color-primary;
+				    // border-bottom: 2px solid $color-primary;
+				    // background: $color-primary;
+				     background: #89c236;
+
+				    color:#fff;
 					
 				}
 				 	
 			}
 		}
 	}
+}
+
+.bar-buscar{
+	    background: url(../img/bg-grey.png);
+
+.bg-color{
+
+		        background: rgba(48,119,13, 0.9);
+	    }
 }

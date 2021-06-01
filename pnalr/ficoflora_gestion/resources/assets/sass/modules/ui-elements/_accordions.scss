@@ -1,0 +1,149 @@
+// ACCORDION
+// -----------------------------------------------------------------------------
+.panel-group {
+
+	&.bl-primary{
+		.panel{
+		border-radius: 5px;
+		border-left: 3px solid $color-primary;
+		}
+	}	
+	.panel{
+		border-radius: 5px;
+	}
+
+	.panel+.panel {
+		margin-top: 15px;
+	}
+	.panel-accordion {
+		border: 1px solid #DDD;
+		margin-bottom: 20px;
+		
+		> {
+			.panel-heading {
+				border-radius: $border-radius;
+				padding: 0;
+				border: 0 none;
+
+				&.dark{
+					background: $color-primary-dark;
+
+					&:hover{
+    					box-shadow: inset 0px 0px 9px #000000;
+					}
+
+					a{
+						color: #f6f6f6;
+					}		
+				}
+
+				&.light{
+					background: $color-primary-inverse;
+				    border: 1px solid #DDD;
+				        border-left: 3px solid #9cbc1f;
+				}
+
+				a {
+					color: $color-primary-dark;
+					display: block;
+					padding: 10px;
+					font-size: 16px;
+					border-radius: $border-radius;
+					  // font-weight: normal;
+
+					&:hover, &:focus {
+						text-decoration: none;
+					}
+					.fa {
+						  margin: 0px 7px 0px 5px;
+					}
+				}
+
+
+
+				&:hover{
+					    // box-shadow: -1px 2px 2px #9cbc1f;
+					        box-shadow: inset 0px 0px 9px #E7E8E2;
+				}
+			}
+		}
+			.panel-body {
+				border-radius: 0 0 $border-radius $border-radius;
+				color: #555;
+
+				&.list {
+					padding: 0px;
+					    margin-top: 5px;
+				
+
+					& a{
+						padding: 6px 10px;
+					    // border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+					     border-bottom: 1px solid rgba(156, 188, 31, 0.28);
+					    text-decoration: none;
+					    font-size: 1.5rem;
+					    color: #33414e;
+					}
+
+					& a:last-child{
+						border:none;
+					}
+
+					& a:hover{
+
+						background:rgba(0, 0, 0, 0.05);
+						font-weight: bold;
+
+					}
+
+				}
+			}
+		
+
+		&.panel-accordion-first {
+			border-radius: 0 0 $border-radius $border-radius;
+
+			.panel-heading {
+				border-radius: 0 0 $border-radius $border-radius;
+			}
+		}
+	}
+
+
+}
+
+// STATES
+// -----------------------------------------------------------------------------
+@each $state in $states {
+	.panel-group .panel-accordion-#{nth($state,1)} {
+		.panel-heading .panel-title a {
+			background: #{nth($state,2)};
+			color: #FFF;
+		}
+	}
+}
+
+// DARK
+// -----------------------------------------------------------------------------
+html.dark {
+	.panel-group {
+		.panel-accordion {
+			border-color: $dark-color-3;
+
+			.panel {
+				background-color: $dark-color-3;
+			}
+			.panel-default {
+				border-color: $dark-color-3;
+			}
+			.panel-heading {
+				background-color: $dark-color-4;
+			}
+
+			.form-control {
+				background-color: $dark-color-2;
+				border-color: $dark-color-2;
+			}
+		}
+	}
+}

@@ -11,7 +11,7 @@ namespace App\Ficoflora\Exportar\PDF\Taxonomia;
 
 use App\Ficoflora\Especies\EspecieDatosTrait;
 use App\Ficoflora\Especies\ReportesReferenciasTrait;
-
+use Illuminate\Support\Facades\DB;
 
 
 trait EspeciesPDF {
@@ -27,10 +27,11 @@ trait EspeciesPDF {
         $taxonomia= $this->getTaxonmiaHTML($especie, 'e');
 
         list($citas_reportes, $referencias, $ubicaciones_ids)= $this->getReportesReferenciasEspecie($id);
-        $reporatado = $this->getReportesHTML_PDF($citas_reportes);
+        $reportado = $this->getReportesHTML_PDF($citas_reportes);
 
         $referencias = $this->getReferenciaTexto($referencias);
         $bibliografia = $this->getReferenciasHTML($referencias);
+        $imagenes = $this->getImagenesHTML($id);
 
         // ficha de la especie
         $listado = "";
@@ -55,10 +56,14 @@ trait EspeciesPDF {
                 </tr>
 
             </table>
-             ".$reporatado."
+             ".$reportado."
 
             <br/>
-             ".$bibliografia;
+             ".$bibliografia."
+
+
+          <br/>
+             ".$imagenes;
 
 
 
@@ -132,9 +137,29 @@ trait EspeciesPDF {
     }
 
 
+    public function getImagenesHTML($id)
+    {
+        $imagenes = DB::table('imagenes_especies')
+            ->where('especie_id', $id)
+            ->get();
 
+        if($imagenes != null){
 
+            $galeria="";
 
+            foreach ($imagenes as $imagen) {
+//                $galeria .= "<td><img src='../../galeria/".$imagen->imagen.".jpg'/></td>";
+                $galeria .= "<img style='width: 20%; padding: 10px' src='../../galeria/".$imagen->imagen.".jpg'/>";
+            }
+//            dd($galeria);
+//            $galerias ="<table class=''><tr>".$galeria. "</tr></table>";
 
+            return $galeria;
+
+        }else{
+            return;
+        }
+
+    }
 
 }

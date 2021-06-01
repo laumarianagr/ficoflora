@@ -156,6 +156,11 @@ h5 {
   html.fixed .sidebar-left,
   html.fixed .p-content {
     display: block; }
+  html.fixed .w-940 {
+    max-width: 940px;
+    margin: auto;
+    padding-left: 0px;
+    padding-right: 0px; }
 
   /* Layout Fixed - Header */
   html.fixed .p-header {
@@ -1845,7 +1850,7 @@ html.dark .text-muted {
   display: inline !important; }
 
 .dp-in-b {
-  display: inline !important; }
+  display: inline-block !important; }
 
 .list-st-none {
   list-style: none; }
@@ -1875,7 +1880,7 @@ input[type="search"],
 input[type="tel"],
 input[type="color"],
 textarea {
-  -webkit-appearance: none; }
+  -webkit-appearance: auto; }
 
 .form-control::-webkit-input-placeholder,
 input[type="text"]::-webkit-input-placeholder,
@@ -4603,6 +4608,8 @@ body .ui-pnotify.icon-nb .notification .ui-pnotify-icon > span {
         display: block !important;
         font-size: 24px !important;
         visibility: visible !important; } }
+
+
 /* Progress bar overwrite style */
 .progress-bar {
   background: #9cbc1f; }
@@ -5017,7 +5024,7 @@ html.dark .toggle > label {
   background: transparent;
   padding: 0;
   text-align: left;
-  max-width: 900px;
+  /*max-width: 900px;*/
   margin: 20px auto;
   position: relative; }
   .modal-block.modal-block-xs {
@@ -7739,17 +7746,17 @@ html.dark .form-wizard .pager .disabled > a, html.dark .form-wizard .pager .disa
     font-size: 80%; }
 #ficha-reportes .reportado-ubicacion:first-child .reportado-sinonimia {
   margin-top: 5px; }
-#ficha-reportes .reportado-ubicacion .reporte-lugar:first-child:before {
+#ficha-reportes .reportado-ubicacion span.reporte-lugar:first-of-type:before {
   content: "("; }
-#ficha-reportes .reportado-ubicacion .reporte-lugar:after {
-  content: ","; }
-#ficha-reportes .reportado-ubicacion .reporte-lugar:last-child:after {
+#ficha-reportes .reportado-ubicacion span.reporte-lugar:after {
+  content: ','; }
+#ficha-reportes .reportado-ubicacion span.reporte-lugar:last-child:after {
   content: ")"; }
-#ficha-reportes .reportado-ubicacion .reporte-sitio:first-child:before {
+#ficha-reportes .reportado-ubicacion span.reporte-sitio:first-of-type:before {
   content: "["; }
-#ficha-reportes .reportado-ubicacion .reporte-sitio:after {
+#ficha-reportes .reportado-ubicacion span.reporte-sitio:after {
   content: ","; }
-#ficha-reportes .reportado-ubicacion .reporte-sitio:last-child:after {
+#ficha-reportes .reportado-ubicacion span.reporte-sitio:last-child:after {
   content: "]"; }
 
 .ficha-referencias h4 {
@@ -7793,13 +7800,22 @@ html.dark .form-wizard .pager .disabled > a, html.dark .form-wizard .pager .disa
   background-color: transparent;
   color: #9cbc1f;
   font-weight: bold;
-  font-size: 14px;
-  border-bottom: 2px solid #9cbc1f; }
+  background: #89c236;
+  color: #fff; }
   .navbar-default ul.navbar-nav li.active > a:hover {
-    background-color: transparent;
-    color: #9cbc1f; }
-.navbar-default ul.navbar-nav li a:hover {
-  border-bottom: 2px solid #9cbc1f; }
+    background: #89c236;
+    color: #fff; }
+.navbar-default ul.navbar-nav li a {
+  font-size: 15px; }
+  .navbar-default ul.navbar-nav li a:hover {
+    background: #89c236;
+    color: #fff; }
+
+.bar-buscar {
+  background: url(../img/bg-grey.png); }
+
+  .bar-buscar .bg-color {
+    background: rgba(48, 119, 13, 0.9); }
 
 #buscar-especie .panel-body {
   padding: 10px;
@@ -7895,4 +7911,13 @@ footer a.view-more-recent-work {
 footer ul.list.icons li {
   margin-bottom: 5px; }
 
+
+.widget-summary .widget-summary-col .summary-footer span {color: #000000; }
+
 /*# sourceMappingURL=ficoflora.css.map */
+
+/*  tooltips con información del pdf */
+.pdf + .tooltip > .tooltip-inner {
+    background-color: #438223; color: #fff; padding: 10px; border: dotted 1px #CCC;
+    width: inherit;
+}

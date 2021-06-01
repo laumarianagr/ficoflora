@@ -9,7 +9,6 @@ class Libro extends Model
     protected $table = 'referencias_libros';
 
     protected $fillable = [
-
         'autores',
         'fecha',
         'cita',
@@ -26,7 +25,8 @@ class Libro extends Model
         'isbn',
         'doi',
         'enlace',
-        'archivo'
+        'archivo',
+        'comentarios'
     ];
 
 

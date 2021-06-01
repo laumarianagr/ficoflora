@@ -12,6 +12,7 @@ class Sinonimia extends Model
     protected $fillable = [
         'genero_id',
         'especifico_id',
+        'subespecie_id',
         'varietal_id',
         'forma_id',
         'autor_id',
@@ -63,6 +64,16 @@ class Sinonimia extends Model
     }
 
     /**
+     * Busca en la BDD si hay SUBESPECIES con un nombre determinado.
+     *
+     * @param $query
+     */
+    public function scopeConSubespecieId($query,$subespecie_id)
+    {
+        return $query->where('subespecie_id', $subespecie_id);
+    }
+
+    /**
      * Busca en la BDD si hay VARIEDADES con un nombre determinado.
      *
      * @param $query
@@ -91,7 +102,5 @@ class Sinonimia extends Model
     {
         return $query->where('autor_id',$autor_id);
     }
-
-
 
 }

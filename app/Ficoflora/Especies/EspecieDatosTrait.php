@@ -13,6 +13,7 @@ use App\Modelos\Taxonomia\Clase;
 use App\Modelos\Taxonomia\Epitetos\Especifico;
 use App\Modelos\Taxonomia\Epitetos\Forma;
 use App\Modelos\Taxonomia\Epitetos\Varietal;
+use App\Modelos\Taxonomia\Epitetos\Subespecie;
 use App\Modelos\Taxonomia\Especie;
 use App\Modelos\Taxonomia\Familia;
 use App\Modelos\Taxonomia\Genero;
@@ -40,8 +41,15 @@ trait EspecieDatosTrait {
         
         //ESPECIFICO
         $especie['especifico'] = Especifico::find($mi_especie->especifico_id)->nombre;
-        
-        
+
+
+        //SUBESPECIE
+        if($mi_especie->subespecie_id != null){
+            $especie['subespecie'] = Subespecie::find($mi_especie->subespecie_id)->nombre;
+        }else{
+            $especie['subespecie'] = null;
+        }
+
         //VARIETAL
         if($mi_especie->varietal_id != null){
             $especie['varietal'] = Varietal::find($mi_especie->varietal_id)->nombre;
@@ -57,13 +65,17 @@ trait EspecieDatosTrait {
         }
 
         //AUTOR
+
         $autor = Autor::find($mi_especie->autor_id);
         $especie['autor'] = $autor->nombre;
         $especie['autor_id'] = $autor->id;
 
+
+
         //nombre completo
         $nombre = $especie['genero']. " ". $especie['especifico'];
 
+        if ($especie['subespecie']!= null)  $nombre .=  " subsp. " . $especie['subespecie'];
         if ($especie['varietal']!= null)  $nombre .=  " var. " . $especie['varietal'];
         if ($especie['forma'] != null)  $nombre .=  " f. " . $especie['forma'];
 
@@ -103,17 +115,20 @@ trait EspecieDatosTrait {
             $especie['phylum'] = $phylum->nombre;
             $especie['phylum_id'] = $phylum->id;
         }
-
-
         return $especie;
-       
+
     }
 
 
 
+    public function objEspecieNombreConSeparador($especie, $separador)
+    {
+        $nombre = $especie->genero. $separador. $especie->especifico;
 
-
-
-
+        if ($especie->subespecie != null)  $nombre .= $separador."subsp.".$separador . $especie->subespecie;
+        if ($especie->varietal != null)  $nombre .= $separador."var.".$separador . $especie->varietal;
+        if ($especie->forma != null)  $nombre .=  $separador."f.".$separador . $especie->forma;
+        return $nombre;
+    }
     
 }

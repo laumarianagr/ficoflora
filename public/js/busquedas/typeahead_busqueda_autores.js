@@ -1,7 +1,3 @@
-
-
-
-
 var charMap = {
     "à": "a", "á": "a","â": "a","é": "e",
     "è": "e", "ê": "e","ë": "e", "É": "e",
@@ -44,7 +40,7 @@ var nombres = new Bloodhound({
 
 
 //
-////---ATORES------------
+////---AUTORES------------
 //var autor= new Bloodhound({
 //    datumTokenizer: Bloodhound.tokenizers.obj.nonword('nombre'),
 //    queryTokenizer: Bloodhound.tokenizers.nonword,
